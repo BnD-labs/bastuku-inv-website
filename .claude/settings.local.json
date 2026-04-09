@@ -16,7 +16,9 @@
       "Bash(python3 ~/.claude/skills/a11y-audit/scripts/a11y_scanner.py --help)",
       "Bash(py --version)",
       "Bash(python ~/.claude/skills/a11y-audit/scripts/a11y_scanner.py --help)",
-      "Bash(python:*)"
+      "Bash(python:*)",
+      "Bash(cp \"E:/PROJECTS/Client Projects/WEB PROJECTS/BASTUKU INV WEB PROJECT/Github SSH Keys\" ~/.ssh/)",
+      "Bash(cp \"E:/PROJECTS/Client Projects/WEB PROJECTS/BASTUKU INV WEB PROJECT/Github SSH Keys.pub\" ~/.ssh/)"
     ]
   }
 }
