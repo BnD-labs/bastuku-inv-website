@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Bastuku Investments | Logistics & Supply Solutions in Zambia</title>
+<meta name="description" content="Bastuku Investments Limited provides efficient, reliable logistics and supply solutions in Lusaka, Zambia. House removals, commercial relocations, exports & imports since 2017."/>
+<!-- Open Graph -->
+<meta property="og:title" content="Bastuku Investments | Logistics & Supply Solutions in Zambia"/>
+<meta property="og:description" content="Your trusted partner in logistics since 2017. Efficient, cost-effective, and reliable supply solutions in Zambia."/>
+<meta property="og:type" content="website"/>
+<meta property="og:locale" content="en_ZM"/>
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Bastuku Investments | Logistics & Supply Solutions in Zambia"/>
+<meta name="twitter:description" content="Your trusted partner in logistics since 2017. Efficient, cost-effective, and reliable supply solutions in Zambia."/>
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="images/BASTUKU-LOGO1.png"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Custom Styles & Animations -->
+<link href="styles/animations.css" rel="stylesheet"/>
+<link href="styles/style.css" rel="stylesheet"/>
+<script src="js/tailwind-config.js"></script>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display">
+<!-- Scroll Progress Bar -->
+<div id="scrollProgress" class="fixed top-0 left-0 h-[3px] bg-gradient-to-r from-primary via-primary-light to-accent z-[60] transition-none" style="width: 0%;"></div>
+<main id="main" class="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden">
+<!-- Header -->
+<header class="sticky top-0 z-50 flex items-center justify-between whitespace-nowrap border-b border-solid border-slate-200 dark:border-slate-800 bg-white/90 dark:bg-background-dark/90 backdrop-blur-md px-10 py-3">
+<a href="#main" class="flex items-center gap-2 text-decoration-none hover:opacity-80 transition-opacity">
+<div class="size-8 flex items-center justify-center">
+<img src="images/BASTUKU-LOGO1.png" alt="Bastuku Investments Logo" class="h-8 w-8 object-contain"/>
+</div>
+<span class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">Bastuku Investments</span>
+</a>
+<div class="hidden md:flex flex-1 justify-end gap-8">
+<nav class="flex items-center gap-9">
+<a class="text-slate-900 dark:text-slate-100 text-sm font-medium hover:text-primary transition-colors" href="#main">Home</a>
+<a class="text-slate-900 dark:text-slate-100 text-sm font-medium hover:text-primary transition-colors" href="#about">About Us</a>
+<a class="text-slate-900 dark:text-slate-100 text-sm font-medium hover:text-primary transition-colors" href="#services">Services</a>
+<a class="text-slate-900 dark:text-slate-100 text-sm font-medium hover:text-primary transition-colors" href="#quote">Contact</a>
+</nav>
+<button id="themeToggle" class="p-2 text-slate-600 dark:text-blue-100 hover:text-primary transition-colors" aria-label="Toggle dark mode">
+<span id="sunIcon" class="material-symbols-outlined hidden" aria-hidden="true">light_mode</span>
+<span id="moonIcon" class="material-symbols-outlined" aria-hidden="true">dark_mode</span>
+</button>
+<button onclick="scrollToContact()" class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary hover:bg-primary/90 text-white text-sm font-bold leading-normal tracking-[0.015em] transition-colors">
+<span class="truncate">Get a Quote</span>
+</button>
+</div>
+<div class="md:hidden">
+<button id="mobileMenuToggle" class="text-slate-900 dark:text-white p-2" aria-label="Toggle navigation menu" aria-expanded="false">
+<span id="menuIcon" class="material-symbols-outlined" aria-hidden="true">menu</span>
+<span id="closeIcon" class="material-symbols-outlined hidden" aria-hidden="true">close</span>
+</button>
+</div>
+</header>
+<!-- Mobile Menu -->
+<div id="mobileMenu" class="hidden md:hidden fixed top-[57px] left-0 right-0 z-40 bg-white dark:bg-background-dark border-b border-slate-200 dark:border-slate-800 shadow-lg">
+<nav class="flex flex-col px-6 py-4 gap-1">
+<a class="text-slate-900 dark:text-slate-100 text-base font-medium hover:text-primary transition-colors py-3 border-b border-slate-100 dark:border-slate-800" href="#main">Home</a>
+<a class="text-slate-900 dark:text-slate-100 text-base font-medium hover:text-primary transition-colors py-3 border-b border-slate-100 dark:border-slate-800" href="#about">About Us</a>
+<a class="text-slate-900 dark:text-slate-100 text-base font-medium hover:text-primary transition-colors py-3 border-b border-slate-100 dark:border-slate-800" href="#services">Services</a>
+<a class="text-slate-900 dark:text-slate-100 text-base font-medium hover:text-primary transition-colors py-3" href="#quote">Contact</a>
+<div class="flex items-center gap-3 py-3 border-t border-slate-100 dark:border-slate-800 mt-1">
+<button id="themeToggleMobile" class="flex items-center gap-2 text-slate-600 dark:text-blue-100 hover:text-primary transition-colors text-sm font-medium" aria-label="Toggle dark mode">
+<span id="sunIconMobile" class="material-symbols-outlined hidden" aria-hidden="true">light_mode</span>
+<span id="moonIconMobile" class="material-symbols-outlined" aria-hidden="true">dark_mode</span>
+<span class="dark:hidden">Dark Mode</span>
+<span class="hidden dark:inline">Light Mode</span>
+</button>
+</div>
+<button onclick="scrollToContact()" class="mt-2 flex items-center justify-center rounded-lg h-10 px-4 bg-primary hover:bg-primary/90 text-white text-sm font-bold transition-colors">
+Get a Quote
+</button>
+</nav>
+</div>
+<!-- Hero Section -->
+<section id="hero" class="relative w-full min-h-[600px] md:min-h-[700px] flex items-center overflow-hidden">
+<!-- Ken Burns animated background -->
+<div class="absolute inset-0 hero-ken-burns bg-cover bg-center bg-no-repeat" role="img" aria-label="Modern logistics warehouse with delivery trucks" style='background-image: url("images/Gemini_Generated_Image_9f8jd9f8jd9f8jd9.png");'></div>
+<!-- Gradient overlay -->
+<div class="absolute inset-0 bg-gradient-to-r from-black/65 via-black/40 to-primary/10"></div>
+<!-- Content -->
+<div class="relative z-10 w-full px-4 py-24 md:px-20 lg:px-40">
+<div class="flex flex-col gap-5 text-left max-w-2xl">
+<span class="hero-stagger-badge inline-block px-4 py-1.5 bg-white/10 backdrop-blur-md border border-white/20 rounded-full text-white text-xs font-bold uppercase tracking-widest w-fit">
+                        Since 2017
+                    </span>
+<h1 class="hero-stagger-heading text-white text-4xl font-black leading-[1.08] tracking-[-0.033em] md:text-5xl lg:text-6xl">
+                        Your Trusted Partner in <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-white">Logistics</span> and Supply Solutions
+                    </h1>
+<p class="hero-stagger-text text-slate-200/90 text-base font-medium leading-relaxed md:text-lg max-w-xl">
+                        Providing top-tier logistics and supply solutions in Zambia. We move your business forward with efficiency, reliability, and care.
+                    </p>
+<div class="hero-stagger-buttons flex flex-col sm:flex-row gap-4 mt-2">
+<button onclick="scrollToContact()" class="hero-cta-pulse flex items-center justify-center rounded-lg h-12 px-8 bg-primary hover:bg-primary/90 text-white text-base font-bold transition-all shadow-lg hover:shadow-primary/30 hover:-translate-y-0.5">
+                            Get a Quote
+                        </button>
+<button onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})" class="flex items-center justify-center rounded-lg h-12 px-8 bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/20 text-white text-base font-bold transition-all hover:-translate-y-0.5">
+                            Our Services
+                        </button>
+</div>
+</div>
+</div>
+<!-- Scroll indicator -->
+<div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 hero-stagger-scroll">
+<span class="text-white/50 text-xs font-medium tracking-widest uppercase">Scroll</span>
+<div class="w-5 h-8 rounded-full border-2 border-white/30 flex justify-center pt-1.5">
+<div class="w-1 h-2 bg-white/60 rounded-full animate-bounce"></div>
+</div>
+</div>
+</section>
+<!-- About Us Section -->
+<section class="section-reveal px-4 py-16 md:px-20 lg:px-40 bg-gradient-to-br from-white via-slate-50/80 to-blue-50/40 dark:from-background-dark dark:via-background-dark dark:to-slate-900/50 relative overflow-hidden" id="about">
+<!-- Decorative floating shapes -->
+<div class="absolute top-10 right-10 w-64 h-64 bg-primary/5 rounded-full blur-3xl floating-slow pointer-events-none"></div>
+<div class="absolute bottom-10 left-10 w-48 h-48 bg-accent/5 rounded-full blur-3xl floating-reverse pointer-events-none"></div>
+<div class="max-w-7xl mx-auto relative z-10">
+<div class="flex flex-col lg:flex-row gap-12 items-center">
+<div class="flex-1 flex flex-col gap-6 reveal-left">
+<div class="flex flex-col gap-2">
+<h2 class="text-primary text-sm font-bold uppercase tracking-wider">About Us</h2>
+<h3 class="text-slate-900 dark:text-white text-3xl font-bold leading-tight md:text-4xl">
+                                Who We Are
+                            </h3>
+</div>
+<p class="text-slate-600 dark:text-blue-100 text-lg leading-relaxed">
+                            Established in May 2017, Bastuku Investments Limited is a dynamic and customer-focused company based in Lusaka, Zambia. We are dedicated to providing efficient, cost-effective, and reliable logistics and supply solutions tailored to meet the unique needs of our clients.
+                        </p>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-4">
+<div class="group/card flex gap-4 items-start p-5 rounded-xl bg-white dark:bg-slate-800/80 border-2 border-slate-200 dark:border-slate-700 shadow-md hover:shadow-xl hover:border-primary/50 hover:-translate-y-1 transition-all duration-300 reveal-up cursor-default">
+<div class="p-2.5 bg-primary/10 rounded-lg text-primary group-hover/card:bg-primary group-hover/card:text-white transition-all duration-300 group-hover/card:scale-110">
+<span class="material-symbols-outlined">target</span>
+</div>
+<div>
+<h4 class="font-bold text-slate-900 dark:text-white">Our Mission</h4>
+<p class="text-sm text-slate-600 dark:text-slate-300 mt-1">To exceed client expectations through innovative logistics solutions.</p>
+</div>
+</div>
+<div class="group/card flex gap-4 items-start p-5 rounded-xl bg-white dark:bg-slate-800/80 border-2 border-slate-200 dark:border-slate-700 shadow-md hover:shadow-xl hover:border-primary/50 hover:-translate-y-1 transition-all duration-300 reveal-up cursor-default" style="transition-delay: 0.15s;">
+<div class="p-2.5 bg-primary/10 rounded-lg text-primary group-hover/card:bg-primary group-hover/card:text-white transition-all duration-300 group-hover/card:scale-110">
+<span class="material-symbols-outlined">visibility</span>
+</div>
+<div>
+<h4 class="font-bold text-slate-900 dark:text-white">Our Vision</h4>
+<p class="text-sm text-slate-600 dark:text-slate-300 mt-1">To be the leading logistics partner in the region.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="flex-1 relative reveal-right">
+<div class="relative z-10 rounded-2xl overflow-hidden shadow-2xl">
+<img src="images/Founder.png" alt="Founder of Bastuku Investments" class="w-full max-h-[500px] object-cover object-top rounded-none"/>
+</div>
+<div class="absolute -bottom-6 -right-6 -z-0 size-32 bg-primary/10 rounded-full blur-2xl"></div>
+<div class="absolute -top-6 -left-6 -z-0 size-32 bg-primary/10 rounded-full blur-2xl"></div>
+</div>
+</div>
+</div>
+</section>
+<hr class="section-divider" aria-hidden="true"/>
+<!-- Stats Counter Strip -->
+<section id="stats" class="section-reveal py-16 md:py-20 px-4 md:px-20 lg:px-40 bg-gradient-to-br from-[#0a1628] via-[#0d2040] to-[#0b1830] dark:from-[#080f1a] dark:via-[#0a1525] dark:to-[#070d16] relative overflow-hidden">
+<!-- Ambient glow effects -->
+<div class="absolute top-0 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-[120px] pointer-events-none"></div>
+<div class="absolute bottom-0 right-1/4 w-80 h-80 bg-blue-500/8 rounded-full blur-[100px] pointer-events-none"></div>
+<div class="max-w-6xl mx-auto relative z-10">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+<!-- Stat 1 -->
+<div class="reveal-up flex flex-col items-center gap-3 p-6 md:p-8 rounded-2xl bg-white/[0.04] backdrop-blur-sm border border-white/[0.08] hover:bg-white/[0.07] transition-all duration-500">
+<div class="size-12 rounded-xl bg-primary/15 flex items-center justify-center mb-1">
+<span class="material-symbols-outlined text-primary text-2xl">calendar_month</span>
+</div>
+<div class="flex items-baseline gap-0.5">
+<span class="text-3xl md:text-4xl lg:text-5xl font-black text-white stat-counter" data-target="8" data-suffix="+">0</span>
+</div>
+<span class="text-blue-200/70 text-sm font-medium text-center">Years in Business</span>
+</div>
+<!-- Stat 2 -->
+<div class="reveal-up flex flex-col items-center gap-3 p-6 md:p-8 rounded-2xl bg-white/[0.04] backdrop-blur-sm border border-white/[0.08] hover:bg-white/[0.07] transition-all duration-500" style="transition-delay: 0.12s;">
+<div class="size-12 rounded-xl bg-primary/15 flex items-center justify-center mb-1">
+<span class="material-symbols-outlined text-primary text-2xl">local_shipping</span>
+</div>
+<div class="flex items-baseline gap-0.5">
+<span class="text-3xl md:text-4xl lg:text-5xl font-black text-white stat-counter" data-target="200" data-suffix="+">0</span>
+</div>
+<span class="text-blue-200/70 text-sm font-medium text-center">Successful Moves</span>
+</div>
+<!-- Stat 3 -->
+<div class="reveal-up flex flex-col items-center gap-3 p-6 md:p-8 rounded-2xl bg-white/[0.04] backdrop-blur-sm border border-white/[0.08] hover:bg-white/[0.07] transition-all duration-500" style="transition-delay: 0.24s;">
+<div class="size-12 rounded-xl bg-accent/15 flex items-center justify-center mb-1">
+<span class="material-symbols-outlined text-accent text-2xl">thumb_up</span>
+</div>
+<div class="flex items-baseline gap-0.5">
+<span class="text-3xl md:text-4xl lg:text-5xl font-black text-white stat-counter" data-target="98" data-suffix="%">0</span>
+</div>
+<span class="text-blue-200/70 text-sm font-medium text-center">Client Satisfaction</span>
+</div>
+<!-- Stat 4 -->
+<div class="reveal-up flex flex-col items-center gap-3 p-6 md:p-8 rounded-2xl bg-white/[0.04] backdrop-blur-sm border border-white/[0.08] hover:bg-white/[0.07] transition-all duration-500" style="transition-delay: 0.36s;">
+<div class="size-12 rounded-xl bg-primary/15 flex items-center justify-center mb-1">
+<span class="material-symbols-outlined text-primary text-2xl">deployed_code</span>
+</div>
+<div class="flex items-baseline gap-0.5">
+<span class="text-3xl md:text-4xl lg:text-5xl font-black text-white stat-counter" data-target="5">0</span>
+</div>
+<span class="text-blue-200/70 text-sm font-medium text-center">Core Services</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Services Section -->
+<section class="section-reveal px-4 py-20 md:px-20 lg:px-40 bg-slate-50 dark:bg-[#15202b] relative overflow-hidden" id="services">
+<!-- Decorative shape -->
+<div class="absolute -top-20 -right-20 w-96 h-96 bg-primary/5 rounded-full blur-3xl floating-slow pointer-events-none"></div>
+<div class="max-w-7xl mx-auto flex flex-col gap-12 relative z-10">
+<div class="text-center max-w-3xl mx-auto reveal-up">
+<h2 class="text-primary text-sm font-bold uppercase tracking-wider mb-2">Our Expertise</h2>
+<h3 class="text-slate-900 dark:text-white text-3xl font-bold md:text-4xl mb-4">Comprehensive Supply Chain Solutions</h3>
+<p class="text-slate-600 dark:text-blue-100">We offer a wide range of services designed to streamline your operations and ensure your goods arrive safely and on time.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Service 1 -->
+<div class="group relative flex flex-col gap-4 p-6 bg-white dark:bg-background-dark rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-2xl hover:border-primary/40 hover:-translate-y-2 transition-all duration-300 cursor-pointer reveal-up" tabindex="0" role="button" onclick="scrollToContact()" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();scrollToContact()}">
+<div class="size-12 rounded-lg bg-blue-50 dark:bg-blue-900/20 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300 group-hover:scale-110">
+<span class="material-symbols-outlined text-2xl">real_estate_agent</span>
+</div>
+<h4 class="text-xl font-bold text-slate-900 dark:text-white group-hover:text-primary transition-colors">House-to-House Removals</h4>
+<p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">Stress-free residential moving services. We handle packing, loading, transport, and unpacking with utmost care for your personal belongings.</p>
+<span class="inline-flex items-center gap-1 text-primary text-sm font-semibold mt-auto opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">Get a quote <span class="material-symbols-outlined text-sm">arrow_forward</span></span>
+</div>
+<!-- Service 2 -->
+<div class="group relative flex flex-col gap-4 p-6 bg-white dark:bg-background-dark rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-2xl hover:border-primary/40 hover:-translate-y-2 transition-all duration-300 cursor-pointer reveal-up" style="transition-delay: 0.1s;" tabindex="0" role="button" onclick="scrollToContact()" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();scrollToContact()}">
+<div class="size-12 rounded-lg bg-blue-50 dark:bg-blue-900/20 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300 group-hover:scale-110">
+<span class="material-symbols-outlined text-2xl">domain</span>
+</div>
+<h4 class="text-xl font-bold text-slate-900 dark:text-white group-hover:text-primary transition-colors">Commercial Removals</h4>
+<p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">Professional office relocation services minimizing downtime. We safely move equipment, furniture, and sensitive documents.</p>
+<span class="inline-flex items-center gap-1 text-primary text-sm font-semibold mt-auto opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">Get a quote <span class="material-symbols-outlined text-sm">arrow_forward</span></span>
+</div>
+<!-- Service 3 -->
+<div class="group relative flex flex-col gap-4 p-6 bg-white dark:bg-background-dark rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-2xl hover:border-primary/40 hover:-translate-y-2 transition-all duration-300 cursor-pointer reveal-up" style="transition-delay: 0.2s;" tabindex="0" role="button" onclick="scrollToContact()" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();scrollToContact()}">
+<div class="size-12 rounded-lg bg-blue-50 dark:bg-blue-900/20 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300 group-hover:scale-110">
+<span class="material-symbols-outlined text-2xl">inventory_2</span>
+</div>
+<h4 class="text-xl font-bold text-slate-900 dark:text-white group-hover:text-primary transition-colors">Professional Packaging</h4>
+<p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">High-quality packaging solutions to protect your goods during transit. Custom crating and wrapping for fragile items.</p>
+<span class="inline-flex items-center gap-1 text-primary text-sm font-semibold mt-auto opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">Get a quote <span class="material-symbols-outlined text-sm">arrow_forward</span></span>
+</div>
+<!-- Service 4 -->
+<div class="group relative flex flex-col gap-4 p-6 bg-white dark:bg-background-dark rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-2xl hover:border-primary/40 hover:-translate-y-2 transition-all duration-300 cursor-pointer reveal-up" style="transition-delay: 0.3s;" tabindex="0" role="button" onclick="scrollToContact()" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();scrollToContact()}">
+<div class="size-12 rounded-lg bg-blue-50 dark:bg-blue-900/20 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300 group-hover:scale-110">
+<span class="material-symbols-outlined text-2xl">public</span>
+</div>
+<h4 class="text-xl font-bold text-slate-900 dark:text-white group-hover:text-primary transition-colors">Exports &amp; Imports</h4>
+<p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">Navigating customs and borders so you don't have to. Seamless international shipping and clearing services.</p>
+<span class="inline-flex items-center gap-1 text-primary text-sm font-semibold mt-auto opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">Get a quote <span class="material-symbols-outlined text-sm">arrow_forward</span></span>
+</div>
+<!-- Service 5 -->
+<div class="group relative flex flex-col gap-4 p-6 bg-white dark:bg-background-dark rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-2xl hover:border-primary/40 hover:-translate-y-2 transition-all duration-300 cursor-pointer reveal-up" style="transition-delay: 0.4s;" tabindex="0" role="button" onclick="scrollToContact()" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();scrollToContact()}">
+<div class="size-12 rounded-lg bg-blue-50 dark:bg-blue-900/20 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300 group-hover:scale-110">
+<span class="material-symbols-outlined text-2xl">shopping_cart</span>
+</div>
+<h4 class="text-xl font-bold text-slate-900 dark:text-white group-hover:text-primary transition-colors">General Supplies</h4>
+<p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">Sourcing and delivering essential goods and materials tailored to your specific business requirements.</p>
+<span class="inline-flex items-center gap-1 text-primary text-sm font-semibold mt-auto opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">Get a quote <span class="material-symbols-outlined text-sm">arrow_forward</span></span>
+</div>
+<!-- CTA Card -->
+<div class="flex flex-col gap-4 p-6 bg-gradient-to-br from-primary to-blue-700 rounded-xl shadow-lg hover:shadow-2xl items-center justify-center text-center transition-all duration-300 hover:-translate-y-2 reveal-up" style="transition-delay: 0.5s;">
+<div class="size-12 rounded-full bg-white/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-2xl text-white">support_agent</span>
+</div>
+<h4 class="text-xl font-bold text-white">Need something specific?</h4>
+<p class="text-white/90 text-sm">Tell us your requirements and we'll create a custom solution.</p>
+<button onclick="scrollToContact()" class="mt-2 px-6 py-2.5 bg-white text-primary rounded-lg font-bold text-sm hover:bg-slate-100 transition-colors shadow-md">Get Custom Quote</button>
+</div>
+</div>
+</div>
+</section>
+<hr class="section-divider" aria-hidden="true"/>
+<!-- Why Choose Us -->
+<section id="why-us" class="section-reveal px-4 py-20 md:px-20 lg:px-40 bg-gradient-to-bl from-white via-blue-50/30 to-slate-50 dark:from-background-dark dark:via-slate-900/30 dark:to-background-dark relative overflow-hidden">
+<!-- Decorative floating shapes -->
+<div class="absolute bottom-0 right-0 w-80 h-80 bg-accent/5 rounded-full blur-3xl floating pointer-events-none"></div>
+<div class="absolute top-20 left-0 w-60 h-60 bg-primary/5 rounded-full blur-3xl floating-reverse pointer-events-none"></div>
+<div class="max-w-7xl mx-auto flex flex-col lg:flex-row gap-16 items-center relative z-10">
+<div class="w-full lg:w-1/2 reveal-left">
+<h2 class="text-primary text-sm font-bold uppercase tracking-wider mb-2">Why Choose Us</h2>
+<h3 class="text-slate-900 dark:text-white text-3xl font-bold md:text-4xl mb-6">Experience Logistics Excellence</h3>
+<div class="flex flex-col gap-6">
+<div class="flex gap-4 reveal-up">
+<div class="mt-1 flex-shrink-0 size-8 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center text-green-600 dark:text-green-400">
+<span class="material-symbols-outlined text-lg">check</span>
+</div>
+<div>
+<h4 class="font-bold text-slate-900 dark:text-white text-lg">Personalized Attention</h4>
+<p class="text-slate-600 dark:text-slate-400 mt-1">We treat every shipment as if it were our own, offering tailored solutions for every client.</p>
+</div>
+</div>
+<div class="flex gap-4 reveal-up" style="transition-delay: 0.1s;">
+<div class="mt-1 flex-shrink-0 size-8 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center text-green-600 dark:text-green-400">
+<span class="material-symbols-outlined text-lg">check</span>
+</div>
+<div>
+<h4 class="font-bold text-slate-900 dark:text-white text-lg">Competitive Pricing</h4>
+<p class="text-slate-600 dark:text-slate-400 mt-1">Top-tier service doesn't have to break the bank. We offer value-driven rates.</p>
+</div>
+</div>
+<div class="flex gap-4 reveal-up" style="transition-delay: 0.2s;">
+<div class="mt-1 flex-shrink-0 size-8 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center text-green-600 dark:text-green-400">
+<span class="material-symbols-outlined text-lg">check</span>
+</div>
+<div>
+<h4 class="font-bold text-slate-900 dark:text-white text-lg">Timely Delivery</h4>
+<p class="text-slate-600 dark:text-slate-400 mt-1">We respect your schedule. On-time delivery is our promise and standard.</p>
+</div>
+</div>
+<div class="flex gap-4 reveal-up" style="transition-delay: 0.3s;">
+<div class="mt-1 flex-shrink-0 size-8 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center text-green-600 dark:text-green-400">
+<span class="material-symbols-outlined text-lg">check</span>
+</div>
+<div>
+<h4 class="font-bold text-slate-900 dark:text-white text-lg">Professional Team</h4>
+<p class="text-slate-600 dark:text-slate-400 mt-1">Our staff is trained, experienced, and dedicated to customer satisfaction.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="w-full lg:w-1/2 h-[480px] rounded-2xl overflow-hidden shadow-2xl relative group reveal-right">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" role="img" aria-label="Bastuku Investments team at work" style='background-image: url("images/IMG-20230813-WA0025.jpg");'>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+<div class="absolute bottom-8 left-8 text-white max-w-sm">
+<p class="font-bold text-xl">"Reliability is not just a word for us; it's our foundational pillar."</p>
+</div>
+</div>
+</div>
+</section>
+<hr class="section-divider" aria-hidden="true"/>
+<!-- Quote Request Form -->
+<section class="section-reveal py-20 px-4 md:px-20 lg:px-40 bg-slate-50 dark:bg-[#15202b] relative overflow-hidden" id="quote">
+<!-- Decorative shape -->
+<div class="absolute top-0 left-1/2 w-96 h-96 bg-primary/5 rounded-full blur-3xl -translate-x-1/2 floating-slow pointer-events-none"></div>
+<div class="max-w-7xl mx-auto relative z-10">
+<div class="flex flex-col lg:flex-row gap-12 items-start">
+<!-- Left: Copy + Trust Signals -->
+<div class="flex-1 flex flex-col gap-8 reveal-left">
+<div>
+<h2 class="text-primary text-sm font-bold uppercase tracking-wider mb-2">Get a Free Quote</h2>
+<h3 class="text-slate-900 dark:text-white text-3xl font-bold md:text-4xl mb-4">Tell us what you need moved</h3>
+<p class="text-slate-600 dark:text-blue-100 text-lg leading-relaxed">Fill out the form and our team will respond within 2 hours with a detailed, no-obligation quote tailored to your needs.</p>
+</div>
+<!-- Trust Signals -->
+<div class="flex flex-col gap-4">
+<div class="flex items-center gap-3">
+<div class="flex-shrink-0 size-10 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center text-green-600 dark:text-green-400">
+<span class="material-symbols-outlined">verified</span>
+</div>
+<div>
+<p class="font-semibold text-slate-900 dark:text-white">8+ Years in Business</p>
+<p class="text-sm text-slate-500 dark:text-slate-400">Serving Zambia since 2017</p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<div class="flex-shrink-0 size-10 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center text-green-600 dark:text-green-400">
+<span class="material-symbols-outlined">schedule</span>
+</div>
+<div>
+<p class="font-semibold text-slate-900 dark:text-white">Fast Response</p>
+<p class="text-sm text-slate-500 dark:text-slate-400">Quotes delivered within 2 hours</p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<div class="flex-shrink-0 size-10 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center text-green-600 dark:text-green-400">
+<span class="material-symbols-outlined">lock</span>
+</div>
+<div>
+<p class="font-semibold text-slate-900 dark:text-white">No Obligation</p>
+<p class="text-sm text-slate-500 dark:text-slate-400">Free quote with no strings attached</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Right: Form -->
+<div class="flex-1 w-full reveal-scale">
+<form id="quoteForm" class="bg-white dark:bg-background-dark rounded-2xl shadow-xl border border-slate-200 dark:border-slate-800 p-8 flex flex-col gap-5">
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+<div class="flex flex-col gap-1.5">
+<label for="name" class="text-sm font-semibold text-slate-700 dark:text-blue-100">Full Name *</label>
+<input type="text" id="name" name="name" required placeholder="John Banda" class="rounded-lg border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50 px-4 py-3 text-sm text-slate-900 dark:text-white placeholder-slate-400 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"/>
+</div>
+<div class="flex flex-col gap-1.5">
+<label for="phone" class="text-sm font-semibold text-slate-700 dark:text-blue-100">Phone Number *</label>
+<input type="tel" id="phone" name="phone" required placeholder="+260 97X XXX XXX" class="rounded-lg border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50 px-4 py-3 text-sm text-slate-900 dark:text-white placeholder-slate-400 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"/>
+</div>
+</div>
+<div class="flex flex-col gap-1.5">
+<label for="email" class="text-sm font-semibold text-slate-700 dark:text-blue-100">Email Address</label>
+<input type="email" id="email" name="email" placeholder="john@example.com" class="rounded-lg border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50 px-4 py-3 text-sm text-slate-900 dark:text-white placeholder-slate-400 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"/>
+</div>
+<div class="flex flex-col gap-1.5">
+<label for="service" class="text-sm font-semibold text-slate-700 dark:text-blue-100">Service Needed *</label>
+<select id="service" name="service" required class="rounded-lg border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50 px-4 py-3 text-sm text-slate-900 dark:text-white focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all">
+<option value="" disabled selected>Select a service</option>
+<option value="house-removals">House-to-House Removals</option>
+<option value="commercial-removals">Commercial / Office Removals</option>
+<option value="packaging">Professional Packaging</option>
+<option value="exports-imports">Exports &amp; Imports</option>
+<option value="general-supplies">General Supplies</option>
+<option value="other">Other / Custom Request</option>
+</select>
+</div>
+<div class="flex flex-col gap-1.5">
+<label for="message" class="text-sm font-semibold text-slate-700 dark:text-blue-100">Tell us more</label>
+<textarea id="message" name="message" rows="3" placeholder="Briefly describe what you need moved, approximate quantity, and your preferred dates..." class="rounded-lg border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50 px-4 py-3 text-sm text-slate-900 dark:text-white placeholder-slate-400 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all resize-none"></textarea>
+</div>
+<button type="submit" class="w-full flex items-center justify-center gap-2 rounded-lg h-12 bg-primary hover:bg-primary/90 text-white text-base font-bold transition-all shadow-lg hover:shadow-primary/30">
+<span class="material-symbols-outlined text-lg" aria-hidden="true">send</span>
+Get My Free Quote
+</button>
+<p class="text-xs text-slate-400 dark:text-slate-500 text-center">We'll respond within 2 hours during business hours. No spam, ever.</p>
+</form>
+</div>
+</div>
+</div>
+</section>
+<!-- Final CTA Banner -->
+<section id="cta" class="section-reveal gradient-animated text-white py-12 px-4 md:px-20 lg:px-40 relative overflow-hidden">
+<div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMzAiIGN5PSIzMCIgcj0iMSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjA1KSIvPjwvc3ZnPg==')] opacity-30"></div>
+<div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 relative z-10 reveal-up">
+<div class="text-center md:text-left">
+<h2 class="text-2xl font-bold mb-1">Prefer to talk?</h2>
+<p class="text-blue-100">Call us directly at <a href="tel:+260962936172" class="text-white font-semibold underline underline-offset-2 hover:text-blue-200 transition-colors">+260 962936172</a></p>
+</div>
+<a href="tel:+260962936172" class="flex items-center gap-2 bg-white text-primary font-bold py-3 px-8 rounded-lg shadow-lg hover:bg-slate-100 transition-colors whitespace-nowrap">
+<span class="material-symbols-outlined" aria-hidden="true">call</span>
+Call Now
+</a>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-[#0b1219] text-slate-400 py-16 px-4 md:px-20 lg:px-40 border-t-4 border-accent" id="contact">
+<div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+<!-- Brand -->
+<div class="flex flex-col gap-4 reveal-up">
+<div class="flex items-center gap-2 text-white">
+<img src="images/BASTUKU-LOGO1.png" alt="Bastuku Investments Logo" class="h-8 w-8 object-contain"/>
+<h2 class="text-lg font-bold">Bastuku Investments</h2>
+</div>
+<p class="text-sm leading-relaxed">
+                        Your trusted partner in logistics since 2017. Efficient, cost-effective, and reliable supply solutions in Zambia.
+                    </p>
+<div class="flex gap-4 mt-2">
+<a class="text-slate-400 hover:text-accent transition-colors" href="#contact" aria-label="Visit our website"><span class="material-symbols-outlined" aria-hidden="true">public</span></a>
+<a class="text-slate-400 hover:text-accent transition-colors" href="#contact" aria-label="Share on social media"><span class="material-symbols-outlined" aria-hidden="true">share</span></a>
+<a class="text-slate-400 hover:text-accent transition-colors" href="mailto:info@bastuku.com" aria-label="Send us an email"><span class="material-symbols-outlined" aria-hidden="true">mail</span></a>
+</div>
+</div>
+<!-- Quick Links -->
+<div class="flex flex-col gap-4 reveal-up" style="transition-delay: 0.1s;">
+<h3 class="text-accent font-bold text-base">Quick Links</h3>
+<ul class="flex flex-col gap-2 text-sm">
+<li><a class="hover:text-accent transition-colors" href="#main">Home</a></li>
+<li><a class="hover:text-accent transition-colors" href="#about">About Us</a></li>
+<li><a class="hover:text-accent transition-colors" href="#services">Our Services</a></li>
+<li><a class="hover:text-accent transition-colors" href="#quote">Get a Quote</a></li>
+</ul>
+</div>
+<!-- Services -->
+<div class="flex flex-col gap-4 reveal-up" style="transition-delay: 0.2s;">
+<h3 class="text-accent font-bold text-base">Services</h3>
+<ul class="flex flex-col gap-2 text-sm">
+<li><a class="hover:text-accent transition-colors" href="#services">House Removals</a></li>
+<li><a class="hover:text-accent transition-colors" href="#services">Office Relocation</a></li>
+<li><a class="hover:text-accent transition-colors" href="#services">Import &amp; Export</a></li>
+<li><a class="hover:text-accent transition-colors" href="#services">General Supplies</a></li>
+</ul>
+</div>
+<!-- Contact -->
+<div class="flex flex-col gap-4 reveal-up" style="transition-delay: 0.3s;">
+<h3 class="text-accent font-bold text-base">Contact Us</h3>
+<ul class="flex flex-col gap-3 text-sm">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-accent text-lg mt-0.5">location_on</span>
+<span>Lusaka, Zambia</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-accent text-lg">call</span>
+<span>+260 962936172</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-accent text-lg">mail</span>
+<span>info@bastuku.com</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="max-w-7xl mx-auto mt-12 pt-8 border-t border-slate-800 text-center text-sm">
+<p>© 2017–2026 Bastuku Investments Limited. All rights reserved.</p>
+</div>
+</footer>
+</main>
+<script src="js/script.js"></script>
+</body></html>
