@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cp -r \"E:/PROJECTS/Client Projects/WEB PROJECTS/BASTUKU INV WEB PROJECT/claude-skills/engineering-team/a11y-audit\" ~/.claude/skills/)",
+      "Bash(cp -r \"E:/PROJECTS/Client Projects/WEB PROJECTS/BASTUKU INV WEB PROJECT/claude-skills/marketing-skill/seo-audit\" ~/.claude/skills/)",
+      "Bash(mkdir -p ~/tools)",
+      "Bash(mv \"E:/PROJECTS/Client Projects/WEB PROJECTS/BASTUKU INV WEB PROJECT/claude-skills\" ~/tools/claude-skills)",
+      "Bash(cp -r ~/tools/claude-skills/engineering-team/senior-frontend ~/.claude/skills/)",
+      "Bash(cp -r ~/tools/claude-skills/engineering-team/senior-fullstack ~/.claude/skills/)",
+      "Bash(cp -r ~/tools/claude-skills/engineering-team/code-reviewer ~/.claude/skills/)",
+      "Bash(cp -r ~/tools/claude-skills/engineering-team/email-template-builder ~/.claude/skills/)",
+      "Bash(cp -r ~/tools/claude-skills/engineering-team/stripe-integration-expert ~/.claude/skills/)",
+      "Bash(cp -r ~/tools/claude-skills/engineering/focused-fix ~/.claude/skills/)",
+      "Bash(cp -r ~/tools/claude-skills/engineering/performance-profiler ~/.claude/skills/)",
+      "Bash(cp:*)",
+      "Bash(python3 ~/.claude/skills/a11y-audit/scripts/a11y_scanner.py --help)",
+      "Bash(py --version)",
+      "Bash(python ~/.claude/skills/a11y-audit/scripts/a11y_scanner.py --help)",
+      "Bash(python:*)"
+    ]
+  }
+}
