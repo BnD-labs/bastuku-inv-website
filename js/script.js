@@ -215,6 +215,7 @@ window.scrollToContact = scrollToContact;
 // Initialize on Page Load
 // ==========================================
 document.addEventListener('DOMContentLoaded', () => {
+    initHeroBg();
     initThemeToggle();
     initMobileMenu();
     initScrollAnimations();
@@ -252,6 +253,25 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
+// ==========================================
+// Lazy Load Hero Background Image
+// ==========================================
+function initHeroBg() {
+    const heroBgLoader = document.getElementById('heroBgLoader');
+    if (!heroBgLoader) return;
+
+    // Load image in background without blocking paint
+    const img = new Image();
+    img.onload = () => {
+        heroBgLoader.style.backgroundImage = `url('images/Gemini_Generated_Image_9f8jd9f8jd9f8jd9.png')`;
+    };
+    img.onerror = () => {
+        // Keep gradient placeholder if image fails to load
+        console.warn('Hero background image failed to load');
+    };
+    img.src = 'images/Gemini_Generated_Image_9f8jd9f8jd9f8jd9.png';
+}
 
 // ==========================================
 // Quote Form Handler

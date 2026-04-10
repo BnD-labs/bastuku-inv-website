@@ -64,8 +64,8 @@ button[class*="bg-primary"] {
 
 .btn-primary:hover,
 button[class*="bg-primary"]:hover {
-    box-shadow: 0 20px 25px -5px rgba(13, 127, 242, 0.3);
     transform: translateY(-2px);
+    opacity: 0.95;
 }
 
 button:active {

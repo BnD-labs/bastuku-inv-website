@@ -3,6 +3,11 @@
 <html lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<!-- Preconnect to critical CDNs to establish early connection -->
+<link rel="preconnect" href="https://cdn.tailwindcss.com"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="dns-prefetch" href="https://cdn.jsdelivr.net"/>
 <title>Bastuku Investments | Logistics & Supply Solutions in Zambia</title>
 <meta name="description" content="Bastuku Investments Limited provides efficient, reliable logistics and supply solutions in Lusaka, Zambia. House removals, commercial relocations, exports & imports since 2017."/>
 <!-- Open Graph -->
@@ -16,9 +21,15 @@
 <meta name="twitter:description" content="Your trusted partner in logistics since 2017. Efficient, cost-effective, and reliable supply solutions in Zambia."/>
 <!-- Favicon -->
 <link rel="icon" type="image/png" href="images/BASTUKU-LOGO1.png"/>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Preload critical fonts to avoid render-blocking -->
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'"/>
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'"/>
+<!-- Fallback in case preload fails -->
+<noscript>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+</noscript>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <!-- Custom Styles & Animations -->
 <link href="styles/animations.css" rel="stylesheet"/>
 <link href="styles/style.css" rel="stylesheet"/>
@@ -32,7 +43,7 @@
 <header class="sticky top-0 z-50 flex items-center justify-between whitespace-nowrap border-b border-solid border-slate-200 dark:border-slate-800 bg-white/90 dark:bg-background-dark/90 backdrop-blur-md px-10 py-3">
 <a href="#main" class="flex items-center gap-2 text-decoration-none hover:opacity-80 transition-opacity">
 <div class="size-8 flex items-center justify-center">
-<img src="images/BASTUKU-LOGO1.png" alt="Bastuku Investments Logo" class="h-8 w-8 object-contain"/>
+<img src="images/BASTUKU-LOGO1.png" alt="Bastuku Investments Logo" width="32" height="32" class="h-8 w-8 object-contain"/>
 </div>
 <span class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">Bastuku Investments</span>
 </a>
@@ -81,7 +92,7 @@ Get a Quote
 <!-- Hero Section -->
 <section id="hero" class="relative w-full min-h-[600px] md:min-h-[700px] flex items-center overflow-hidden">
 <!-- Ken Burns animated background -->
-<div class="absolute inset-0 hero-ken-burns bg-cover bg-center bg-no-repeat" role="img" aria-label="Modern logistics warehouse with delivery trucks" style='background-image: url("images/Gemini_Generated_Image_9f8jd9f8jd9f8jd9.png");'></div>
+<div class="absolute inset-0 hero-ken-burns bg-cover bg-center bg-no-repeat bg-gradient-to-r from-slate-900 via-slate-800 to-blue-900" id="heroBgLoader" role="img" aria-label="Modern logistics warehouse with delivery trucks"></div>
 <!-- Gradient overlay -->
 <div class="absolute inset-0 bg-gradient-to-r from-black/65 via-black/40 to-primary/10"></div>
 <!-- Content -->
@@ -154,7 +165,7 @@ Get a Quote
 </div>
 <div class="flex-1 relative reveal-right">
 <div class="relative z-10 rounded-2xl overflow-hidden shadow-2xl">
-<img src="images/Founder.png" alt="Founder of Bastuku Investments" class="w-full max-h-[500px] object-cover object-top rounded-none"/>
+<img src="images/Founder.png" alt="Founder of Bastuku Investments" width="600" height="500" class="w-full max-h-[500px] object-cover object-top rounded-none"/>
 </div>
 <div class="absolute -bottom-6 -right-6 -z-0 size-32 bg-primary/10 rounded-full blur-2xl"></div>
 <div class="absolute -top-6 -left-6 -z-0 size-32 bg-primary/10 rounded-full blur-2xl"></div>
@@ -448,7 +459,7 @@ Call Now
 <!-- Brand -->
 <div class="flex flex-col gap-4 reveal-up">
 <div class="flex items-center gap-2 text-white">
-<img src="images/BASTUKU-LOGO1.png" alt="Bastuku Investments Logo" class="h-8 w-8 object-contain"/>
+<img src="images/BASTUKU-LOGO1.png" alt="Bastuku Investments Logo" width="32" height="32" class="h-8 w-8 object-contain"/>
 <h2 class="text-lg font-bold">Bastuku Investments</h2>
 </div>
 <p class="text-sm leading-relaxed">
