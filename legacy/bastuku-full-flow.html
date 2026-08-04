@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bastuku — Full Page Flow (Sections 1–4)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Sora:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #16202A;
+    --ink-soft: #24323F;
+    --paper: #F3EFE6;
+    --paper-dim: #E7E1D2;
+    --amber: #E8A33D;
+    --amber-bright: #F5B85C;
+    --brick: #B24C32;
+    --route: #5B8C7B;
+    --route-bright: #74B39E;
+    --card-tint: #E4EDE9;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Sora', sans-serif; }
+
+  /* dev-only strip to label each section during review */
+  .dev-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    opacity: 0.4;
+    padding: 6px 6vw 0;
+  }
+
+  /* ============ SECTION 1: HERO ============ */
+  .sec-hero {
+    position: relative;
+    background: var(--paper);
+    color: var(--ink);
+    overflow: hidden;
+  }
+  .sec-hero .announce {
+    background: var(--ink);
+    color: var(--amber-bright);
+    text-align: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    padding: 9px 12px;
+    text-transform: uppercase;
+  }
+  .sec-hero header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 5vw; background: var(--paper);
+  }
+  .sec-hero .logo {
+    font-family: 'Big Shoulders Display', sans-serif; font-weight: 900; font-size: 26px;
+    color: var(--ink); text-transform: uppercase; display: flex; align-items: center; gap: 4px;
+  }
+  .sec-hero .logo .dot { color: var(--brick); }
+  .sec-hero nav { display: flex; align-items: center; gap: 30px; }
+  .sec-hero nav a { font-size: 14.5px; font-weight: 600; color: var(--ink-soft); text-decoration: none; }
+  .sec-hero .whatsapp-pill {
+    display: flex; align-items: center; gap: 8px; background: var(--card-tint);
+    border: 1px solid rgba(22,32,42,0.1); border-radius: 999px; padding: 9px 18px;
+    font-size: 14px; font-weight: 700; color: var(--ink); cursor: pointer;
+  }
+  .sec-hero .whatsapp-pill .ico { color: var(--route); font-size: 15px; }
+  @media (max-width: 900px) { .sec-hero nav a:not(.whatsapp-pill) { display: none; } }
+
+  .sec-hero .hero { position: relative; overflow: hidden; padding-bottom: 20px; }
+  .sec-hero .hero-art { position: absolute; inset: 0; z-index: 0; }
+  .sec-hero .hero-content { position: relative; z-index: 2; padding: 70px 5vw 40px; }
+  .sec-hero .headline {
+    font-family: 'Big Shoulders Display', sans-serif; font-weight: 900;
+    font-size: clamp(38px, 5.4vw, 64px); line-height: 0.98; text-transform: uppercase;
+    color: var(--ink); max-width: 11ch;
+  }
+  .sec-hero .headline .accent { color: var(--brick); }
+  .sec-hero .tool-label {
+    margin-top: 26px; font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 700;
+    letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-soft);
+  }
+  .sec-hero .tool-row { margin-top: 12px; display: flex; gap: 12px; max-width: 520px; }
+  .sec-hero .tool-row input {
+    flex: 1; padding: 15px 18px; border-radius: 999px; border: 1.5px solid rgba(22,32,42,0.15);
+    font-family: 'Sora', sans-serif; font-size: 14.5px; background: #fff; color: var(--ink);
+  }
+  .sec-hero .tool-row input::placeholder { color: rgba(22,32,42,0.4); }
+  .sec-hero .btn-pill-primary {
+    background: var(--amber); color: var(--ink); border: none; border-radius: 999px;
+    padding: 15px 26px; font-family: 'Sora', sans-serif; font-weight: 700; font-size: 14.5px;
+    cursor: pointer; white-space: nowrap;
+  }
+  .sec-hero .btn-pill-primary:hover { background: var(--amber-bright); }
+
+  .sec-hero .cta-row {
+    position: relative; z-index: 2; margin-top: 54px; padding: 0 5vw;
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px;
+  }
+  .sec-hero .cta-card { border-radius: 16px; overflow: hidden; box-shadow: 0 18px 34px -18px rgba(22,32,42,0.35); }
+  .sec-hero .cta-top { background: var(--card-tint); padding: 26px 16px; display: flex; justify-content: center; }
+  .sec-hero .cta-btn {
+    background: var(--ink); color: var(--amber-bright); border: none; border-radius: 999px;
+    padding: 13px 22px; font-family: 'Sora', sans-serif; font-weight: 700; font-size: 14px;
+    cursor: pointer; white-space: nowrap;
+  }
+  .sec-hero .cta-bottom { background: #fff; text-align: center; padding: 16px 10px 20px; font-size: 13.5px; color: var(--ink-soft); font-weight: 500; }
+
+  .sec-hero .curve-buffer { height: 150px; }
+  .sec-hero .diagonal-wrap { position: relative; z-index: 2; margin-top: -180px; }
+  .sec-hero .diagonal-curve { display: block; width: 100%; height: 240px; }
+  .sec-hero .diagonal {
+    background: var(--ink); margin-top: -2px; padding: 30px 5vw 40px;
+    display: flex; justify-content: space-around; flex-wrap: wrap; gap: 24px;
+  }
+  .sec-hero .diag-item { text-align: center; font-family: 'JetBrains Mono', monospace; }
+  .sec-hero .diag-item b { display: block; font-size: 22px; color: var(--amber-bright); }
+  .sec-hero .diag-item span { font-size: 11.5px; color: rgba(243,239,230,0.6); text-transform: uppercase; letter-spacing: 0.05em; }
+
+  @media (max-width: 820px) {
+    .sec-hero .cta-row { grid-template-columns: repeat(2, 1fr); }
+    .sec-hero .tool-row { flex-direction: column; }
+  }
+
+  /* ============ SECTION 2: SERVICES COVERFLOW ============ */
+  .sec-services {
+    background: var(--ink); color: var(--paper);
+    display: flex; flex-direction: column; align-items: center;
+    padding: 70px 5vw 60px; overflow-x: hidden;
+  }
+  .sec-services .section-head { text-align: center; max-width: 620px; margin-bottom: 50px; }
+  .sec-services .eyebrow {
+    font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--amber-bright); margin-bottom: 14px;
+  }
+  .sec-services h2 {
+    font-family: 'Big Shoulders Display', sans-serif; font-weight: 900;
+    font-size: clamp(30px, 4vw, 46px); text-transform: uppercase; line-height: 1;
+  }
+  .sec-services .section-head p { margin-top: 14px; color: rgba(243,239,230,0.65); font-size: 15.5px; }
+
+  .sec-services .stage-wrap { position: relative; width: 100%; max-width: 1100px; }
+  .sec-services .stage {
+    position: relative; height: 460px; perspective: 1400px;
+    display: flex; align-items: center; justify-content: center;
+    cursor: grab; user-select: none; touch-action: pan-y;
+  }
+  .sec-services .stage.dragging { cursor: grabbing; }
+  .sec-services .tile {
+    position: absolute; width: 300px; height: 400px; border-radius: 20px;
+    background: var(--paper); color: var(--ink); padding: 28px 26px;
+    display: flex; flex-direction: column; box-shadow: 0 30px 60px -20px rgba(0,0,0,0.6);
+    transition: transform 0.5s cubic-bezier(.22,.61,.36,1), opacity 0.5s ease, box-shadow 0.5s ease;
+    will-change: transform;
+  }
+  .sec-services .tile-icon {
+    width: 52px; height: 52px; border-radius: 14px; background: var(--card-tint);
+    display: flex; align-items: center; justify-content: center; font-size: 24px; margin-bottom: 20px;
+  }
+  .sec-services .tile[data-key="house"] .tile-icon { background: rgba(232,163,61,0.25); }
+  .sec-services .tile[data-key="office"] .tile-icon { background: rgba(91,140,123,0.2); }
+  .sec-services .tile[data-key="cross"] .tile-icon { background: rgba(178,76,50,0.18); }
+  .sec-services .tile[data-key="adhoc"] .tile-icon { background: rgba(91,140,123,0.2); }
+  .sec-services .tile h3 {
+    font-family: 'Big Shoulders Display', sans-serif; font-weight: 800; font-size: 26px;
+    text-transform: uppercase; line-height: 1.02; margin-bottom: 12px;
+  }
+  .sec-services .tile p { font-size: 14.5px; line-height: 1.5; color: var(--ink-soft); opacity: 0.85; flex: 1; }
+  .sec-services .tile-cta {
+    margin-top: 16px; background: var(--ink); color: var(--amber-bright); border: none;
+    border-radius: 999px; padding: 13px 20px; font-family: 'Sora', sans-serif; font-weight: 700;
+    font-size: 14px; cursor: pointer; opacity: 0; transform: translateY(8px);
+    transition: opacity 0.35s ease, transform 0.35s ease; pointer-events: none;
+  }
+  .sec-services .tile.active .tile-cta { opacity: 1; transform: translateY(0); pointer-events: auto; }
+
+  .sec-services .dots { display: flex; justify-content: center; gap: 10px; margin-top: 26px; }
+  .sec-services .dot {
+    width: 9px; height: 9px; border-radius: 50%; background: rgba(243,239,230,0.25);
+    border: none; cursor: pointer; transition: background 0.25s ease, transform 0.25s ease;
+  }
+  .sec-services .dot.active { background: var(--amber-bright); transform: scale(1.3); }
+
+  .sec-services .arrow {
+    position: absolute; top: 50%; transform: translateY(-50%); width: 46px; height: 46px;
+    border-radius: 50%; background: rgba(243,239,230,0.08); border: 1px solid rgba(243,239,230,0.18);
+    color: var(--paper); font-size: 18px; cursor: pointer; z-index: 10;
+    display: flex; align-items: center; justify-content: center; transition: background 0.2s ease;
+  }
+  .sec-services .arrow:hover { background: rgba(243,239,230,0.16); }
+  .sec-services .arrow.left { left: 0; }
+  .sec-services .arrow.right { right: 0; }
+  .sec-services .hint {
+    margin-top: 18px; font-family: 'JetBrains Mono', monospace; font-size: 11px;
+    color: rgba(243,239,230,0.4); text-transform: uppercase; letter-spacing: 0.08em;
+  }
+  @media (max-width: 640px) {
+    .sec-services .tile { width: 230px; height: 340px; padding: 22px; }
+    .sec-services .stage { height: 380px; }
+    .sec-services .arrow { display: none; }
+  }
+
+  /* ============ SECTION 3: COVERAGE ============ */
+  .sec-coverage { position: relative; background: var(--paper); color: var(--ink); overflow: hidden; }
+  .sec-coverage .coverage {
+    position: relative; overflow: hidden; padding: 90px 6vw 130px;
+    display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 40px; align-items: center; min-height: 90vh;
+  }
+  .sec-coverage .figure-wrap { display: flex; justify-content: center; }
+  .sec-coverage .copy-side { max-width: 560px; }
+  .sec-coverage .eyebrow {
+    font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--route); margin-bottom: 16px; font-weight: 700;
+  }
+  .sec-coverage h2 {
+    font-family: 'Big Shoulders Display', sans-serif; font-weight: 900;
+    font-size: clamp(32px, 4.4vw, 52px); line-height: 0.98; text-transform: uppercase;
+  }
+  .sec-coverage h2 .line2 { color: var(--brick); }
+  .sec-coverage .copy-side p { margin-top: 20px; font-size: 16.5px; line-height: 1.6; color: var(--ink-soft); max-width: 46ch; }
+  .sec-coverage .tiers { display: flex; gap: 12px; margin-top: 32px; flex-wrap: wrap; }
+  .sec-coverage .tier-pill {
+    display: inline-flex; align-items: center; gap: 8px; background: var(--card-tint);
+    border: none; border-radius: 999px; padding: 13px 22px; font-family: 'Sora', sans-serif;
+    font-weight: 700; font-size: 14.5px; color: var(--ink); cursor: pointer;
+    text-transform: uppercase; letter-spacing: 0.02em; transition: background 0.2s ease, transform 0.2s ease;
+  }
+  .sec-coverage .tier-pill:hover { background: #d7e4de; transform: translateY(-2px); }
+  .sec-coverage .tier-pill .chev { font-size: 14px; color: var(--route); }
+  .sec-coverage .tier-detail { margin-top: 18px; font-size: 14px; color: var(--ink-soft); opacity: 0.8; min-height: 20px; }
+  .sec-coverage .tier-detail b { color: var(--ink); font-weight: 700; }
+  .sec-coverage .base-cut { position: absolute; left: 0; right: 0; bottom: 0; height: 130px; }
+  @media (max-width: 860px) {
+    .sec-coverage .coverage { grid-template-columns: 1fr; padding: 60px 6vw 150px; text-align: center; }
+    .sec-coverage .copy-side { max-width: none; margin: 0 auto; }
+    .sec-coverage .tiers { justify-content: center; }
+    .sec-coverage .copy-side p { margin-left: auto; margin-right: auto; }
+  }
+
+  /* ============ SECTION 4: HOW IT WORKS ============ */
+  .sec-how { background: var(--ink); color: var(--paper); }
+  .sec-how .how { max-width: 780px; margin: 0 auto; padding: 100px 6vw 120px; }
+  .sec-how .eyebrow {
+    font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--amber-bright); font-weight: 700; margin-bottom: 14px;
+  }
+  .sec-how h2 {
+    font-family: 'Big Shoulders Display', sans-serif; font-weight: 900;
+    font-size: clamp(32px, 4.4vw, 50px); text-transform: uppercase; margin-bottom: 60px;
+  }
+  .sec-how .timeline { position: relative; padding-left: 40px; }
+  .sec-how .timeline::before {
+    content: ""; position: absolute; left: 5px; top: 8px; bottom: 8px; width: 2px;
+    background: rgba(243,239,230,0.18);
+  }
+  .sec-how .step { position: relative; padding-bottom: 56px; }
+  .sec-how .step:last-child { padding-bottom: 0; }
+  .sec-how .marker {
+    position: absolute; left: -40px; top: 4px; width: 12px; height: 12px;
+    background: var(--amber-bright); border-radius: 3px;
+  }
+  .sec-how .step h3 { font-family: 'Sora', sans-serif; font-weight: 700; font-size: 21px; margin-bottom: 12px; color: var(--paper); }
+  .sec-how .step h3 .num { font-family: 'JetBrains Mono', monospace; color: var(--amber-bright); margin-right: 6px; }
+  .sec-how .step p { font-size: 15.5px; line-height: 1.65; color: rgba(243,239,230,0.68); max-width: 56ch; }
+  .sec-how .step p + p { margin-top: 10px; }
+  .sec-how .step p b { color: var(--paper); font-weight: 600; }
+  .sec-how .step-cta {
+    margin-top: 18px; background: none; border: none; border-bottom: 1px solid rgba(243,239,230,0.35);
+    color: var(--paper); font-family: 'Sora', sans-serif; font-weight: 600; font-size: 14px;
+    padding-bottom: 2px; cursor: pointer;
+  }
+  .sec-how .step-cta:hover { border-color: var(--paper); }
+</style>
+</head>
+<body>
+
+<!-- ================= SECTION 1: HERO ================= -->
+<div class="sec-hero">
+  <div class="announce">Booking spots filling for month-end moves — reserve yours early</div>
+  <header>
+    <div class="logo">BASTUKU<span class="dot">.</span></div>
+    <nav>
+      <a href="#">Services</a>
+      <a href="#">Coverage</a>
+      <a href="#">How It Works</a>
+      <a href="#">For Business</a>
+      <div class="whatsapp-pill"><span class="ico">●</span> WhatsApp Us</div>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-art">
+      <svg viewBox="0 0 1600 760" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#EFE9DA"/>
+            <stop offset="100%" stop-color="#DCD3BC"/>
+          </linearGradient>
+          <linearGradient id="fade" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#F3EFE6" stop-opacity="1"/>
+            <stop offset="45%" stop-color="#F3EFE6" stop-opacity="0.55"/>
+            <stop offset="100%" stop-color="#F3EFE6" stop-opacity="0"/>
+          </linearGradient>
+        </defs>
+        <rect width="1600" height="760" fill="url(#skyGrad)"/>
+        <rect y="560" width="1600" height="200" fill="#B8AF97"/>
+        <rect y="600" width="1600" height="10" fill="#F3EFE6" opacity="0.5"/>
+        <g stroke="#F3EFE6" stroke-width="8" stroke-dasharray="40 30" opacity="0.6">
+          <line x1="0" y1="640" x2="1600" y2="640"/>
+        </g>
+        <g transform="translate(880,410)">
+          <rect x="0" y="60" width="230" height="120" rx="10" fill="#16202A"/>
+          <rect x="230" y="90" width="120" height="90" rx="8" fill="#B24C32"/>
+          <rect x="248" y="105" width="55" height="45" rx="4" fill="#E8A33D" opacity="0.85"/>
+          <circle cx="60" cy="190" r="26" fill="#0E1620"/>
+          <circle cx="60" cy="190" r="11" fill="#E7E1D2"/>
+          <circle cx="290" cy="190" r="26" fill="#0E1620"/>
+          <circle cx="290" cy="190" r="11" fill="#E7E1D2"/>
+          <rect x="20" y="80" width="70" height="45" rx="4" fill="#5B8C7B" opacity="0.5"/>
+          <rect x="100" y="80" width="70" height="45" rx="4" fill="#E8A33D" opacity="0.4"/>
+        </g>
+        <path d="M 60 300 C 300 250, 500 420, 880 460" fill="none" stroke="#5B8C7B" stroke-width="5" stroke-dasharray="4 16" stroke-linecap="round" opacity="0.7"/>
+        <circle cx="60" cy="300" r="9" fill="#16202A"/>
+        <circle cx="880" cy="460" r="9" fill="#B24C32"/>
+        <g transform="translate(1140,470)">
+          <rect x="0" y="0" width="70" height="70" rx="4" fill="#E8A33D" opacity="0.9"/>
+          <rect x="80" y="20" width="55" height="50" rx="4" fill="#5B8C7B" opacity="0.8"/>
+        </g>
+        <rect width="900" height="760" fill="url(#fade)"/>
+      </svg>
+    </div>
+
+    <div class="hero-content">
+      <h1 class="headline">We'll carry<br>the <span class="accent">load.</span><br>You carry on.</h1>
+      <div class="tool-label">Get an instant estimate:</div>
+      <div class="tool-row">
+        <input type="text" placeholder="Where are you moving from?">
+        <button class="btn-pill-primary">See Estimate</button>
+      </div>
+    </div>
+
+    <div class="cta-row">
+      <div class="cta-card"><div class="cta-top"><button class="cta-btn">Book Now</button></div><div class="cta-bottom">Start your move today</div></div>
+      <div class="cta-card"><div class="cta-top"><button class="cta-btn">Get a Quote</button></div><div class="cta-bottom">See rough pricing first</div></div>
+      <div class="cta-card"><div class="cta-top"><button class="cta-btn">For Business</button></div><div class="cta-bottom">Recurring office logistics</div></div>
+      <div class="cta-card"><div class="cta-top"><button class="cta-btn">WhatsApp Us</button></div><div class="cta-bottom">Chat with us in minutes</div></div>
+    </div>
+
+    <div class="curve-buffer"></div>
+    <div class="diagonal-wrap">
+      <svg class="diagonal-curve" viewBox="0 0 1600 240" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,220 C 420,-40 1050,300 1600,60 L1600,240 L0,240 Z" fill="#16202A"/>
+      </svg>
+      <div class="diagonal">
+        <div class="diag-item"><b>2017</b><span>In business since</span></div>
+        <div class="diag-item"><b>500+</b><span>Moves completed</span></div>
+        <div class="diag-item"><b>Lusaka+</b><span>Coverage area</span></div>
+        <div class="diag-item"><b>24/7</b><span>WhatsApp support</span></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ================= SECTION 2: SERVICES COVERFLOW ================= -->
+<div class="sec-services">
+  <div class="section-head">
+    <div class="eyebrow">What are you moving?</div>
+    <h2>Pick your path</h2>
+    <p>Every move is different — tell us which one is yours and we'll show you exactly how it works.</p>
+  </div>
+
+  <div class="stage-wrap">
+    <button class="arrow left" id="arrowLeft">‹</button>
+    <div class="stage" id="stage">
+      <div class="tile" data-key="house">
+        <div class="tile-icon">🏠</div>
+        <h3>Moving House</h3>
+        <p>Full-service house moves — we pack, load, transport, and unpack. Book a date and let us handle the rest, start to finish.</p>
+        <button class="tile-cta">Book This Move →</button>
+      </div>
+      <div class="tile" data-key="office">
+        <div class="tile-icon">🏢</div>
+        <h3>Office Relocation</h3>
+        <p>Minimal downtime relocations — scheduled around your working hours so your team barely notices the switch.</p>
+        <button class="tile-cta">Plan My Relocation →</button>
+      </div>
+      <div class="tile" data-key="cross">
+        <div class="tile-icon">🌍</div>
+        <h3>Cross-Border</h3>
+        <p>Moving out of Zambia? We handle customs, permits, and border logistics — you don't lift a finger.</p>
+        <button class="tile-cta">Get Cross-Border Quote →</button>
+      </div>
+      <div class="tile" data-key="adhoc">
+        <div class="tile-icon">📦</div>
+        <h3>Ad-Hoc & Supplies</h3>
+        <p>Need something sourced, collected, or delivered fast? One-off jobs, no long-term commitment needed.</p>
+        <button class="tile-cta">Request a Job →</button>
+      </div>
+    </div>
+    <button class="arrow right" id="arrowRight">›</button>
+  </div>
+
+  <div class="dots" id="dots"></div>
+  <div class="hint">Drag, scroll, or use the arrows</div>
+</div>
+
+<!-- ================= SECTION 3: COVERAGE ================= -->
+<div class="sec-coverage">
+  <section class="coverage">
+    <div class="figure-wrap">
+      <svg width="380" height="440" viewBox="0 0 380 440" xmlns="http://www.w3.org/2000/svg">
+        <path d="M170 260 C 150 300, 120 330, 90 360 C 80 370, 85 385, 100 388 C 112 390, 122 382, 128 372 C 150 340, 175 305, 195 270 Z" fill="var(--ink)"/>
+        <ellipse cx="95" cy="392" rx="30" ry="14" fill="var(--ink-soft)"/>
+        <path d="M205 265 C 225 300, 245 335, 258 372 C 262 386, 250 398, 236 396 C 226 394, 220 384, 216 374 C 200 340, 185 305, 178 272 Z" fill="var(--route)"/>
+        <ellipse cx="252" cy="400" rx="32" ry="15" fill="var(--ink)"/>
+        <path d="M150 150 C 148 190, 152 230, 172 268 C 190 280, 210 278, 222 265 C 236 228, 234 188, 224 150 Z" fill="var(--amber)"/>
+        <rect x="176" y="180" width="34" height="26" rx="4" fill="var(--ink)" opacity="0.15"/>
+        <path d="M158 165 C 130 175, 105 190, 88 210 C 80 220, 88 232, 100 228 C 122 218, 148 200, 170 185 Z" fill="var(--amber-bright)"/>
+        <g transform="translate(48,168) rotate(-8)">
+          <rect x="0" y="0" width="66" height="52" rx="4" fill="var(--card-tint)" stroke="var(--ink)" stroke-width="2.5"/>
+          <line x1="0" y1="20" x2="66" y2="20" stroke="var(--ink)" stroke-width="2.5"/>
+          <line x1="33" y1="0" x2="33" y2="20" stroke="var(--ink)" stroke-width="2.5"/>
+        </g>
+        <path d="M212 175 C 230 185, 240 200, 238 215 C 236 224, 224 224, 218 216 C 208 202, 202 190, 200 178 Z" fill="var(--amber)"/>
+        <circle cx="234" cy="214" r="9" fill="#D98A6B"/>
+        <circle cx="188" cy="110" r="38" fill="#C97A56"/>
+        <path d="M152 100 C 148 70, 175 50, 195 54 C 218 50, 234 70, 228 96 C 224 82, 210 74, 195 76 C 178 74, 160 84, 152 100 Z" fill="var(--ink)"/>
+        <path d="M154 92 C 168 82, 210 82, 224 92" stroke="var(--brick)" stroke-width="8" fill="none" stroke-linecap="round"/>
+        <circle cx="176" cy="112" r="3.4" fill="var(--ink)"/>
+        <circle cx="200" cy="112" r="3.4" fill="var(--ink)"/>
+        <path d="M178 126 C 185 132, 193 132, 200 126" stroke="var(--ink)" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+        <path d="M168 145 L188 158 L208 145" stroke="var(--ink)" stroke-width="4" fill="none" stroke-linecap="round"/>
+        <g stroke="var(--paper-dim)" stroke-width="5" stroke-linecap="round" opacity="0.7">
+          <line x1="30" y1="230" x2="70" y2="230"/>
+          <line x1="20" y1="255" x2="55" y2="255"/>
+          <line x1="35" y1="280" x2="65" y2="280"/>
+        </g>
+      </svg>
+    </div>
+
+    <div class="copy-side">
+      <div class="eyebrow">Where we go</div>
+      <h2>Lusaka roots,<br><span class="line2">no borders on reach.</span></h2>
+      <p>We started local, and local is still where we're strongest. But a move doesn't always stay in one city — so whether you're relocating across Lusaka or across a border, we've got a way to get you there.</p>
+
+      <div class="tiers" id="tiers">
+        <button class="tier-pill" data-tier="local">Local <span class="chev">›</span></button>
+        <button class="tier-pill" data-tier="regional">Regional <span class="chev">›</span></button>
+        <button class="tier-pill" data-tier="cross">Cross-Border <span class="chev">›</span></button>
+      </div>
+      <div class="tier-detail" id="tierDetail"><b>Local:</b> Lusaka Central, Kabulonga, Woodlands, Chelston, Roma, and surrounding areas.</div>
+    </div>
+
+    <svg class="base-cut" viewBox="0 0 1600 130" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,90 C 500,10 1100,130 1600,40 L1600,130 L0,130 Z" fill="var(--ink)"/>
+    </svg>
+  </section>
+</div>
+
+<!-- ================= SECTION 4: HOW IT WORKS ================= -->
+<div class="sec-how">
+  <section class="how">
+    <div class="eyebrow">How it works</div>
+    <h2>How to move with Bastuku</h2>
+
+    <div class="timeline">
+      <div class="step">
+        <div class="marker"></div>
+        <h3><span class="num">1.</span>Request</h3>
+        <p>Tell us what you're moving and where — house, office, or cross-border — and get an <b>instant estimate</b> right on the site, no waiting required.</p>
+        <p>Once you're happy with the range, confirm your date and we lock in your slot.</p>
+      </div>
+      <div class="step">
+        <div class="marker"></div>
+        <h3><span class="num">2.</span>Pack &amp; Move</h3>
+        <p>Our team arrives on schedule to pack, load, and transport your belongings. You'll have a direct contact for the whole move — no chasing updates.</p>
+        <p>Need something adjusted on the day? Just tell your move lead, they'll sort it on the spot.</p>
+      </div>
+      <div class="step">
+        <div class="marker"></div>
+        <h3><span class="num">3.</span>Unpack &amp; Confirm</h3>
+        <p>We place everything where you want it and do a walkthrough together before we leave — so you can confirm everything arrived in the same shape it left in.</p>
+        <p>Payment is only finalized once you're satisfied. <b>No surprises at the end.</b></p>
+        <button class="step-cta">Start Your Move →</button>
+      </div>
+    </div>
+  </section>
+</div>
+
+<script>
+  // Services coverflow logic
+  (function() {
+    const stage = document.getElementById('stage');
+    const tiles = Array.from(stage.querySelectorAll('.tile'));
+    const dotsWrap = document.getElementById('dots');
+    const arrowLeft = document.getElementById('arrowLeft');
+    const arrowRight = document.getElementById('arrowRight');
+    let activeIndex = 0;
+
+    tiles.forEach((_, i) => {
+      const dot = document.createElement('button');
+      dot.className = 'dot';
+      dot.addEventListener('click', () => setActive(i));
+      dotsWrap.appendChild(dot);
+    });
+    const dots = Array.from(dotsWrap.children);
+
+    function render() {
+      tiles.forEach((tile, i) => {
+        const offset = i - activeIndex;
+        const abs = Math.abs(offset);
+        const dir = Math.sign(offset);
+        let translateX, translateZ, rotateY, scale, opacity, zIndex;
+        if (abs === 0) {
+          translateX = 0; translateZ = 0; rotateY = 0; scale = 1; opacity = 1; zIndex = 50;
+        } else {
+          translateX = dir * (150 + (abs - 1) * 90);
+          translateZ = -160 - (abs - 1) * 60;
+          rotateY = dir * -42;
+          scale = 0.82 - (abs - 1) * 0.08;
+          opacity = abs > 2 ? 0 : 1 - abs * 0.28;
+          zIndex = 50 - abs;
+        }
+        tile.style.transform = `translateX(${translateX}px) translateZ(${translateZ}px) rotateY(${rotateY}deg) scale(${scale})`;
+        tile.style.opacity = opacity;
+        tile.style.zIndex = zIndex;
+        tile.classList.toggle('active', abs === 0);
+      });
+      dots.forEach((d, i) => d.classList.toggle('active', i === activeIndex));
+    }
+
+    function setActive(i) {
+      activeIndex = Math.max(0, Math.min(tiles.length - 1, i));
+      render();
+    }
+
+    arrowLeft.addEventListener('click', () => setActive(activeIndex - 1));
+    arrowRight.addEventListener('click', () => setActive(activeIndex + 1));
+    tiles.forEach((tile, i) => tile.addEventListener('click', () => { if (i !== activeIndex) setActive(i); }));
+
+    let wheelLock = false;
+    stage.addEventListener('wheel', (e) => {
+      if (Math.abs(e.deltaX) < Math.abs(e.deltaY) && Math.abs(e.deltaY) < 15) return;
+      e.preventDefault();
+      if (wheelLock) return;
+      wheelLock = true;
+      setActive(activeIndex + (e.deltaX > 0 || e.deltaY > 0 ? 1 : -1));
+      setTimeout(() => wheelLock = false, 420);
+    }, { passive: false });
+
+    let startX = 0, dragging = false;
+    stage.addEventListener('pointerdown', (e) => { dragging = true; startX = e.clientX; stage.classList.add('dragging'); });
+    window.addEventListener('pointerup', (e) => {
+      if (!dragging) return;
+      dragging = false;
+      stage.classList.remove('dragging');
+      const delta = e.clientX - startX;
+      if (delta > 60) setActive(activeIndex - 1);
+      else if (delta < -60) setActive(activeIndex + 1);
+    });
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') setActive(activeIndex + 1);
+      if (e.key === 'ArrowLeft') setActive(activeIndex - 1);
+    });
+
+    render();
+  })();
+
+  // Coverage tier logic
+  (function() {
+    const tierData = {
+      local: "<b>Local:</b> Lusaka Central, Kabulonga, Woodlands, Chelston, Roma, and surrounding areas.",
+      regional: "<b>Regional:</b> Ndola, Kitwe, Livingstone, Kabwe, and other major Zambian cities.",
+      cross: "<b>Cross-Border:</b> Zimbabwe, South Africa, and Botswana — customs and permits handled for you."
+    };
+    const detail = document.getElementById('tierDetail');
+    document.querySelectorAll('.sec-coverage .tier-pill').forEach(btn => {
+      btn.addEventListener('click', () => { detail.innerHTML = tierData[btn.dataset.tier]; });
+    });
+  })();
+</script>
+
+</body>
+</html>
