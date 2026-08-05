@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { bigShoulders, sora, jetbrains } from "@/lib/fonts";
+import { Header } from "@/components/layout/Header";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -16,7 +17,10 @@ export default function RootLayout({
 			<head>
 				<link rel="icon" href="/favicon.svg" type="image/svg+xml"></link>
 			</head>
-			<body className={`${bigShoulders.variable} ${sora.variable} ${jetbrains.variable}`}>{children}</body>
+			<body className={`${bigShoulders.variable} ${sora.variable} ${jetbrains.variable}`}>
+				<Header />
+				{children}
+			</body>
 		</html>
 	);
 }
