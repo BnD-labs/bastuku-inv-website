@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { bigShoulders, sora, jetbrains } from "@/lib/fonts";
 import { Header } from "@/components/layout/Header";
+import { Footer } from "@/components/layout/Footer";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -20,6 +21,7 @@ export default function RootLayout({
 			<body className={`${bigShoulders.variable} ${sora.variable} ${jetbrains.variable}`}>
 				<Header />
 				{children}
+				<Footer />
 			</body>
 		</html>
 	);
