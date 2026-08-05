@@ -17,6 +17,9 @@ in this file ships to production until the **Status** column reads
 | 9 | "Payment only finalized once you're satisfied" | how-it-works | concept | ❌ UNVERIFIED — is this a real policy? |
 | 10 | All estimate figures | `content/rates.ts` | **invented placeholder** | ❌ PLACEHOLDER — real rate card required |
 | 11 | Customs/permit handling capability | cross-border, exports | concept | ❌ UNVERIFIED — licensed clearing agent? |
+| 12 | FAQ: "walkthrough together before we leave" | faqs | drafted | ❌ UNVERIFIED — is this standard practice? |
+| 13 | FAQ: damage handling process | faqs | drafted | ❌ UNVERIFIED — what is the real policy/insurance position? |
+| 14 | Coverage: Chipata, Solwezi, Olympia | coverage | drafted | ❌ UNVERIFIED |
 
 ## Missing assets — client action
 
