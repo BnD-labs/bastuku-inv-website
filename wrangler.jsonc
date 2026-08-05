@@ -25,6 +25,14 @@
 			"service": "bastuku-inv"
 		}
 	],
+	"d1_databases": [
+		{
+			"binding": "DB",
+			"database_name": "bastuku-leads",
+			"database_id": "5b6dbd8a-899a-418c-8b35-a65e2bce0df5",
+			"migrations_dir": "./migrations"
+		}
+	],
 	"observability": {
 		"enabled": true
 	}
