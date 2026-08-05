@@ -57,4 +57,5 @@ next-env.d.ts
 # wrangler files
 .wrangler
 .dev.vars*
+!.dev.vars.example
 

@@ -30,3 +30,5 @@ in this file ships to production until the **Status** column reads
 - [ ] Physical address for `LocalBusiness` schema — "Lusaka, Zambia" is too vague to rank
 - [ ] Business registration number, if it should appear in the footer
 - [ ] Real social media profile URLs (current footer links are dead `#` anchors)
+- [ ] Resend domain verification for `bastuku-inv.com` — lead emails send from
+      `noreply@bastuku-inv.com` and will not deliver until the domain is verified
