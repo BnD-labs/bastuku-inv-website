@@ -34,7 +34,10 @@ test("only the active slide exposes a focusable link", async ({ page }) => {
 
 test("slides are exposed as labelled carousel slides, not tabs", async ({ page }) => {
 	await page.goto("/");
-	await expect(page.locator('[role="tab"], [role="tablist"]')).toHaveCount(0);
+	// Scoped to the carousel: CoverageTiers elsewhere on this page uses real
+	// tabs, which are correct there because they have a tabpanel.
+	const carousel = page.getByRole("region", { name: "Our services" });
+	await expect(carousel.locator('[role="tab"], [role="tablist"]')).toHaveCount(0);
 	const slides = page.locator('[aria-roledescription="slide"]');
 	await expect(slides).toHaveCount(6);
 	await expect(slides.first()).toHaveAttribute("aria-label", "1 of 6: House Removals");
