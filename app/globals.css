@@ -1,0 +1,43 @@
+/* source(none) disables Tailwind's automatic source detection, which otherwise
+   scans legacy/ and emits dark: utilities from the old CDN markup. Sources are
+   declared explicitly below; add a line here when a new top-level dir appears. */
+@import "tailwindcss" source(none);
+
+@source "./";
+@source "../components";
+@source "../content";
+@source "../lib";
+
+@theme {
+	--color-ink: #16202A;
+	--color-ink-soft: #24323F;
+	--color-paper: #F3EFE6;
+	--color-paper-dim: #E7E1D2;
+	--color-amber: #E8A33D;
+	--color-amber-bright: #F5B85C;
+	--color-brick: #B24C32;
+	--color-route: #5B8C7B;
+	--color-route-bright: #74B39E;
+	--color-card-tint: #E4EDE9;
+
+	--font-display: var(--font-big-shoulders), sans-serif;
+	--font-body: var(--font-sora), sans-serif;
+	--font-mono: var(--font-jetbrains), monospace;
+
+	--radius-pill: 999px;
+}
+
+body {
+	font-family: var(--font-body);
+	background: var(--color-paper);
+	color: var(--color-ink);
+}
+
+@media (prefers-reduced-motion: reduce) {
+	*, *::before, *::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
+}
