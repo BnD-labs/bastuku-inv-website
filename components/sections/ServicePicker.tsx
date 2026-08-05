@@ -23,10 +23,17 @@ export function ServicePicker() {
 
 	return (
 		<div className="flex flex-col items-center">
+			{/*
+			 * APG carousel, not a tablist: these tiles have no separate panels —
+			 * each tile *is* its content — and the active one contains a link, which
+			 * `role="option"` would forbid. `aria-live` announces slide changes.
+			 */}
 			<div
 				ref={stageRef}
-				role="tablist"
+				role="region"
+				aria-roledescription="carousel"
 				aria-label="Our services"
+				aria-live="polite"
 				tabIndex={0}
 				onKeyDown={onKeyDown}
 				className="relative flex h-[460px] w-full items-center justify-center [perspective:1400px] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber"
@@ -50,11 +57,12 @@ export function ServicePicker() {
 					return (
 						<div
 							key={s.slug}
-							role="tab"
-							id={`svc-tab-${s.slug}`}
-							aria-selected={isActive}
-							// Only the active tile is in the tab order — roving tabindex.
-							tabIndex={isActive ? 0 : -1}
+							role="group"
+							aria-roledescription="slide"
+							aria-label={`${i + 1} of ${SERVICES.length}: ${s.name}`}
+							id={`svc-slide-${s.slug}`}
+							// Off-stage slides are hidden from AT. They render no link, so
+							// this never hides focusable content.
 							aria-hidden={abs > 2}
 							onClick={() => setActive(i)}
 							style={style}
@@ -86,7 +94,8 @@ export function ServicePicker() {
 						key={s.slug}
 						type="button"
 						aria-label={`Show ${s.name}`}
-						aria-controls={`svc-tab-${s.slug}`}
+						aria-controls={`svc-slide-${s.slug}`}
+						aria-current={i === active}
 						onClick={() => setActive(i)}
 						className={`h-2.5 w-2.5 rounded-full transition-transform ${
 							i === active ? "scale-125 bg-amber-bright" : "bg-paper/25"
