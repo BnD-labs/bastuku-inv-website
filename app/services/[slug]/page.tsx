@@ -4,6 +4,8 @@ import type { Metadata } from "next";
 import { SERVICES, getService } from "@/content/services";
 import { ButtonLink } from "@/components/ui/Button";
 import { Section } from "@/components/ui/Section";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { SITE } from "@/content/site";
 
 export function generateStaticParams() {
 	return SERVICES.map((s) => ({ slug: s.slug }));
@@ -18,7 +20,7 @@ export async function generateMetadata({
 	const service = getService(slug);
 	if (!service) return {};
 	return {
-		title: `${service.name} in Lusaka | Bastuku Investments`,
+		title: `${service.name} in Lusaka`,
 		description: service.summary,
 		alternates: { canonical: `/services/${service.slug}` },
 	};
@@ -29,8 +31,25 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
 	const service = getService(slug);
 	if (!service) notFound();
 
+	const schema = {
+		"@context": "https://schema.org",
+		"@type": "Service",
+		name: service.name,
+		description: service.summary,
+		serviceType: service.name,
+		url: `${SITE.url}/services/${service.slug}`,
+		provider: {
+			"@type": "MovingCompany",
+			name: SITE.legalName,
+			telephone: SITE.phoneE164,
+			url: SITE.url,
+		},
+		areaServed: { "@type": "Country", name: SITE.country },
+	};
+
 	return (
 		<main>
+			<JsonLd data={schema} />
 			<Section>
 				<p className="font-mono text-xs uppercase tracking-wider text-route">Services</p>
 				<h1 className="mt-3 max-w-[14ch] font-display text-5xl font-black uppercase leading-none">

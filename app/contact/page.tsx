@@ -6,7 +6,7 @@ import { QuoteForm } from "@/components/sections/QuoteForm";
 import { Section } from "@/components/ui/Section";
 
 export const metadata: Metadata = {
-	title: "Contact | Bastuku Investments",
+	title: "Contact",
 	description: `Call, WhatsApp, or email Bastuku Investments in ${SITE.city}, ${SITE.country}.`,
 	alternates: { canonical: "/contact" },
 };

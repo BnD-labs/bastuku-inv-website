@@ -5,7 +5,7 @@ import { Section } from "@/components/ui/Section";
 import { ButtonLink } from "@/components/ui/Button";
 
 export const metadata: Metadata = {
-	title: "For Business | Bastuku Investments",
+	title: "For Business",
 	description:
 		"Office relocation, recurring supply runs, and commercial freight for businesses in Lusaka and across Zambia.",
 	alternates: { canonical: "/for-business" },
