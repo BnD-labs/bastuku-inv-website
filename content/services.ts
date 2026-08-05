@@ -18,6 +18,12 @@ export interface Service {
 	cta: string;
 	/** Emoji placeholder replaced by SVG in Task 15. */
 	icon: string;
+	/**
+	 * Optional photograph. Omit rather than invent one — a service with no
+	 * honest image renders text-only instead of showing something unrelated.
+	 * Sources live in `images/`; run `npm run images` to emit optimised copies.
+	 */
+	image?: { src: string; alt: string; width: number; height: number };
 }
 
 export const SERVICES: Service[] = [
@@ -77,6 +83,12 @@ export const SERVICES: Service[] = [
 		],
 		cta: "Get Cross-Border Quote",
 		icon: "🌍",
+		image: {
+			src: "/images/container-lift.webp",
+			alt: "A mobile crane lifting a shipping container onto hardstanding, with two Bastuku crew members guiding it into position.",
+			width: 960,
+			height: 1280,
+		},
 	},
 	{
 		slug: "exports-imports",
@@ -96,6 +108,12 @@ export const SERVICES: Service[] = [
 		],
 		cta: "Discuss Freight",
 		icon: "🚢",
+		image: {
+			src: "/images/crated-consignment.webp",
+			alt: "A consignment loaded inside a shipping container, braced behind a plywood bulkhead and secured with tensioned strapping.",
+			width: 810,
+			height: 1080,
+		},
 	},
 	{
 		slug: "packaging",

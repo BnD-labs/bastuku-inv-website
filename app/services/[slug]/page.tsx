@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { SERVICES, getService } from "@/content/services";
@@ -43,6 +44,19 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
 				<ButtonLink href={`/quote?service=${service.slug}`} className="mt-8">
 					{service.cta} →
 				</ButtonLink>
+
+				{service.image && (
+					<Image
+						src={service.image.src}
+						alt={service.image.alt}
+						width={service.image.width}
+						height={service.image.height}
+						// Explicit dimensions reserve the space (no layout shift);
+						// `sizes` stops phones downloading the desktop asset.
+						sizes="(max-width: 768px) 100vw, 640px"
+						className="mt-12 w-full max-w-xl rounded-2xl object-cover"
+					/>
+				)}
 			</Section>
 
 			<Section tone="ink">

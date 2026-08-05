@@ -15,9 +15,8 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en">
-			<head>
-				<link rel="icon" href="/favicon.svg" type="image/svg+xml"></link>
-			</head>
+			{/* Icons come from app/icon.png and app/apple-icon.png, which Next
+			    detects by convention and links automatically. */}
 			<body className={`${bigShoulders.variable} ${sora.variable} ${jetbrains.variable}`}>
 				<Header />
 				{children}

@@ -1,7 +1,10 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-	/* config options here */
+	images: {
+		// Served through the Worker's IMAGES binding. AVIF first, WebP fallback.
+		formats: ["image/avif", "image/webp"],
+	},
 };
 
 export default nextConfig;
