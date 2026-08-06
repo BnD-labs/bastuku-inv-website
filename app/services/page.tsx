@@ -15,7 +15,7 @@ export default function ServicesHubPage() {
 	return (
 		<main>
 			<Section>
-				<p className="font-mono text-xs uppercase tracking-wider text-route">Services</p>
+				<p className="font-mono text-xs uppercase tracking-wider text-brick">Services</p>
 				<h1 className="mt-3 max-w-[16ch] font-display text-[clamp(34px,4.5vw,52px)] font-black uppercase leading-none text-ink">
 					Everything we move
 				</h1>

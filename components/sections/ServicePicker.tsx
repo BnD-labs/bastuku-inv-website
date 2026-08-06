@@ -88,7 +88,12 @@ export function ServicePicker() {
 				})}
 			</div>
 
-			<div className="mt-6 flex gap-2.5">
+			{/*
+			 * The dot stays 10px visually, but the button is 32px so the touch
+			 * target meets WCAG 2.2 target-size (24x24 minimum). A bare 10px
+			 * button failed the accessibility budget.
+			 */}
+			<div className="mt-4 flex gap-1">
 				{SERVICES.map((s, i) => (
 					<button
 						key={s.slug}
@@ -97,10 +102,15 @@ export function ServicePicker() {
 						aria-controls={`svc-slide-${s.slug}`}
 						aria-current={i === active}
 						onClick={() => setActive(i)}
-						className={`h-2.5 w-2.5 rounded-full transition-transform ${
-							i === active ? "scale-125 bg-amber-bright" : "bg-paper/25"
-						}`}
-					/>
+						className="flex h-8 w-8 items-center justify-center rounded-full focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber"
+					>
+						<span
+							aria-hidden="true"
+							className={`h-2.5 w-2.5 rounded-full transition-transform ${
+								i === active ? "scale-125 bg-amber-bright" : "bg-paper/25"
+							}`}
+						/>
+					</button>
 				))}
 			</div>
 		</div>

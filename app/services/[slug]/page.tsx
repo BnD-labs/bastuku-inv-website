@@ -51,7 +51,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
 		<main>
 			<JsonLd data={schema} />
 			<Section>
-				<p className="font-mono text-xs uppercase tracking-wider text-route">Services</p>
+				<p className="font-mono text-xs uppercase tracking-wider text-brick">Services</p>
 				<h1 className="mt-3 max-w-[14ch] font-display text-5xl font-black uppercase leading-none">
 					{service.heading}
 				</h1>
