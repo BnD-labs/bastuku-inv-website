@@ -18,7 +18,13 @@
       "Bash(python ~/.claude/skills/a11y-audit/scripts/a11y_scanner.py --help)",
       "Bash(python:*)",
       "Bash(cp \"E:/PROJECTS/Client Projects/WEB PROJECTS/BASTUKU INV WEB PROJECT/Github SSH Keys\" ~/.ssh/)",
-      "Bash(cp \"E:/PROJECTS/Client Projects/WEB PROJECTS/BASTUKU INV WEB PROJECT/Github SSH Keys.pub\" ~/.ssh/)"
+      "Bash(cp \"E:/PROJECTS/Client Projects/WEB PROJECTS/BASTUKU INV WEB PROJECT/Github SSH Keys.pub\" ~/.ssh/)",
+      "Bash(npm -v)",
+      "Bash(npx wrangler *)",
+      "PowerShell(node -v)",
+      "PowerShell(npm -v)",
+      "PowerShell(winget install --id OpenJS.NodeJS.LTS --source winget --accept-package-agreements --accept-source-agreements --silent)",
+      "Bash(git commit -q -m 'docs: add handoff notes for continuing on another machine *)"
     ]
   }
 }
