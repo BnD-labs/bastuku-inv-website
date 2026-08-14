@@ -43,6 +43,9 @@ yarn-error.log*
 # env files (can opt-in for committing if needed)
 .env*
 !.env.example
+# NEXT_PUBLIC_TURNSTILE_SITE_KEY is a public key, safe to commit — Next.js
+# inlines NEXT_PUBLIC_* vars into the client bundle at build time.
+!.env.production
 
 # vercel
 .vercel

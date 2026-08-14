@@ -24,7 +24,9 @@
       "PowerShell(node -v)",
       "PowerShell(npm -v)",
       "PowerShell(winget install --id OpenJS.NodeJS.LTS --source winget --accept-package-agreements --accept-source-agreements --silent)",
-      "Bash(git commit -q -m 'docs: add handoff notes for continuing on another machine *)"
+      "Bash(git commit -q -m 'docs: add handoff notes for continuing on another machine *)",
+      "Bash(ls -la /c/Users/11e/ 2>&1 | head -30)",
+      "Read(//c/Users/11e//**)"
     ]
   }
 }

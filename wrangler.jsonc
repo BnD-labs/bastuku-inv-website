@@ -33,6 +33,9 @@
 			"migrations_dir": "./migrations"
 		}
 	],
+	"vars": {
+		"NEXT_PUBLIC_TURNSTILE_SITE_KEY": "0x4AAAAAAEP8gcdGt7S63jzf"
+	},
 	"observability": {
 		"enabled": true
 	}
