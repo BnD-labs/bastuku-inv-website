@@ -2,8 +2,8 @@ import Link from "next/link";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
 
 /**
- * The four-card CTA row from `legacy/bastuku-full-flow.html:343-348`.
- * The concept used <button>s that went nowhere; each is a real destination here.
+ * The four-card CTA row from the original static concept, which used <button>s
+ * that went nowhere; each is a real destination here.
  */
 const CARDS: { label: string; caption: string; href: string; external?: boolean }[] = [
 	{ label: "Book Now", caption: "Start your move today", href: "/quote" },

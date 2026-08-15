@@ -1,6 +1,6 @@
-/* source(none) disables Tailwind's automatic source detection, which otherwise
-   scans legacy/ and emits dark: utilities from the old CDN markup. Sources are
-   declared explicitly below; add a line here when a new top-level dir appears. */
+/* source(none) disables Tailwind's automatic source detection so stray markup
+   outside these directories cannot inject utilities (notably dark: variants,
+   which this design does not use). Add a line below for any new top-level dir. */
 @import "tailwindcss" source(none);
 
 @source "./";

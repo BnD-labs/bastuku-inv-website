@@ -1,9 +1,8 @@
 import { SITE } from "@/content/site";
 
 /**
- * The stat band from `legacy/bastuku-full-flow.html:355-360`.
- *
- * The concept showed four stats. Two are omitted deliberately, not forgotten:
+ * The stat band from the original static concept, which showed four stats.
+ * Two are omitted deliberately, not forgotten:
  *   - "500+ moves completed" conflicts with the old site's "200+"  (CLAIMS.md #3)
  *   - "24/7 WhatsApp support" is unsubstantiated                   (CLAIMS.md #2)
  * A two-stat strip that is true beats a four-stat strip that is not. Restore

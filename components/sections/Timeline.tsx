@@ -1,9 +1,9 @@
 import { STEPS } from "@/content/steps";
 
 /**
- * Marker and rail styling ported from `legacy/bastuku-full-flow.html:252-267`.
- * The concept used <div>s; these steps are an ordered sequence, so the markup
- * is an <ol> and screen readers announce "list, 3 items" and the position.
+ * Marker and rail styling ported from the original static concept.
+ * That markup used <div>s; these steps are an ordered sequence, so this is an
+ * <ol> and screen readers announce "list, 3 items" and the position.
  */
 export function Timeline() {
 	return (

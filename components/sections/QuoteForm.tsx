@@ -107,7 +107,7 @@ export function QuoteForm() {
 	}
 
 	// Deliberately terminal: the legacy form reset itself after a timeout
-	// (legacy/js/script.js:310), which read as "it didn't send".
+	// (the old static site reset it on a timer), which read as "it didn't send".
 	if (done) {
 		return (
 			<div className="rounded-2xl bg-card-tint p-8 text-center">
