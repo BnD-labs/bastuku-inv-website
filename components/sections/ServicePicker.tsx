@@ -36,7 +36,7 @@ export function ServicePicker() {
 				aria-live="polite"
 				tabIndex={0}
 				onKeyDown={onKeyDown}
-				className="relative flex h-[460px] w-full items-center justify-center [perspective:1400px] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber"
+				className="relative flex h-[460px] w-full items-center justify-center [perspective:1400px] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-lime"
 			>
 				{SERVICES.map((s, i) => {
 					const offset = i - active;
@@ -78,7 +78,7 @@ export function ServicePicker() {
 							{isActive && (
 								<Link
 									href={`/services/${s.slug}`}
-									className="mt-4 rounded-pill bg-ink px-5 py-3 text-center font-body text-sm font-bold text-amber-bright"
+									className="mt-4 rounded-pill bg-ink px-5 py-3 text-center font-body text-sm font-bold text-lime"
 								>
 									{s.cta} →
 								</Link>
@@ -102,12 +102,12 @@ export function ServicePicker() {
 						aria-controls={`svc-slide-${s.slug}`}
 						aria-current={i === active}
 						onClick={() => setActive(i)}
-						className="flex h-8 w-8 items-center justify-center rounded-full focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber"
+						className="flex h-8 w-8 items-center justify-center rounded-full focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lime"
 					>
 						<span
 							aria-hidden="true"
 							className={`h-2.5 w-2.5 rounded-full transition-transform ${
-								i === active ? "scale-125 bg-amber-bright" : "bg-paper/25"
+								i === active ? "scale-125 bg-lime" : "bg-paper/25"
 							}`}
 						/>
 					</button>

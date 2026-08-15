@@ -7,7 +7,7 @@ import { ButtonLink } from "@/components/ui/Button";
 export const metadata: Metadata = {
 	title: "Services",
 	description:
-		"House removals, office relocation, cross-border moves, exports and imports, professional packaging, and general supplies across Zambia.",
+		"House removals, office relocation, cross-border and international moves, exports and imports, professional packaging, and general supplies across Zambia.",
 	alternates: { canonical: "/services" },
 };
 
@@ -15,13 +15,13 @@ export default function ServicesHubPage() {
 	return (
 		<main>
 			<Section>
-				<p className="font-mono text-xs uppercase tracking-wider text-brick">Services</p>
+				<p className="font-mono text-xs uppercase tracking-wider text-lime-deep">Services</p>
 				<h1 className="mt-3 max-w-[16ch] font-display text-[clamp(34px,4.5vw,52px)] font-black uppercase leading-none text-ink">
 					Everything we move
 				</h1>
 				<p className="mt-5 max-w-[52ch] font-body text-lg leading-relaxed text-ink-soft">
-					Six services, one team. Pick the one that fits — or tell us what you need and
-					we&apos;ll work it out with you.
+					{SERVICES.length} services, one team. Pick the one that fits — or tell us what you
+					need and we&apos;ll work it out with you.
 				</p>
 
 				{/* A static, crawlable grid — no coverflow. A hub page has to be scannable. */}
@@ -30,7 +30,7 @@ export default function ServicesHubPage() {
 						<li key={s.slug}>
 							<Link
 								href={`/services/${s.slug}`}
-								className="flex h-full flex-col rounded-2xl bg-card-tint p-7 transition-colors hover:bg-card-tint/70 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brick"
+								className="flex h-full flex-col rounded-2xl bg-card-tint p-7 transition-colors hover:bg-card-tint/70 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lime-deep"
 							>
 								<span aria-hidden="true" className="text-3xl">
 									{s.icon}
@@ -41,7 +41,7 @@ export default function ServicesHubPage() {
 								<p className="mt-3 flex-1 font-body text-sm leading-relaxed text-ink-soft">
 									{s.summary}
 								</p>
-								<span className="mt-5 font-body text-sm font-bold text-brick">{s.cta} →</span>
+								<span className="mt-5 font-body text-sm font-bold text-lime-deep">{s.cta} →</span>
 							</Link>
 						</li>
 					))}

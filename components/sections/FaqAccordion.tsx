@@ -12,9 +12,9 @@ export function FaqAccordion() {
 					key={faq.question}
 					className="group rounded-2xl bg-card-tint px-6 py-5 [&_summary::-webkit-details-marker]:hidden"
 				>
-					<summary className="flex cursor-pointer items-center justify-between gap-4 font-body text-base font-bold text-ink focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brick">
+					<summary className="flex cursor-pointer items-center justify-between gap-4 font-body text-base font-bold text-ink focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lime-deep">
 						{faq.question}
-						<span aria-hidden="true" className="text-brick transition-transform group-open:rotate-45">
+						<span aria-hidden="true" className="text-lime-deep transition-transform group-open:rotate-45">
 							+
 						</span>
 					</summary>

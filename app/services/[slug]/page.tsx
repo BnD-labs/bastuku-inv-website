@@ -51,7 +51,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
 		<main>
 			<JsonLd data={schema} />
 			<Section>
-				<p className="font-mono text-xs uppercase tracking-wider text-brick">Services</p>
+				<p className="font-mono text-xs uppercase tracking-wider text-lime-deep">Services</p>
 				<h1 className="mt-3 max-w-[14ch] font-display text-5xl font-black uppercase leading-none">
 					{service.heading}
 				</h1>
@@ -83,7 +83,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
 				<ul className="mt-6 grid gap-4 sm:grid-cols-2">
 					{service.includes.map((item) => (
 						<li key={item} className="flex gap-3 font-body text-base text-paper/75">
-							<span aria-hidden="true" className="text-amber-bright">
+							<span aria-hidden="true" className="text-lime">
 								—
 							</span>
 							{item}

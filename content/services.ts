@@ -91,6 +91,25 @@ export const SERVICES: Service[] = [
 		},
 	},
 	{
+		slug: "international-moves",
+		name: "International Moves",
+		heading: "Moving overseas, not just over the border",
+		summary:
+			"Sea and air freight for relocations beyond the region — packed here, delivered there.",
+		body: [
+			"A move to another continent is a different job from a drive to Harare. It runs on shipping schedules and container space, and it is measured in weeks rather than days.",
+			"We pack and crate to survive a sea voyage, handle the export documentation, and coordinate with agents at the destination so your consignment is met on arrival rather than sitting in a port.",
+		],
+		includes: [
+			"Sea and air freight options",
+			"Export-grade crating and packing",
+			"Export documentation and clearance",
+			"Destination agent coordination",
+		],
+		cta: "Plan My International Move",
+		icon: "✈️",
+	},
+	{
 		slug: "exports-imports",
 		name: "Exports & Imports",
 		heading: "Commercial freight and clearing",

@@ -6,12 +6,12 @@ import { MobileNav } from "./MobileNav";
 export function Header() {
 	return (
 		<header className="sticky top-0 z-50 bg-paper/95 backdrop-blur-md">
-			<div className="bg-ink px-4 py-2.5 text-center font-mono text-xs uppercase tracking-wider text-amber-bright">
+			<div className="bg-ink px-4 py-2.5 text-center font-mono text-xs uppercase tracking-wider text-lime">
 				Booking spots filling for month-end moves — reserve yours early
 			</div>
 			<div className="flex items-center justify-between px-[5vw] py-4">
 				<Link href="/" className="font-display text-2xl font-black uppercase text-ink">
-					Bastuku<span className="text-brick">.</span>
+					Bastuku<span className="text-lime-deep">.</span>
 				</Link>
 
 				<nav aria-label="Main" className="hidden items-center gap-8 lg:flex">
@@ -19,7 +19,7 @@ export function Header() {
 						<Link
 							key={l.href}
 							href={l.href}
-							className="font-body text-sm font-semibold text-ink-soft hover:text-brick"
+							className="font-body text-sm font-semibold text-ink-soft hover:text-lime-deep"
 						>
 							{l.label}
 						</Link>

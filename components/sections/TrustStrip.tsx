@@ -19,7 +19,7 @@ export function TrustStrip() {
 		<div className="flex flex-wrap justify-around gap-6 bg-ink px-[5vw] py-8">
 			{STATS.map((s) => (
 				<div key={s.label} className="text-center font-mono">
-					<b className="block text-[22px] font-bold text-amber-bright">{s.value}</b>
+					<b className="block text-[22px] font-bold text-lime">{s.value}</b>
 					<span className="text-[11.5px] uppercase tracking-wide text-paper/60">{s.label}</span>
 				</div>
 			))}

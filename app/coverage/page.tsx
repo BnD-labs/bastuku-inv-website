@@ -14,7 +14,7 @@ export default function CoveragePage() {
 	return (
 		<main>
 			<Section>
-				<p className="font-mono text-xs uppercase tracking-wider text-brick">Coverage</p>
+				<p className="font-mono text-xs uppercase tracking-wider text-lime-deep">Coverage</p>
 				<h1 className="mt-3 max-w-[16ch] font-display text-[clamp(34px,4.5vw,52px)] font-black uppercase leading-none text-ink">
 					Where we go
 				</h1>
@@ -28,7 +28,7 @@ export default function CoveragePage() {
 				<div className="mt-12 flex flex-col gap-10">
 					{COVERAGE_TIERS.map((tier) => (
 						<article key={tier.id} className="border-t border-ink/10 pt-8">
-							<p className="font-mono text-xs uppercase tracking-wider text-brick">{tier.label}</p>
+							<p className="font-mono text-xs uppercase tracking-wider text-lime-deep">{tier.label}</p>
 							<h2 className="mt-2 font-display text-3xl font-extrabold uppercase leading-none text-ink">
 								{tier.headline}
 							</h2>

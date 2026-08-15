@@ -20,7 +20,7 @@ export function CoverageTiers() {
 						onClick={() => setActiveId(t.id)}
 						className={`rounded-pill px-6 py-3.5 font-body text-sm font-bold uppercase transition-colors ${
 							t.id === activeId
-								? "bg-ink text-amber-bright"
+								? "bg-ink text-lime"
 								: "bg-card-tint text-ink hover:bg-card-tint/70"
 						}`}
 					>

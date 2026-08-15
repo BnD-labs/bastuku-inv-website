@@ -24,7 +24,7 @@ export function CtaCards() {
 				const inner = (
 					<>
 						<span className="flex justify-center bg-card-tint px-4 py-6">
-							<span className="rounded-pill bg-ink px-5 py-3 font-body text-sm font-bold text-amber-bright">
+							<span className="rounded-pill bg-ink px-5 py-3 font-body text-sm font-bold text-lime">
 								{c.label}
 							</span>
 						</span>
@@ -35,7 +35,7 @@ export function CtaCards() {
 				);
 				const className =
 					"block overflow-hidden rounded-2xl shadow-[0_18px_34px_-18px_rgba(22,32,42,0.35)] " +
-					"focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brick";
+					"focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lime-deep";
 
 				return c.external ? (
 					<a

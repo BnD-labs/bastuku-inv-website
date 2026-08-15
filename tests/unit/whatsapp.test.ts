@@ -5,7 +5,7 @@ describe("buildWhatsAppUrl", () => {
 	it("returns a bare wa.me link with a default message when given no context", () => {
 		const url = buildWhatsAppUrl({});
 		expect(url).toBe(
-			"https://wa.me/260962936172?text=Hi%20Bastuku%2C%20I%27d%20like%20a%20quote."
+			"https://wa.me/260976831400?text=Hi%20Bastuku%2C%20I%27d%20like%20a%20quote."
 		);
 	});
 

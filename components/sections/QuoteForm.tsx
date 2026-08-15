@@ -13,22 +13,20 @@ type FieldErrors = Partial<Record<string, string[]>>;
 
 const inputClass =
 	"rounded-2xl border-[1.5px] border-ink/15 bg-white px-4 py-3 font-body text-sm text-ink " +
-	"focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brick";
+	"focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lime-deep";
 
 export function QuoteForm() {
 	const params = useSearchParams();
 
 	const prefillService = params.get("service") ?? SERVICES[0].slug;
-	const low = Number(params.get("low"));
-	const high = Number(params.get("high"));
 
 	const [values, setValues] = useState({
 		name: "",
 		phone: "",
 		email: "",
 		serviceSlug: prefillService,
-		origin: "",
-		destination: "",
+		origin: params.get("origin") ?? "",
+		destination: params.get("destination") ?? "",
 		moveDate: "",
 		message: "",
 	});
@@ -62,8 +60,6 @@ export function QuoteForm() {
 			destination: values.destination || undefined,
 			moveDate: values.moveDate || undefined,
 			message: values.message || undefined,
-			...(Number.isFinite(low) && low > 0 ? { estimateLow: low } : {}),
-			...(Number.isFinite(high) && high > 0 ? { estimateHigh: high } : {}),
 			sourcePage: typeof window === "undefined" ? undefined : window.location.pathname,
 		};
 
@@ -125,7 +121,7 @@ export function QuoteForm() {
 					href={manualWhatsApp}
 					target="_blank"
 					rel="noopener noreferrer"
-					className="mt-6 inline-flex rounded-pill bg-ink px-6 py-3 font-body text-sm font-bold text-amber-bright"
+					className="mt-6 inline-flex rounded-pill bg-ink px-6 py-3 font-body text-sm font-bold text-lime"
 				>
 					WhatsApp us
 				</a>
@@ -245,7 +241,7 @@ export function QuoteForm() {
 			{siteKey && <div className="cf-turnstile" data-sitekey={siteKey} />}
 
 			{formError && (
-				<p role="alert" className="font-body text-sm font-semibold text-brick">
+				<p role="alert" className="font-body text-sm font-semibold text-danger">
 					{formError}
 				</p>
 			)}
@@ -255,7 +251,7 @@ export function QuoteForm() {
 					href={fallbackUrl}
 					target="_blank"
 					rel="noopener noreferrer"
-					className="rounded-pill bg-amber px-6 py-4 text-center font-body text-base font-bold text-ink"
+					className="rounded-pill bg-lime px-6 py-4 text-center font-body text-base font-bold text-ink"
 				>
 					Send this on WhatsApp instead
 				</a>

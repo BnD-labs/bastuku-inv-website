@@ -12,18 +12,27 @@ in this file ships to production until the **Status** column reads
 | 4 | Cross-border to Zimbabwe, South Africa, Botswana | services, coverage | concept | ❌ UNVERIFIED — do we actually serve all three? |
 | 5 | Regional coverage: Ndola, Kitwe, Livingstone, Kabwe | coverage | concept | ❌ UNVERIFIED |
 | 6 | Contact email `info@bastuku.com` | `content/site.ts` | old site | ⚠️ CONFLICT — domain is `bastuku-inv.com` |
-| 7 | Phone `+260 962936172` | site-wide | old site | ❌ UNVERIFIED — confirm this is the WhatsApp number |
+| 7 | Phone `+260 976831400` | site-wide | client, 2026-08-15 | ✅ VERIFIED — supplied directly by the client as the live WhatsApp number, replacing the old `+260 962936172` |
 | 8 | Trading since May 2017 | about, stats | old site | ❌ UNVERIFIED |
 | 9 | "Payment only finalized once you're satisfied" | how-it-works | concept | ❌ UNVERIFIED — is this a real policy? |
-| 10 | All estimate figures | `content/rates.ts` | **invented placeholder** | ❌ PLACEHOLDER — real rate card required |
+| 10 | All estimate figures | `content/rates.ts` | **invented placeholder** | ⏸️ NOT SHOWN — the hero calculator was replaced by a no-price scoping tool on 2026-08-15, so no invented figure reaches a customer. `lib/estimate.ts` is retained and tested but unwired until a real rate card lands. |
 | 11 | Customs/permit handling capability | cross-border, exports | concept | ❌ UNVERIFIED — licensed clearing agent? |
 | 12 | FAQ: "walkthrough together before we leave" | faqs | drafted | ❌ UNVERIFIED — is this standard practice? |
 | 13 | FAQ: damage handling process | faqs | drafted | ❌ UNVERIFIED — what is the real policy/insurance position? |
 | 14 | Coverage: Chipata, Solwezi, Olympia | coverage | drafted | ❌ UNVERIFIED |
+| 15 | International Moves service — sea/air freight, export crating, destination agents | `/services/international-moves`, services hub, quote form | client request, 2026-08-15 | ❌ UNVERIFIED — client asked for the service to be listed, but the capability detail is drafted. Confirm which of sea freight, air freight, and destination-agent coordination are genuinely offered |
+| 16 | Hero photograph shows a Bastuku job | home hero | `images/Gemini_Generated_Image_*.png` | ⚠️ CROPPED — the source frame carries another firm's livery (`kwexports.co.za`) and a generator watermark; both are cropped out and the image is duotoned. Confirm this depicts genuine Bastuku work, or replace with owned photography |
 
 ## Missing assets — client action
 
-- [ ] Real rate card (blocks the estimate tool showing real numbers)
+- [ ] Real rate card (blocks the estimate tool showing real numbers). Note the
+      **pricing model** is an open question as well as the numbers: the current
+      calculator prices every service as `(base + km × rate) × volume`, which
+      does not fit services that are not distance-driven (packaging, general
+      supplies) or that price by container/consignment (exports, international).
+      Ask the client how each service is actually priced before rewiring it.
+- [ ] Professional photography — the current hero is a cropped third-party-livery
+      frame (see claim #16). Owned photography would retire that compromise.
 - [ ] Testimonials — currently zero anywhere on the site
 - [ ] Client logos, if any are permitted for use
 - [ ] Professional photography (existing images are 8 MB phone exports)

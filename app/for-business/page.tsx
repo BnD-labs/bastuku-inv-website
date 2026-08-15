@@ -34,7 +34,7 @@ export default function ForBusinessPage() {
 	return (
 		<main>
 			<Section>
-				<p className="font-mono text-xs uppercase tracking-wider text-brick">For business</p>
+				<p className="font-mono text-xs uppercase tracking-wider text-lime-deep">For business</p>
 				<h1 className="mt-3 max-w-[16ch] font-display text-[clamp(34px,4.5vw,52px)] font-black uppercase leading-none text-ink">
 					Logistics that fit your operation
 				</h1>

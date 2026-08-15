@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { SERVICES } from "@/content/services";
 import { Hero } from "@/components/sections/Hero";
 import { CtaCards } from "@/components/sections/CtaCards";
 import { ServicePicker } from "@/components/sections/ServicePicker";
@@ -17,9 +18,9 @@ export default function Home() {
 
 			<Section tone="ink">
 				<div className="mx-auto mb-12 max-w-2xl text-center">
-					<p className="font-mono text-xs uppercase tracking-widest text-amber-bright">What we do</p>
+					<p className="font-mono text-xs uppercase tracking-widest text-lime">What we do</p>
 					<h2 className="mt-3 font-display text-[clamp(30px,4vw,46px)] font-black uppercase leading-none">
-						Six ways we move things
+						{SERVICES.length} ways we move things
 					</h2>
 				</div>
 				<ServicePicker />
@@ -37,7 +38,7 @@ export default function Home() {
 
 			<Section tone="ink">
 				<div className="mb-10 max-w-2xl">
-					<p className="font-mono text-xs uppercase tracking-widest text-amber-bright">The process</p>
+					<p className="font-mono text-xs uppercase tracking-widest text-lime">The process</p>
 					<h2 className="mt-3 font-display text-[clamp(30px,4vw,46px)] font-black uppercase leading-none">
 						How it works
 					</h2>

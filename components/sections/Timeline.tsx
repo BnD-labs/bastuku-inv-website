@@ -12,10 +12,10 @@ export function Timeline() {
 				<li key={step.title} className="relative pb-14 last:pb-0">
 					<span
 						aria-hidden="true"
-						className="absolute -left-10 top-1 h-3 w-3 rounded-[3px] bg-amber-bright"
+						className="absolute -left-10 top-1 h-3 w-3 rounded-[3px] bg-lime"
 					/>
 					<h3 className="mb-3 font-body text-xl font-bold text-paper">
-						<span className="mr-1.5 font-mono text-amber-bright">
+						<span className="mr-1.5 font-mono text-lime">
 							{String(i + 1).padStart(2, "0")}
 						</span>
 						{step.title}

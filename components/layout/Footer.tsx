@@ -9,7 +9,7 @@ export function Footer() {
 			<div className="mx-auto grid max-w-6xl gap-10 md:grid-cols-2 lg:grid-cols-4">
 				<div>
 					<p className="font-display text-2xl font-black uppercase">
-						Bastuku<span className="text-brick">.</span>
+						Bastuku<span className="text-lime">.</span>
 					</p>
 					<p className="mt-4 font-body text-sm leading-relaxed text-paper/65">
 						Logistics and supply solutions in {SITE.city}, {SITE.country}, since {SITE.foundedYear}.
@@ -17,7 +17,7 @@ export function Footer() {
 				</div>
 
 				<nav aria-label="Footer">
-					<h2 className="font-mono text-xs uppercase tracking-wider text-amber-bright">Company</h2>
+					<h2 className="font-mono text-xs uppercase tracking-wider text-lime">Company</h2>
 					<ul className="mt-4 flex flex-col gap-2">
 						{NAV_LINKS.map((l) => (
 							<li key={l.href}>
@@ -30,7 +30,7 @@ export function Footer() {
 				</nav>
 
 				<nav aria-label="Services">
-					<h2 className="font-mono text-xs uppercase tracking-wider text-amber-bright">Services</h2>
+					<h2 className="font-mono text-xs uppercase tracking-wider text-lime">Services</h2>
 					<ul className="mt-4 flex flex-col gap-2">
 						{SERVICES.map((s) => (
 							<li key={s.slug}>
@@ -46,7 +46,7 @@ export function Footer() {
 				</nav>
 
 				<div>
-					<h2 className="font-mono text-xs uppercase tracking-wider text-amber-bright">Contact</h2>
+					<h2 className="font-mono text-xs uppercase tracking-wider text-lime">Contact</h2>
 					<ul className="mt-4 flex flex-col gap-2 font-body text-sm text-paper/65">
 						<li>
 							{SITE.city}, {SITE.country}

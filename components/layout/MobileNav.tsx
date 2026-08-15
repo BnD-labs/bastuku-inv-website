@@ -55,7 +55,7 @@ export function MobileNav() {
 						href={buildWhatsAppUrl({})}
 						target="_blank"
 						rel="noopener noreferrer"
-						className="mt-3 rounded-pill bg-amber px-5 py-3 text-center font-body text-sm font-bold text-ink"
+						className="mt-3 rounded-pill bg-lime px-5 py-3 text-center font-body text-sm font-bold text-ink"
 					>
 						WhatsApp Us
 					</a>

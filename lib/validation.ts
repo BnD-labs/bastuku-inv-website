@@ -4,6 +4,7 @@ export const SERVICE_SLUGS = [
 	"house-removals",
 	"office-relocation",
 	"cross-border-moves",
+	"international-moves",
 	"exports-imports",
 	"packaging",
 	"general-supplies",

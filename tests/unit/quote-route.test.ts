@@ -79,7 +79,7 @@ describe("POST /api/quote", () => {
 		const res = await POST(req(body));
 		expect(res.status).toBe(503);
 		const json = (await res.json()) as { whatsappUrl: string };
-		expect(json.whatsappUrl).toContain("wa.me/260962936172");
+		expect(json.whatsappUrl).toContain("wa.me/260976831400");
 		expect(decodeURIComponent(json.whatsappUrl)).toContain("John Banda");
 	});
 

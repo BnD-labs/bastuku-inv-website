@@ -1,9 +1,11 @@
 import { test, expect } from "@playwright/test";
 
-test("prefills the service from the estimate widget", async ({ page }) => {
-	await page.goto("/quote?service=office-relocation&low=1200&high=1800");
+test("prefills service and route from the hero scoping tool", async ({ page }) => {
+	await page.goto("/quote?service=office-relocation&size=large&origin=Kabulonga&destination=Roma");
 	// Exact: the footer's <nav aria-label="Services"> also matches /service/i.
 	await expect(page.getByLabel("Service", { exact: true })).toHaveValue("office-relocation");
+	await expect(page.getByLabel(/moving from/i)).toHaveValue("Kabulonga");
+	await expect(page.getByLabel(/moving to/i)).toHaveValue("Roma");
 });
 
 test("shows a field error for an invalid phone number", async ({ page }) => {
@@ -33,7 +35,7 @@ test("offers a prefilled WhatsApp fallback when the server fails", async ({ page
 			json: {
 				ok: false,
 				error: "We couldn't submit that.",
-				whatsappUrl: "https://wa.me/260962936172?text=Hi%20Bastuku",
+				whatsappUrl: "https://wa.me/260976831400?text=Hi%20Bastuku",
 			},
 		})
 	);
@@ -46,7 +48,7 @@ test("offers a prefilled WhatsApp fallback when the server fails", async ({ page
 	// /whatsapp/i, and a loose selector would trip Playwright's strict mode.
 	const fallback = page.getByRole("link", { name: /send this on whatsapp/i });
 	await expect(fallback).toBeVisible();
-	await expect(fallback).toHaveAttribute("href", /wa\.me\/260962936172/);
+	await expect(fallback).toHaveAttribute("href", /wa\.me\/260976831400/);
 });
 
 test("the typed data survives a server failure", async ({ page }) => {

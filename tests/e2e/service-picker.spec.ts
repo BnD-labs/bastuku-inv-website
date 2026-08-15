@@ -1,4 +1,5 @@
 import { test, expect } from "@playwright/test";
+import { SERVICES } from "../../content/services";
 
 /** The dot whose `aria-current` is true identifies the active slide. */
 const activeDot = (page: import("@playwright/test").Page) =>
@@ -39,8 +40,11 @@ test("slides are exposed as labelled carousel slides, not tabs", async ({ page }
 	const carousel = page.getByRole("region", { name: "Our services" });
 	await expect(carousel.locator('[role="tab"], [role="tablist"]')).toHaveCount(0);
 	const slides = page.locator('[aria-roledescription="slide"]');
-	await expect(slides).toHaveCount(6);
-	await expect(slides.first()).toHaveAttribute("aria-label", "1 of 6: House Removals");
+	await expect(slides).toHaveCount(SERVICES.length);
+	await expect(slides.first()).toHaveAttribute(
+		"aria-label",
+		`1 of ${SERVICES.length}: ${SERVICES[0].name}`
+	);
 });
 
 test("no element hidden from assistive tech contains focusable content", async ({ page }) => {

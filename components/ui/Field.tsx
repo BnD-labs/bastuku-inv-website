@@ -16,7 +16,7 @@ export function Field({
 			</label>
 			{children}
 			{error && (
-				<p id={`${htmlFor}-error`} role="alert" className="font-body text-sm text-brick">
+				<p id={`${htmlFor}-error`} role="alert" className="font-body text-sm text-danger">
 					{error}
 				</p>
 			)}

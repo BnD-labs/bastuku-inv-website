@@ -22,13 +22,27 @@ const OUT_DIR = path.join("public", "images");
 
 /**
  * `formats` produce <name>.<ext>. `raster` writes a single PNG (icons).
+ * `crop` extracts a region before resizing. `duotone` desaturates and washes
+ * the result in a brand colour so headline text stays legible over it.
  *
  * Deliberately NOT included:
  *   - Founder.png  — excluded from the build at the client's request
- *   - hero-bg.png, Gemini_*.png — the hero is SVG now, so these are unused
+ *   - hero-bg.png  — depicts Bastuku-branded premises that do not exist; using
+ *     it would assert a facility the business may not have. See CLAIMS.md.
  * They stay in `images/` as sources; they simply never reach `public/`.
  */
 const MANIFEST = [
+	// The source frame carries another firm's livery ("kwexports.co.za") on the
+	// cab at left and a generator watermark at bottom-right. The crop removes
+	// both; do not widen it without re-checking those two corners.
+	{
+		src: "Gemini_Generated_Image_9f8jd9f8jd9f8jd9.png",
+		name: "hero-yard",
+		crop: { left: 480, top: 200, width: 2170, height: 1100 },
+		width: 1920,
+		duotone: { color: "#072248", opacity: 0.45, saturation: 0.3, brightness: 0.95 },
+		formats: ["webp", "avif"],
+	},
 	// Named for what they actually show. The plan called these a "team photo";
 	// both are container freight operations, so they are used on the freight
 	// pages rather than on /how-it-works.
@@ -54,11 +68,16 @@ const MANIFEST = [
 		width: 1200,
 		height: 630,
 		raster: "png",
-		contain: "#F3EFE6",
+		contain: "#F6F8FA",
 	},
 ];
 
 const kb = (b) => `${(b / 1024).toFixed(1)} KB`;
+
+function hexToRgb(hex) {
+	const [r, g, b] = hex.replace("#", "").match(/../g).map((h) => parseInt(h, 16));
+	return { r, g, b };
+}
 
 async function main() {
 	await mkdir(OUT_DIR, { recursive: true });
@@ -73,14 +92,29 @@ async function main() {
 			continue;
 		}
 
-		const base = sharp(srcPath).rotate(); // honour EXIF orientation
-		const resized = entry.contain
+		let base = sharp(srcPath).rotate(); // honour EXIF orientation
+		if (entry.crop) base = base.extract(entry.crop);
+
+		let resized = entry.contain
 			? base.resize(entry.width, entry.height, {
 					fit: "contain",
 					background: entry.contain,
 					withoutEnlargement: false,
 				})
 			: base.resize(entry.width, entry.height, { withoutEnlargement: true });
+
+		if (entry.duotone) {
+			const { color, opacity, saturation, brightness } = entry.duotone;
+			const { r, g, b } = hexToRgb(color);
+			const washed = await resized.modulate({ saturation, brightness }).toBuffer();
+			const { width: w, height: h } = await sharp(washed).metadata();
+			const wash = await sharp({
+				create: { width: w, height: h, channels: 4, background: { r, g, b, alpha: opacity } },
+			})
+				.png()
+				.toBuffer();
+			resized = sharp(await sharp(washed).composite([{ input: wash }]).toBuffer());
+		}
 
 		const formats = entry.raster ? [entry.raster] : entry.formats;
 

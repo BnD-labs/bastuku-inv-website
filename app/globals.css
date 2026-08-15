@@ -8,17 +8,19 @@
 @source "../content";
 @source "../lib";
 
+/* Palette sampled from images/BASTUKU-LOGO2.png — navy #072248, lime #AEE522,
+   tagline grey #464B52. Lime is 1.4:1 on paper, so it is a background/dark-surface
+   colour only; --color-lime-deep is the accessible form for text on light. */
 @theme {
-	--color-ink: #16202A;
-	--color-ink-soft: #24323F;
-	--color-paper: #F3EFE6;
-	--color-paper-dim: #E7E1D2;
-	--color-amber: #E8A33D;
-	--color-amber-bright: #F5B85C;
-	--color-brick: #B24C32;
-	--color-route: #5B8C7B;
-	--color-route-bright: #74B39E;
-	--color-card-tint: #E4EDE9;
+	--color-ink: #072248;
+	--color-ink-soft: #1C3A5E;
+	--color-paper: #F6F8FA;
+	--color-lime: #AEE522;
+	--color-lime-bright: #C4F241;
+	--color-lime-deep: #55710F;
+	--color-danger: #B23A2F;
+	--color-steel: #464B52;
+	--color-card-tint: #E6EBF0;
 
 	--font-display: var(--font-big-shoulders), sans-serif;
 	--font-body: var(--font-sora), sans-serif;
