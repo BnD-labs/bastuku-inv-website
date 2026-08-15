@@ -51,7 +51,11 @@ npm run deploy
   `chrome-launcher` cleanup bug. Workaround in `BUDGETS.md`. CI is unaffected.
 - If a build fails with `EPERM` on `.open-next`, an orphaned `workerd` process
   is holding it. `Get-Process workerd | Stop-Process -Force`, delete the
-  directory, rebuild. Running the e2e suite tends to leave one behind.
+  directory, rebuild. Running the e2e suite reliably leaves one behind, so
+  expect this on the first deploy after `npx playwright test`.
+- Do not delete `.next` casually: `next/font` caches the Google Fonts download
+  there, and refetching fails on a flaky connection with a misleading
+  "Failed to fetch `Sora` from Google Fonts" build error. Just retry.
 - Playwright needs **both** `chromium` and `chromium-headless-shell`; installing
   only the former fails at launch with a confusing "just installed or updated"
   message.
