@@ -1,4 +1,5 @@
 import { STEPS } from "@/content/steps";
+import { Reveal } from "@/components/ui/Reveal";
 
 /**
  * Marker and rail styling ported from the original static concept.
@@ -9,7 +10,7 @@ export function Timeline() {
 	return (
 		<ol className="relative list-none pl-10 before:absolute before:bottom-2 before:left-[5px] before:top-2 before:w-0.5 before:bg-paper/[0.18] before:content-['']">
 			{STEPS.map((step, i) => (
-				<li key={step.title} className="relative pb-14 last:pb-0">
+				<Reveal as="li" key={step.title} delay={i * 110} className="relative pb-14 last:pb-0">
 					<span
 						aria-hidden="true"
 						className="absolute -left-10 top-1 h-3 w-3 rounded-[3px] bg-lime"
@@ -25,7 +26,7 @@ export function Timeline() {
 							{p}
 						</p>
 					))}
-				</li>
+				</Reveal>
 			))}
 		</ol>
 	);

@@ -35,11 +35,90 @@ body {
 	color: var(--color-ink);
 }
 
+/* ---------------------------------------------------------------------------
+   Motion
+   Everything here animates only `opacity` and `transform`, which the compositor
+   handles off the main thread and which cannot move layout — the site holds a
+   CLS of 0 and these must not spend it.
+   --------------------------------------------------------------------------- */
+
+@keyframes rise {
+	from { opacity: 0; transform: translateY(18px); }
+	to   { opacity: 1; transform: none; }
+}
+
+@keyframes ken-burns {
+	from { transform: scale(1); }
+	to   { transform: scale(1.07); }
+}
+
+/* Entrance animation for above-the-fold content, which is on screen before any
+   observer could fire. `both` holds the from-state during animation-delay so
+   staggered children do not flash in first. */
+.u-rise {
+	animation: rise 0.75s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+}
+
+/* Scroll reveal. The resting state is visible on purpose — Reveal.tsx only
+   "arms" (hides) an element that is already below the fold, so nothing the user
+   can see ever waits on hydration. See the comment in Reveal.tsx. */
+.u-reveal {
+	transition:
+		opacity 0.7s cubic-bezier(0.22, 0.61, 0.36, 1),
+		transform 0.7s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+.u-reveal[data-armed="true"] {
+	opacity: 0;
+	transform: translateY(22px);
+}
+.u-reveal[data-armed="true"][data-visible="true"] {
+	opacity: 1;
+	transform: none;
+}
+
+.u-ken-burns {
+	animation: ken-burns 24s cubic-bezier(0.33, 0, 0.67, 1) both alternate infinite;
+}
+
+/* Nav underline. A scaled pseudo-element rather than a border, so the wipe is
+   compositor-only and the link's box never changes size. */
+.u-navlink {
+	position: relative;
+}
+.u-navlink::after {
+	content: "";
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: -6px;
+	height: 2px;
+	border-radius: 2px;
+	background: var(--color-lime-deep);
+	transform: scaleX(0);
+	transform-origin: left;
+	transition: transform 0.32s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+.u-navlink:hover::after,
+.u-navlink:focus-visible::after,
+.u-navlink[aria-current="page"]::after {
+	transform: scaleX(1);
+}
+
 @media (prefers-reduced-motion: reduce) {
 	*, *::before, *::after {
 		animation-duration: 0.01ms !important;
 		animation-iteration-count: 1 !important;
 		transition-duration: 0.01ms !important;
 		scroll-behavior: auto !important;
+	}
+	/* Reveal.tsx already declines to arm anything under reduced motion; this is
+	   the belt-and-braces so a hidden state can never survive here. Ken Burns is
+	   cancelled outright rather than snapping to its end scale. */
+	.u-reveal {
+		opacity: 1 !important;
+		transform: none !important;
+	}
+	.u-ken-burns {
+		animation: none !important;
 	}
 }
