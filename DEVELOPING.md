@@ -24,7 +24,7 @@ npm run build                  # plain next build (what CI and Playwright use)
 npm test                       # vitest, tests/unit/**/*.test.ts (42 tests, ~3s)
 npx vitest run tests/unit/estimate.test.ts       # one file
 npx vitest run -t "applies the volume multiplier" # one test by name
-npm run test:e2e               # playwright; builds + serves on :3100 itself (12 tests)
+npm run test:e2e               # playwright; builds + serves on :3100 itself (17 tests)
 npx playwright test tests/e2e/motion.spec.ts     # one spec
 npx tsc --noEmit               # typecheck (CI runs this)
 npm run preview                # OpenNext build + local Worker
