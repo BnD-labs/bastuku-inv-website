@@ -8,6 +8,10 @@ import { Timeline } from "@/components/sections/Timeline";
 import { TrustStrip } from "@/components/sections/TrustStrip";
 import { Section } from "@/components/ui/Section";
 import { ButtonLink } from "@/components/ui/Button";
+import { pageMetadata } from "@/lib/metadata";
+
+// Title and description come from the root layout's defaults.
+export const metadata = pageMetadata({ path: "/" });
 
 export default function Home() {
 	return (

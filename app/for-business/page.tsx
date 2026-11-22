@@ -1,15 +1,15 @@
-import type { Metadata } from "next";
 import { SITE } from "@/content/site";
+import { pageMetadata } from "@/lib/metadata";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
 import { Section } from "@/components/ui/Section";
 import { ButtonLink } from "@/components/ui/Button";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
 	title: "For Business",
 	description:
 		"Office relocation, recurring supply runs, and clearing and forwarding for commercial cargo, for businesses in Lusaka and across Zambia.",
-	alternates: { canonical: "/for-business" },
-};
+	path: "/for-business",
+});
 
 const OFFERS: { title: string; body: string }[] = [
 	{

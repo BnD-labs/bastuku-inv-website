@@ -1,14 +1,14 @@
-import type { Metadata } from "next";
 import { COVERAGE_TIERS } from "@/content/coverage";
+import { pageMetadata } from "@/lib/metadata";
 import { Section } from "@/components/ui/Section";
 import { ButtonLink } from "@/components/ui/Button";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
 	title: "Coverage",
 	description:
 		"Where we operate: Lusaka and surrounds, Zambia's major cities, and cross-border to neighbouring countries.",
-	alternates: { canonical: "/coverage" },
-};
+	path: "/coverage",
+});
 
 export default function CoveragePage() {
 	return (

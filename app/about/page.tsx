@@ -1,13 +1,13 @@
-import type { Metadata } from "next";
 import { SITE } from "@/content/site";
+import { pageMetadata } from "@/lib/metadata";
 import { Section } from "@/components/ui/Section";
 import { ButtonLink } from "@/components/ui/Button";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
 	title: "About",
 	description: `Logistics and supply solutions in ${SITE.city}, ${SITE.country}, since ${SITE.foundedYear}.`,
-	alternates: { canonical: "/about" },
-};
+	path: "/about",
+});
 
 const VALUES: { title: string; body: string }[] = [
 	{

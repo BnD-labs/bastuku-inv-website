@@ -5,25 +5,21 @@ import { Footer } from "@/components/layout/Footer";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { SITE } from "@/content/site";
 import { COVERAGE_TIERS } from "@/content/coverage";
+import { OPEN_GRAPH_DEFAULTS } from "@/lib/metadata";
 import "./globals.css";
 
 export const metadata: Metadata = {
 	metadataBase: new URL(SITE.url),
 	title: {
-		default: "Bastuku Investments | Movers & Logistics in Lusaka, Zambia",
+		default: "Bastuku Investments | Movers, Clearing & Forwarding in Lusaka, Zambia",
 		template: "%s | Bastuku Investments",
 	},
 	description:
-		"House removals, office relocation, cross-border moves, and freight across Zambia. Trusted logistics in Lusaka since 2017.",
-	openGraph: {
-		type: "website",
-		locale: "en_ZM",
-		siteName: SITE.name,
-		url: SITE.url,
-		images: [{ url: "/og.png", width: 1200, height: 630, alt: SITE.name }],
-	},
+		"House removals, office relocation, cross-border moves, and clearing and forwarding for commercial cargo. Trusted logistics in Lusaka, Zambia, since 2017.",
+	// No `url` or canonical here: inherited by every page, they made each one
+	// claim to be the home page. Pages set both through pageMetadata().
+	openGraph: OPEN_GRAPH_DEFAULTS,
 	twitter: { card: "summary_large_image" },
-	alternates: { canonical: "/" },
 };
 
 const localBusiness = {

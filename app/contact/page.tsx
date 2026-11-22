@@ -1,15 +1,15 @@
 import { Suspense } from "react";
-import type { Metadata } from "next";
 import { SITE } from "@/content/site";
+import { pageMetadata } from "@/lib/metadata";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
 import { QuoteForm } from "@/components/sections/QuoteForm";
 import { Section } from "@/components/ui/Section";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
 	title: "Contact",
 	description: `Call, WhatsApp, or email Bastuku Investments in ${SITE.city}, ${SITE.country}.`,
-	alternates: { canonical: "/contact" },
-};
+	path: "/contact",
+});
 
 export default function ContactPage() {
 	return (

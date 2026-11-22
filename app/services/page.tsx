@@ -1,16 +1,16 @@
 import Link from "next/link";
-import type { Metadata } from "next";
 import { SERVICES } from "@/content/services";
+import { pageMetadata } from "@/lib/metadata";
 import { Section } from "@/components/ui/Section";
 import { ButtonLink } from "@/components/ui/Button";
 import { Reveal } from "@/components/ui/Reveal";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
 	title: "Services",
 	description:
 		"House removals, office relocation, cross-border and international moves, clearing and forwarding, professional packaging, and general supplies across Zambia.",
-	alternates: { canonical: "/services" },
-};
+	path: "/services",
+});
 
 export default function ServicesHubPage() {
 	return (

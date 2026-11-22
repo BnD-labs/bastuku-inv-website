@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import { Timeline } from "@/components/sections/Timeline";
 import { FaqAccordion } from "@/components/sections/FaqAccordion";
 import { Section } from "@/components/ui/Section";
@@ -6,12 +6,12 @@ import { ButtonLink } from "@/components/ui/Button";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { FAQS } from "@/content/faqs";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
 	title: "How It Works",
 	description:
 		"Three steps: request an estimate, we pack and move, then we unpack and confirm with you before we leave.",
-	alternates: { canonical: "/how-it-works" },
-};
+	path: "/how-it-works",
+});
 
 const faqSchema = {
 	"@context": "https://schema.org",
