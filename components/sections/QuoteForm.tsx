@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Script from "next/script";
 import { useSearchParams } from "next/navigation";
-import { quoteSchema } from "@/lib/validation";
+import { normaliseServiceSlug, quoteSchema } from "@/lib/validation";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
 import { SERVICES } from "@/content/services";
 import { Button } from "@/components/ui/Button";
@@ -18,7 +18,8 @@ const inputClass =
 export function QuoteForm() {
 	const params = useSearchParams();
 
-	const prefillService = params.get("service") ?? SERVICES[0].slug;
+	// Old shared links still carry ?service=exports-imports.
+	const prefillService = normaliseServiceSlug(params.get("service")) ?? SERVICES[0].slug;
 
 	const [values, setValues] = useState({
 		name: "",

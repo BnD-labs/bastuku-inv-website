@@ -8,7 +8,7 @@ import { Reveal } from "@/components/ui/Reveal";
 export const metadata: Metadata = {
 	title: "Services",
 	description:
-		"House removals, office relocation, cross-border and international moves, exports and imports, professional packaging, and general supplies across Zambia.",
+		"House removals, office relocation, cross-border and international moves, clearing and forwarding, professional packaging, and general supplies across Zambia.",
 	alternates: { canonical: "/services" },
 };
 

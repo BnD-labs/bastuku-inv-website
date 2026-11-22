@@ -20,7 +20,7 @@ export const RATES: RateConfig = {
 		"office-relocation": 2500,
 		"cross-border-moves": 6000,
 		"international-moves": 12000,
-		"exports-imports": 5000,
+		"clearing-forwarding-freight": 5000,
 		packaging: 800,
 		"general-supplies": 500,
 	},

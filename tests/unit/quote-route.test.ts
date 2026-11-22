@@ -46,6 +46,16 @@ describe("POST /api/quote", () => {
 		await expect(res.json()).resolves.toMatchObject({ ok: true, leadId: "lead-123" });
 	});
 
+	it("stores a submission with the retired exports-imports slug under the new slug", async () => {
+		// A quote form loaded from a page cached before the rename still sends the old value.
+		const res = await POST(req({ ...body, serviceSlug: "exports-imports" }));
+		expect(res.status).toBe(200);
+		expect(insertLead).toHaveBeenCalledWith(
+			expect.anything(),
+			expect.objectContaining({ serviceSlug: "clearing-forwarding-freight" })
+		);
+	});
+
 	it("rejects a failed Turnstile check with 403 and never touches the database", async () => {
 		vi.mocked(verifyTurnstile).mockResolvedValue(false);
 		const res = await POST(req(body));
