@@ -14,7 +14,7 @@ in this file ships to production until the **Status** column reads
 | 6 | Contact email `info@bastuku-inv.com` (was `info@bastuku.com`) | `content/site.ts` | company Google account and 2026 invoices | ✅ VERIFIED |
 | 7 | Phone `+260 976831400` | site-wide | client, 2026-08-15 | ✅ VERIFIED — supplied directly by the client as the live WhatsApp number, replacing the old `+260 962936172` |
 | 8 | Trading since May 2017 | about, stats | old site | ❌ UNVERIFIED |
-| 9 | "Payment only finalized once you're satisfied" | how-it-works | concept | ❌ UNVERIFIED — is this a real policy? |
+| 9 | ~~"Payment only finalized once you're satisfied"~~ | how-it-works | concept | ~~STRUCK~~ — replaced 2026-11; invoices require payment before the move. Now reads "Your payment terms are set out in your quote before anything moves." |
 | 10 | All estimate figures | `content/rates.ts` | **invented placeholder** | ⏸️ NOT SHOWN — the hero calculator was replaced by a no-price scoping tool on 2026-08-15, so no invented figure reaches a customer. `lib/estimate.ts` is retained and tested but unwired until a real rate card lands. |
 | 11 | Customs/permit handling capability | cross-border, exports | concept | ❌ UNVERIFIED — licensed clearing agent? |
 | 12 | FAQ: "walkthrough together before we leave" | faqs | drafted | ❌ UNVERIFIED — is this standard practice? |

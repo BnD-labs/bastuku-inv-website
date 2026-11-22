@@ -22,7 +22,7 @@ export const STEPS: Step[] = [
 		title: "Unpack & Confirm",
 		paragraphs: [
 			"We place everything where you want it and do a walkthrough together before we leave — so you can confirm everything arrived in the shape it left in.",
-			"Payment is finalised once you're satisfied.",
+			"Your payment terms are set out in your quote before anything moves.",
 		],
 	},
 ];
