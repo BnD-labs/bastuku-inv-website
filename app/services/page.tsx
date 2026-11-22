@@ -25,7 +25,7 @@ export default function ServicesHubPage() {
 				{/* One template literal: JSX drops the space between an expression and
 				    following text when the text wraps to another line. */}
 				<p className="mt-5 max-w-[52ch] font-body text-lg leading-relaxed text-ink-soft">
-					{`${SERVICES.length} services, one team. Pick the one that fits — or tell us what you need and we'll work it out with you.`}
+					{`${SERVICES.length} services, one point of contact. Pick the one that fits — or tell us what you need and we'll work it out with you.`}
 				</p>
 
 				{/* A static, crawlable grid — no coverflow. A hub page has to be scannable. */}

@@ -14,7 +14,7 @@ export const STEPS: Step[] = [
 	{
 		title: "Pack & Move",
 		paragraphs: [
-			"Our team arrives on schedule to pack, load, and transport your belongings. You'll have a direct contact for the whole move — no chasing updates.",
+			"A trained, vetted crew arrives on schedule to pack, load, and transport your belongings. You'll have a direct contact for the whole move — no chasing updates.",
 			"Need something adjusted on the day? Tell your move lead and they'll sort it on the spot.",
 		],
 	},
