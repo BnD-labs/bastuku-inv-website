@@ -9,7 +9,7 @@ vi.mock("@opennextjs/cloudflare", () => ({
 			DB: {},
 			TURNSTILE_SECRET_KEY: "s",
 			RESEND_API_KEY: "r",
-			LEAD_NOTIFY_EMAIL: "info@bastuku.com",
+			LEAD_NOTIFY_EMAIL: "info@bastuku-inv.com",
 		},
 	}),
 }));

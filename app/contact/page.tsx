@@ -41,11 +41,16 @@ export default function ContactPage() {
 							</li>
 							<li>
 								<span className="block font-mono text-xs uppercase tracking-wider text-ink-soft/70">
-									Phone
+									Call
 								</span>
-								<a href={`tel:${SITE.phoneE164}`} className="text-base font-bold text-ink underline">
-									{SITE.phoneDisplay}
-								</a>
+								<span className="flex flex-col gap-2">
+									<a href={`tel:${SITE.phoneE164}`} className="w-fit text-base font-bold text-ink underline">
+										{SITE.phoneDisplay}
+									</a>
+									<a href={`tel:${SITE.phone2E164}`} className="w-fit text-base font-bold text-ink underline">
+										{SITE.phone2Display}
+									</a>
+								</span>
 							</li>
 							<li>
 								<span className="block font-mono text-xs uppercase tracking-wider text-ink-soft/70">

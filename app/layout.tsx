@@ -31,7 +31,7 @@ const localBusiness = {
 	"@type": "MovingCompany",
 	name: SITE.legalName,
 	url: SITE.url,
-	telephone: SITE.phoneE164,
+	telephone: [SITE.phoneE164, SITE.phone2E164],
 	email: SITE.email,
 	address: {
 		"@type": "PostalAddress",

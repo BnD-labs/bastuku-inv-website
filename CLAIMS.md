@@ -11,7 +11,7 @@ in this file ships to production until the **Status** column reads
 | 3 | Moves completed: **200+** vs **500+** | stats strip | old site vs concept | ⚠️ CONFLICT — client must give one number |
 | 4 | Cross-border to Zimbabwe, South Africa, Botswana | services, coverage | concept | ❌ UNVERIFIED — do we actually serve all three? |
 | 5 | Regional coverage: Ndola, Kitwe, Livingstone, Kabwe | coverage | concept | ❌ UNVERIFIED |
-| 6 | Contact email `info@bastuku.com` | `content/site.ts` | old site | ⚠️ CONFLICT — domain is `bastuku-inv.com` |
+| 6 | Contact email `info@bastuku-inv.com` (was `info@bastuku.com`) | `content/site.ts` | company Google account and 2026 invoices | ✅ VERIFIED |
 | 7 | Phone `+260 976831400` | site-wide | client, 2026-08-15 | ✅ VERIFIED — supplied directly by the client as the live WhatsApp number, replacing the old `+260 962936172` |
 | 8 | Trading since May 2017 | about, stats | old site | ❌ UNVERIFIED |
 | 9 | "Payment only finalized once you're satisfied" | how-it-works | concept | ❌ UNVERIFIED — is this a real policy? |
@@ -22,6 +22,7 @@ in this file ships to production until the **Status** column reads
 | 14 | Coverage: Chipata, Solwezi, Olympia | coverage | drafted | ❌ UNVERIFIED |
 | 15 | International Moves service — sea/air freight, export crating, destination agents | `/services/international-moves`, services hub, quote form | client request, 2026-08-15 | ❌ UNVERIFIED — client asked for the service to be listed, but the capability detail is drafted. Confirm which of sea freight, air freight, and destination-agent coordination are genuinely offered |
 | 16 | Hero photograph shows a Bastuku job | home hero | `images/Gemini_Generated_Image_*.png` | ⚠️ CROPPED — the source frame carries another firm's livery (`kwexports.co.za`) and a generator watermark; both are cropped out and the image is duotoned. Confirm this depicts genuine Bastuku work, or replace with owned photography |
+| 17 | Secondary call line `+260 967 022 254` (calls only; WhatsApp stays on #7) | footer, contact, JSON-LD | BASTUKU contact rule, Oct 2026 | ⚠️ CONFIRM — Brandon to confirm at review |
 
 ## Missing assets — client action
 
