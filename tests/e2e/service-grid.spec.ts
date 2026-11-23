@@ -43,3 +43,17 @@ test.describe("on a phone", () => {
 		});
 	}
 });
+
+// Kept from the retired coverflow spec: it guards every page element, not just
+// the carousel. A focusable element inside aria-hidden is a keyboard trap that
+// screen readers cannot announce.
+test("no element hidden from assistive tech contains focusable content", async ({ page }) => {
+	await page.goto("/");
+	const trapped = await page.evaluate(
+		() =>
+			[...document.querySelectorAll('[aria-hidden="true"]')].filter((el) =>
+				el.querySelector("a[href], button, input, select, textarea, [tabindex]")
+			).length
+	);
+	expect(trapped).toBe(0);
+});
