@@ -30,17 +30,53 @@ test("below-fold content is armed and then revealed on scroll", async ({ page })
 	expect(await hiddenInView(page)).toBe(0);
 });
 
-test("the header condenses once the page is scrolled", async ({ page }) => {
+test("the promo bar scrolls away and the nav stays pinned", async ({ page }) => {
 	await page.goto("/");
 	await page.waitForTimeout(600);
-	const promo = page.locator("header > div").first();
-	const open = (await promo.boundingBox())?.height ?? 0;
-	expect(open).toBeGreaterThan(0);
+	const promo = page.getByText(/booking spots filling/i);
+	await expect(promo).toBeInViewport();
 
 	await page.evaluate(() => window.scrollTo(0, 900));
-	await page.waitForTimeout(700);
-	const shut = (await promo.boundingBox())?.height ?? 0;
-	expect(shut).toBeLessThan(open);
+	await page.waitForTimeout(400);
+	await expect(promo).not.toBeInViewport();
+	expect((await page.locator("header").boundingBox())?.y).toBe(0);
+});
+
+// Regression: the header used to shrink past a scroll threshold. A sticky header
+// still takes up space in the page, so the page jumped, scroll anchoring moved
+// scrollY back across the threshold, and the header flipped open and shut on
+// its own (54 flips in 6s on /quote) whenever someone scrolled up near the top.
+test("the header never changes height or moves the page while scrolling", async ({ page }) => {
+	await page.goto("/quote");
+	await page.waitForTimeout(600);
+	const measure = () =>
+		page.evaluate(() => ({
+			y: Math.round(scrollY),
+			header: Math.round(document.querySelector("header")!.getBoundingClientRect().height),
+			main: Math.round(document.querySelector("main")!.getBoundingClientRect().top + scrollY),
+		}));
+	const atTop = await measure();
+
+	// Wheel back up from below the fold, the gesture that triggered it.
+	await page.mouse.move(400, 400);
+	await page.evaluate(() => window.scrollTo(0, 220));
+	await page.waitForTimeout(300);
+	for (let i = 0; i < 22; i++) {
+		await page.mouse.wheel(0, -10);
+		await page.waitForTimeout(50);
+		const now = await measure();
+		expect(now.header).toBe(atTop.header);
+		expect(now.main).toBe(atTop.main);
+	}
+
+	// Parked near the top with no input, nothing may keep moving.
+	for (const park of [30, 45, 61, 90]) {
+		await page.evaluate((y) => window.scrollTo(0, y), park);
+		await page.waitForTimeout(100);
+		const start = await measure();
+		await page.waitForTimeout(700);
+		expect(await measure()).toEqual(start);
+	}
 });
 
 test("the current section is marked in the nav", async ({ page }) => {
