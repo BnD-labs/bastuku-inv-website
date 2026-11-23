@@ -24,7 +24,7 @@ npm run build                  # plain next build (what CI and Playwright use)
 npm test                       # vitest, tests/unit/**/*.test.ts (42 tests, ~3s)
 npx vitest run tests/unit/estimate.test.ts       # one file
 npx vitest run -t "applies the volume multiplier" # one test by name
-npm run test:e2e               # playwright; builds + serves on :3100 itself (17 tests)
+npm run test:e2e               # playwright; builds + serves on :3100 itself (36 tests)
 npx playwright test tests/e2e/motion.spec.ts     # one spec
 npx tsc --noEmit               # typecheck (CI runs this)
 npm run preview                # OpenNext build + local Worker
@@ -34,6 +34,11 @@ npm run cf-typegen             # regenerate cloudflare-env.d.ts after changing w
 npm run images                 # sharp pipeline: images/ -> public/images/, fails if any raster > 200 KB
 npx wrangler d1 migrations apply bastuku-leads --local   # add --remote for production
 ```
+
+Two Windows traps on this machine, both of which look like broken code:
+
+- **Vitest fails every suite with "failed to find the runner"** when the shell's working directory has a lower-case drive letter (`c:/Users/…`, which Git Bash and some VS Code terminals produce). Vite then loads two copies of vitest. Run it from a path that starts `C:\`.
+- **`npm run test:e2e` times out waiting for the web server.** A cold `next build` takes about two minutes here, close to Playwright's 180 s limit. Build once, start `npx next start --port 3100` yourself, and Playwright reuses it (outside CI).
 
 First-time setup: `npm ci`, `npx playwright install chromium chromium-headless-shell` (needs **both**), `cp .dev.vars.example .dev.vars`, apply the local D1 migration.
 
