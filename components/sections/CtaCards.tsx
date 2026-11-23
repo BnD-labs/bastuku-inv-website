@@ -16,8 +16,10 @@ const CARDS: { label: string; caption: string; href: string; kind: "page" | "tab
 ];
 
 export function CtaCards() {
+	// role="list": Safari drops list semantics from a ul with list-style: none,
+	// which Tailwind's preflight sets.
 	return (
-		<ul aria-label="Ways to get started" className="grid grid-cols-2 gap-4 px-[5vw] pb-14 lg:grid-cols-4">
+		<ul role="list" aria-label="Ways to get started" className="grid grid-cols-2 gap-4 px-[5vw] pb-14 lg:grid-cols-4">
 			{CARDS.map((c) => {
 				const inner = (
 					<>
@@ -32,7 +34,7 @@ export function CtaCards() {
 					</>
 				);
 				const className =
-					"group block overflow-hidden rounded-2xl shadow-[0_18px_34px_-18px_rgba(7,34,72,0.35)] " +
+					"group block h-full overflow-hidden rounded-2xl shadow-[0_18px_34px_-18px_rgba(7,34,72,0.35)] " +
 					"transition-[transform,box-shadow] duration-300 ease-out " +
 					"hover:-translate-y-1.5 hover:shadow-[0_26px_44px_-20px_rgba(7,34,72,0.6)] " +
 					"focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lime-deep";
