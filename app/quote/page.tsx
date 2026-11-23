@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import { QuoteForm } from "@/components/sections/QuoteForm";
+import { QuoteForm, QuoteFormSkeleton } from "@/components/sections/QuoteForm";
 import { Section } from "@/components/ui/Section";
 import { pageMetadata } from "@/lib/metadata";
 
@@ -19,9 +19,11 @@ export default function QuotePage() {
 						Tell us what you&apos;re moving. We&apos;ll come back with a firm price.
 					</p>
 					<div className="mt-8">
-						{/* QuoteForm reads ?service/?low/?high, so it needs a Suspense
-						    boundary for this page to stay statically prerendered. */}
-						<Suspense fallback={null}>
+						{/* QuoteForm reads ?service/?origin/?destination, so it needs a
+						    Suspense boundary for this page to stay statically prerendered.
+						    The fallback is the same form, unprefilled: a null fallback
+						    made the whole page shift on load. */}
+						<Suspense fallback={<QuoteFormSkeleton />}>
 							<QuoteForm />
 						</Suspense>
 					</div>

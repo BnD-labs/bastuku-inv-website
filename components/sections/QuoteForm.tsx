@@ -15,19 +15,47 @@ const inputClass =
 	"rounded-2xl border-[1.5px] border-ink/15 bg-white px-4 py-3 font-body text-sm text-ink " +
 	"focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lime-deep";
 
+interface Prefill {
+	serviceSlug: string;
+	origin: string;
+	destination: string;
+}
+
+const NO_PREFILL: Prefill = { serviceSlug: SERVICES[0].slug, origin: "", destination: "" };
+
+/** The form, prefilled from ?service, ?origin and ?destination (the scoper's hand-off). */
 export function QuoteForm() {
 	const params = useSearchParams();
+	const prefill: Prefill = {
+		// Old shared links still carry ?service=exports-imports.
+		serviceSlug: normaliseServiceSlug(params.get("service")) ?? NO_PREFILL.serviceSlug,
+		origin: params.get("origin") ?? "",
+		destination: params.get("destination") ?? "",
+	};
+	// Keyed so a client-side navigation to a different prefill starts fresh.
+	return <QuoteFormFields key={JSON.stringify(prefill)} prefill={prefill} />;
+}
 
-	// Old shared links still carry ?service=exports-imports.
-	const prefillService = normaliseServiceSlug(params.get("service")) ?? SERVICES[0].slug;
+/*
+ * The Suspense fallback for QuoteForm: the same form with nothing prefilled.
+ * useSearchParams has no value at prerender, so the static HTML is whatever the
+ * fallback renders. It used to be null, so the page arrived with no form and
+ * the footer jumped down by the form's full height on hydration (CLS 0.27 on a
+ * laptop, 0.52 on a phone, the red Lighthouse check in CI). With the same form
+ * as the fallback, hydration only changes field values, never the layout.
+ */
+export function QuoteFormSkeleton() {
+	return <QuoteFormFields prefill={NO_PREFILL} />;
+}
 
+function QuoteFormFields({ prefill }: { prefill: Prefill }) {
 	const [values, setValues] = useState({
 		name: "",
 		phone: "",
 		email: "",
-		serviceSlug: prefillService,
-		origin: params.get("origin") ?? "",
-		destination: params.get("destination") ?? "",
+		serviceSlug: prefill.serviceSlug,
+		origin: prefill.origin,
+		destination: prefill.destination,
 		moveDate: "",
 		message: "",
 	});
@@ -239,7 +267,10 @@ export function QuoteForm() {
 				/>
 			</Field>
 
-			{siteKey && <div className="cf-turnstile" data-sitekey={siteKey} />}
+			{/* The widget injects a 65px iframe once its script loads (lazily, after
+			    hydration), so the space is reserved up front or the button below
+			    would jump down. */}
+			{siteKey && <div className="cf-turnstile min-h-[65px]" data-sitekey={siteKey} />}
 
 			{formError && (
 				<p role="alert" className="font-body text-sm font-semibold text-danger">
