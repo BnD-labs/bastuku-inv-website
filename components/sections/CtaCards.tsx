@@ -1,25 +1,23 @@
 import Link from "next/link";
+import { SITE } from "@/content/site";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
 
 /**
  * The four-card CTA row from the original static concept, which used <button>s
- * that went nowhere; each is a real destination here.
+ * that went nowhere; each is a real destination here, and no two share one.
+ * "Book Now" used to sit beside "Get a Quote" and both opened /quote, so it
+ * became the phone line, which was otherwise missing from the top of the page.
  */
-const CARDS: { label: string; caption: string; href: string; external?: boolean }[] = [
-	{ label: "Book Now", caption: "Start your move today", href: "/quote" },
-	{ label: "Get a Quote", caption: "See rough pricing first", href: "/quote" },
-	{ label: "For Business", caption: "Recurring office logistics", href: "/for-business" },
-	{
-		label: "WhatsApp Us",
-		caption: "Chat with us in minutes",
-		href: buildWhatsAppUrl({}),
-		external: true,
-	},
+const CARDS: { label: string; caption: string; href: string; kind: "page" | "tab" | "tel" }[] = [
+	{ label: "Get a Quote", caption: "Tell us the job, get a firm price", href: "/quote", kind: "page" },
+	{ label: "WhatsApp Us", caption: "Message us from your phone", href: buildWhatsAppUrl({}), kind: "tab" },
+	{ label: "Call Us", caption: SITE.phoneDisplay, href: `tel:${SITE.phoneE164}`, kind: "tel" },
+	{ label: "For Business", caption: "Recurring office logistics", href: "/for-business", kind: "page" },
 ];
 
 export function CtaCards() {
 	return (
-		<div className="grid grid-cols-2 gap-4 px-[5vw] pb-14 lg:grid-cols-4">
+		<ul aria-label="Ways to get started" className="grid grid-cols-2 gap-4 px-[5vw] pb-14 lg:grid-cols-4">
 			{CARDS.map((c) => {
 				const inner = (
 					<>
@@ -39,22 +37,26 @@ export function CtaCards() {
 					"hover:-translate-y-1.5 hover:shadow-[0_26px_44px_-20px_rgba(7,34,72,0.6)] " +
 					"focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lime-deep";
 
-				return c.external ? (
-					<a
-						key={c.label}
-						href={c.href}
-						target="_blank"
-						rel="noopener noreferrer"
-						className={className}
-					>
-						{inner}
-					</a>
-				) : (
-					<Link key={c.label} href={c.href} className={className}>
-						{inner}
-					</Link>
+				return (
+					<li key={c.label}>
+						{c.kind === "page" ? (
+							<Link href={c.href} className={className}>
+								{inner}
+							</Link>
+						) : (
+							// WhatsApp opens in a new tab; a tel: link must not, or desktop
+							// browsers leave a blank tab behind when the dialler takes over.
+							<a
+								href={c.href}
+								className={className}
+								{...(c.kind === "tab" && { target: "_blank", rel: "noopener noreferrer" })}
+							>
+								{inner}
+							</a>
+						)}
+					</li>
 				);
 			})}
-		</div>
+		</ul>
 	);
 }
