@@ -17,25 +17,42 @@ const CARDS: { label: string; caption: string; href: string; kind: "page" | "tab
 
 export function CtaCards() {
 	return (
-		<ul aria-label="Ways to get started" className="grid grid-cols-2 gap-4 px-[5vw] pb-14 lg:grid-cols-4">
-			{CARDS.map((c) => {
+		<ul aria-label="Ways to get started" className="grid grid-cols-2 gap-4 px-[5vw] py-10 lg:grid-cols-4">
+			{CARDS.map((c, i) => {
+				// One target per card. The concept put a pill button inside a clickable
+				// card, which read as two things to click. The quote card is navy
+				// because it is the main action; lime stays on the dark surface.
+				const primary = i === 0;
 				const inner = (
 					<>
-						<span className="flex justify-center bg-card-tint px-4 py-6">
-							<span className="rounded-pill bg-ink px-5 py-3 font-body text-sm font-bold text-lime transition-colors duration-300 group-hover:bg-ink-soft">
-								{c.label}
+						<span
+							className={`flex items-center justify-between gap-2 font-display text-xl font-extrabold uppercase leading-none ${
+								primary ? "text-lime" : "text-ink"
+							}`}
+						>
+							{c.label}
+							<span
+								aria-hidden="true"
+								className="font-body text-base transition-transform duration-300 ease-out group-hover:translate-x-1"
+							>
+								→
 							</span>
 						</span>
-						<span className="block bg-white px-3 pb-5 pt-4 text-center font-body text-[13.5px] font-medium text-ink-soft">
+						<span
+							className={`mt-2 block font-body text-[13.5px] font-medium ${
+								primary ? "text-paper/75" : "text-ink-soft"
+							}`}
+						>
 							{c.caption}
 						</span>
 					</>
 				);
 				const className =
-					"group block overflow-hidden rounded-2xl shadow-[0_18px_34px_-18px_rgba(7,34,72,0.35)] " +
-					"transition-[transform,box-shadow] duration-300 ease-out " +
-					"hover:-translate-y-1.5 hover:shadow-[0_26px_44px_-20px_rgba(7,34,72,0.6)] " +
-					"focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lime-deep";
+					"group block h-full rounded-2xl px-5 py-5 shadow-[0_18px_34px_-18px_rgba(7,34,72,0.35)] " +
+					"transition-[transform,box-shadow,background-color] duration-300 ease-out " +
+					"hover:-translate-y-1 hover:shadow-[0_26px_44px_-20px_rgba(7,34,72,0.6)] " +
+					"focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lime-deep " +
+					(primary ? "bg-ink hover:bg-ink-soft" : "bg-white hover:bg-card-tint");
 
 				return (
 					<li key={c.label}>

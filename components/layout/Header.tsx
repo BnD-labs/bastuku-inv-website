@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { NAV_LINKS } from "@/content/nav";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
+import { SITE } from "@/content/site";
 import { MobileNav } from "./MobileNav";
 
 /*
@@ -71,11 +72,20 @@ export function Header() {
 								{l.label}
 							</Link>
 						))}
+						{/* Phone and WhatsApp are how this business is actually reached, so
+						    they lead the header instead of sitting in pale grey. The number
+						    only shows from xl: at lg it would crowd the five links. */}
+						<a
+							href={`tel:${SITE.phoneE164}`}
+							className="hidden font-body text-sm font-bold text-ink transition-colors duration-200 hover:text-lime-deep focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-lime-deep xl:inline"
+						>
+							{SITE.phoneDisplay}
+						</a>
 						<a
 							href={buildWhatsAppUrl({})}
 							target="_blank"
 							rel="noopener noreferrer"
-							className="group rounded-pill bg-card-tint px-5 py-2.5 font-body text-sm font-bold text-ink transition-all duration-300 hover:-translate-y-0.5 hover:bg-lime hover:shadow-[0_10px_22px_-12px_rgba(7,34,72,0.7)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lime-deep"
+							className="group rounded-pill bg-ink px-5 py-2.5 font-body text-sm font-bold text-lime transition-[transform,box-shadow,background-color] duration-300 hover:-translate-y-0.5 hover:bg-ink-soft hover:shadow-[0_10px_22px_-12px_rgba(7,34,72,0.7)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lime-deep"
 						>
 							WhatsApp Us
 							<span
