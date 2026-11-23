@@ -17,7 +17,7 @@ export const FAQS: Faq[] = [
 	{
 		question: "How is the price worked out?",
 		answer:
-			"Distance, volume, and the type of job. The estimate tool on this site gives you an indicative range immediately; a firm quote follows once we understand the details.",
+			"Distance, volume, and the type of job. Tell us what you're moving through the quote form or on WhatsApp, and we'll come back with a firm quote before anything is booked.",
 	},
 	{
 		question: "Do you move outside Lusaka?",
