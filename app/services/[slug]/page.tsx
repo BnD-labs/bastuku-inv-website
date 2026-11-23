@@ -121,7 +121,9 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
 								// Explicit dimensions reserve the space (no layout shift);
 								// `sizes` stops phones downloading the desktop asset.
 								sizes="(max-width: 1024px) 100vw, 416px"
-								className="aspect-[4/3] w-full rounded-2xl object-cover"
+								// 4:5, close to the portrait sources (3:4): a landscape frame
+								// cropped the crane's jib and the container out of their own photo.
+								className="aspect-[4/5] w-full rounded-2xl object-cover"
 							/>
 						)}
 					</aside>
