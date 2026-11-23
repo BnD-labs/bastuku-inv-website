@@ -70,7 +70,7 @@ export const SERVICES: Service[] = [
 		name: "Cross-Border Moves",
 		heading: "Relocating out of Zambia",
 		summary:
-			"Customs, permits, and border logistics handled — you don't lift a finger.",
+			"Your household across the border — permits, paperwork, and the route planned end to end. You don't lift a finger.",
 		body: [
 			"A cross-border move is a paperwork problem with a truck attached. We handle the paperwork.",
 			"Customs documentation, permits, and border clearance are arranged before your belongings reach the crossing, so your things are not sitting at a border waiting on a form.",
@@ -85,7 +85,7 @@ export const SERVICES: Service[] = [
 		icon: "🌍",
 		image: {
 			src: "/images/container-lift.webp",
-			alt: "A mobile crane lifting a shipping container onto hardstanding, with two Bastuku crew members guiding it into position.",
+			alt: "A mobile crane lifting a shipping container onto hardstanding, with two crew members guiding it into position.",
 			width: 960,
 			height: 1280,
 		},
@@ -110,20 +110,24 @@ export const SERVICES: Service[] = [
 		icon: "✈️",
 	},
 	{
-		slug: "exports-imports",
-		name: "Exports & Imports",
-		heading: "Commercial freight and clearing",
+		slug: "clearing-forwarding-freight",
+		name: "Clearing, Forwarding & Freight",
+		heading: "Clearing, forwarding and freight for business",
 		summary:
-			"Moving goods, not households — customs clearing and freight for businesses.",
+			// The longer draft ("…imports, exports, and goods in transit. We handle the
+			// paperwork and the border so your shipment keeps moving.") left 4px spare in
+			// the fixed-height homepage tile at 375px, so any text scaling overflowed it.
+			"Customs clearing, documentation, and freight forwarding for commercial cargo — in, out, or in transit.",
 		body: [
-			"This is the commercial side: consignments, clearing agents, and customs procedure for businesses moving stock rather than furniture.",
-			"We handle documentation, duty calculation, and clearance so your goods move through the border on schedule instead of accruing storage fees.",
+			"This is the commercial side: consignments, customs clearing, and freight forwarding for businesses moving stock, samples, and equipment rather than furniture.",
+			"We handle documentation, duty calculation, and clearance, and arrange air cargo out of Kenneth Kaunda International Airport, so your goods move on schedule instead of accruing storage fees.",
 		],
 		includes: [
 			"Import and export documentation",
 			"Customs clearing and duty handling",
 			"Freight forwarding and consolidation",
 			"Delivery to your warehouse or site",
+			"Air cargo export from Kenneth Kaunda International Airport",
 		],
 		cta: "Discuss Freight",
 		icon: "🚢",

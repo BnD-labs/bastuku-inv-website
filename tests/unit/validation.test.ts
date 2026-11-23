@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { quoteSchema } from "@/lib/validation";
+import { normaliseServiceSlug, quoteSchema } from "@/lib/validation";
 
 const valid = {
 	name: "John Banda",
@@ -35,6 +35,12 @@ describe("quoteSchema", () => {
 		expect(quoteSchema.safeParse({ ...valid, serviceSlug: "teleportation" }).success).toBe(false);
 	});
 
+	it("accepts the retired exports-imports slug and outputs its replacement", () => {
+		const r = quoteSchema.safeParse({ ...valid, serviceSlug: "exports-imports" });
+		expect(r.success).toBe(true);
+		if (r.success) expect(r.data.serviceSlug).toBe("clearing-forwarding-freight");
+	});
+
 	it("treats email as optional but validates it when present", () => {
 		expect(quoteSchema.safeParse({ ...valid, email: "" }).success).toBe(true);
 		expect(quoteSchema.safeParse({ ...valid, email: "nope" }).success).toBe(false);
@@ -44,5 +50,23 @@ describe("quoteSchema", () => {
 	it("rejects a message longer than 2000 characters", () => {
 		const r = quoteSchema.safeParse({ ...valid, message: "x".repeat(2001) });
 		expect(r.success).toBe(false);
+	});
+});
+
+// QuoteForm prefills its service select through this, so an old shared link
+// (?service=exports-imports) opens with the renamed service selected.
+describe("normaliseServiceSlug", () => {
+	it("maps a retired slug to its replacement", () => {
+		expect(normaliseServiceSlug("exports-imports")).toBe("clearing-forwarding-freight");
+	});
+
+	it("passes current slugs, unknown values, and null through unchanged", () => {
+		expect(normaliseServiceSlug("house-removals")).toBe("house-removals");
+		expect(normaliseServiceSlug("teleportation")).toBe("teleportation");
+		expect(normaliseServiceSlug(null)).toBeNull();
+	});
+
+	it("does not treat Object.prototype keys as legacy slugs", () => {
+		expect(normaliseServiceSlug("toString")).toBe("toString");
 	});
 });

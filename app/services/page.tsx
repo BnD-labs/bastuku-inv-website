@@ -1,16 +1,16 @@
 import Link from "next/link";
-import type { Metadata } from "next";
 import { SERVICES } from "@/content/services";
+import { pageMetadata } from "@/lib/metadata";
 import { Section } from "@/components/ui/Section";
 import { ButtonLink } from "@/components/ui/Button";
 import { Reveal } from "@/components/ui/Reveal";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
 	title: "Services",
 	description:
-		"House removals, office relocation, cross-border and international moves, exports and imports, professional packaging, and general supplies across Zambia.",
-	alternates: { canonical: "/services" },
-};
+		"House removals, office relocation, cross-border and international moves, clearing and forwarding, professional packaging, and general supplies across Zambia.",
+	path: "/services",
+});
 
 export default function ServicesHubPage() {
 	return (
@@ -25,7 +25,7 @@ export default function ServicesHubPage() {
 				{/* One template literal: JSX drops the space between an expression and
 				    following text when the text wraps to another line. */}
 				<p className="mt-5 max-w-[52ch] font-body text-lg leading-relaxed text-ink-soft">
-					{`${SERVICES.length} services, one team. Pick the one that fits — or tell us what you need and we'll work it out with you.`}
+					{`${SERVICES.length} services, one point of contact. Pick the one that fits — or tell us what you need and we'll work it out with you.`}
 				</p>
 
 				{/* A static, crawlable grid — no coverflow. A hub page has to be scannable. */}

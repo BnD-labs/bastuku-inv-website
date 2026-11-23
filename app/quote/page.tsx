@@ -1,11 +1,11 @@
 import { Suspense } from "react";
-import type { Metadata } from "next";
 import { QuoteForm } from "@/components/sections/QuoteForm";
 import { Section } from "@/components/ui/Section";
+import { pageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
-	title: "Get a Quote",
-};
+// Description is the layout default. The canonical also collapses the
+// ?service=… prefill variants onto /quote.
+export const metadata = pageMetadata({ title: "Get a Quote", path: "/quote" });
 
 export default function QuotePage() {
 	return (

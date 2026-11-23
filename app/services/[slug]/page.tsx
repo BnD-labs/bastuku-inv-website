@@ -6,6 +6,7 @@ import { ButtonLink } from "@/components/ui/Button";
 import { Section } from "@/components/ui/Section";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { SITE } from "@/content/site";
+import { pageMetadata } from "@/lib/metadata";
 
 export function generateStaticParams() {
 	return SERVICES.map((s) => ({ slug: s.slug }));
@@ -19,11 +20,11 @@ export async function generateMetadata({
 	const { slug } = await params;
 	const service = getService(slug);
 	if (!service) return {};
-	return {
+	return pageMetadata({
 		title: `${service.name} in Lusaka`,
 		description: service.summary,
-		alternates: { canonical: `/services/${service.slug}` },
-	};
+		path: `/services/${service.slug}`,
+	});
 }
 
 export default async function ServicePage({ params }: { params: Promise<{ slug: string }> }) {

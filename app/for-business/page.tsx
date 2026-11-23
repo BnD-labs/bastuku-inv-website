@@ -1,15 +1,15 @@
-import type { Metadata } from "next";
 import { SITE } from "@/content/site";
+import { pageMetadata } from "@/lib/metadata";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
 import { Section } from "@/components/ui/Section";
 import { ButtonLink } from "@/components/ui/Button";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
 	title: "For Business",
 	description:
-		"Office relocation, recurring supply runs, and commercial freight for businesses in Lusaka and across Zambia.",
-	alternates: { canonical: "/for-business" },
-};
+		"Office relocation, recurring supply runs, and clearing and forwarding for commercial cargo, for businesses in Lusaka and across Zambia.",
+	path: "/for-business",
+});
 
 const OFFERS: { title: string; body: string }[] = [
 	{
@@ -18,11 +18,11 @@ const OFFERS: { title: string; body: string }[] = [
 	},
 	{
 		title: "Recurring logistics",
-		body: "Standing collection and delivery runs on a schedule that suits your operation, with the same team each time rather than whoever is free.",
+		body: "Standing collection and delivery runs on a schedule that suits your operation, with one point of contact who knows your operation.",
 	},
 	{
-		title: "Exports and imports",
-		body: "Documentation, duty handling, and customs clearing for commercial consignments, so goods move through the border instead of accruing storage fees.",
+		title: "Clearing, forwarding and freight",
+		body: "Customs clearing, documentation, and freight forwarding for commercial cargo, including air cargo out of Kenneth Kaunda International Airport, so goods move instead of accruing storage fees.",
 	},
 	{
 		title: "Sourcing and supply",

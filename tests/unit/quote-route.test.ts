@@ -9,7 +9,7 @@ vi.mock("@opennextjs/cloudflare", () => ({
 			DB: {},
 			TURNSTILE_SECRET_KEY: "s",
 			RESEND_API_KEY: "r",
-			LEAD_NOTIFY_EMAIL: "info@bastuku.com",
+			LEAD_NOTIFY_EMAIL: "info@bastuku-inv.com",
 		},
 	}),
 }));
@@ -44,6 +44,16 @@ describe("POST /api/quote", () => {
 		const res = await POST(req(body));
 		expect(res.status).toBe(200);
 		await expect(res.json()).resolves.toMatchObject({ ok: true, leadId: "lead-123" });
+	});
+
+	it("stores a submission with the retired exports-imports slug under the new slug", async () => {
+		// A quote form loaded from a page cached before the rename still sends the old value.
+		const res = await POST(req({ ...body, serviceSlug: "exports-imports" }));
+		expect(res.status).toBe(200);
+		expect(insertLead).toHaveBeenCalledWith(
+			expect.anything(),
+			expect.objectContaining({ serviceSlug: "clearing-forwarding-freight" })
+		);
 	});
 
 	it("rejects a failed Turnstile check with 403 and never touches the database", async () => {
