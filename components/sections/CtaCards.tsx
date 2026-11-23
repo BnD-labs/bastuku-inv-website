@@ -16,8 +16,10 @@ const CARDS: { label: string; caption: string; href: string; kind: "page" | "tab
 ];
 
 export function CtaCards() {
+	// role="list": Safari drops list semantics from a ul with list-style: none,
+	// which Tailwind's preflight sets.
 	return (
-		<ul aria-label="Ways to get started" className="grid grid-cols-2 gap-4 px-[5vw] py-10 lg:grid-cols-4">
+		<ul role="list" aria-label="Ways to get started" className="grid grid-cols-2 gap-4 px-[5vw] py-10 lg:grid-cols-4">
 			{CARDS.map((c, i) => {
 				// One target per card. The concept put a pill button inside a clickable
 				// card, which read as two things to click. The quote card is navy

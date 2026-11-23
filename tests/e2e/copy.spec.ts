@@ -1,14 +1,32 @@
 import { test, expect } from "@playwright/test";
+import { SERVICES } from "../../content/services";
 
 // The price calculator was removed in August 2026 (CLAIMS.md #10), but the copy
 // kept selling it for months. Any of these phrases means a page is promising a
 // tool that does not exist.
-const DEAD_TOOL = /indicative|rough pricing|estimate tool|estimate right on the site|price in under a minute/i;
+const DEAD_TOOL =
+	/indicative|rough pricing|estimate tool|estimate right on the site|price in under a minute|request an estimate/i;
 
-for (const path of ["/", "/how-it-works", "/about", "/services", "/for-business", "/quote"]) {
+const PATHS = [
+	"/",
+	"/how-it-works",
+	"/about",
+	"/services",
+	"/for-business",
+	"/contact",
+	"/quote",
+	...SERVICES.map((s) => `/services/${s.slug}`),
+];
+
+for (const path of PATHS) {
 	test(`${path} does not promise the retired price tool`, async ({ page }) => {
 		await page.goto(path);
-		expect(await page.locator("body").innerText()).not.toMatch(DEAD_TOOL);
+		// The head too: search results and link previews show the description.
+		const head = await page
+			.locator('meta[name="description"], meta[property^="og:"], meta[name^="twitter:"]')
+			.evaluateAll((ms) => ms.map((m) => m.getAttribute("content")).join(" | "));
+		const body = await page.locator("body").innerText();
+		expect([await page.title(), head, body].join(" | ")).not.toMatch(DEAD_TOOL);
 	});
 }
 
