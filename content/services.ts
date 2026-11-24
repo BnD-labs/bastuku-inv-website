@@ -2,6 +2,9 @@ import type { SERVICE_SLUGS } from "@/lib/validation";
 
 export type ServiceSlug = (typeof SERVICE_SLUGS)[number];
 
+/** Keys into the line-icon set in components/ui/ServiceIcon.tsx. */
+export type ServiceIconName = "house" | "office" | "border" | "globe" | "container" | "box" | "truck";
+
 export interface Service {
 	slug: ServiceSlug;
 	/** Short label for tiles and dropdowns. */
@@ -16,8 +19,7 @@ export interface Service {
 	includes: string[];
 	/** CTA label used on tiles and the page hero. */
 	cta: string;
-	/** Emoji placeholder replaced by SVG in Task 15. */
-	icon: string;
+	icon: ServiceIconName;
 	/**
 	 * Optional photograph. Omit rather than invent one — a service with no
 	 * honest image renders text-only instead of showing something unrelated.
@@ -44,7 +46,7 @@ export const SERVICES: Service[] = [
 			"A walkthrough together before we leave",
 		],
 		cta: "Book This Move",
-		icon: "🏠",
+		icon: "house",
 	},
 	{
 		slug: "office-relocation",
@@ -63,7 +65,7 @@ export const SERVICES: Service[] = [
 			"Phased moves by department or floor",
 		],
 		cta: "Plan My Relocation",
-		icon: "🏢",
+		icon: "office",
 	},
 	{
 		slug: "cross-border-moves",
@@ -82,7 +84,7 @@ export const SERVICES: Service[] = [
 			"Delivery and placement at destination",
 		],
 		cta: "Get Cross-Border Quote",
-		icon: "🌍",
+		icon: "border",
 		image: {
 			src: "/images/container-lift.webp",
 			alt: "A mobile crane lifting a shipping container onto hardstanding, with two crew members guiding it into position.",
@@ -107,7 +109,7 @@ export const SERVICES: Service[] = [
 			"Destination agent coordination",
 		],
 		cta: "Plan My International Move",
-		icon: "✈️",
+		icon: "globe",
 	},
 	{
 		slug: "clearing-forwarding-freight",
@@ -130,7 +132,7 @@ export const SERVICES: Service[] = [
 			"Air cargo export from Kenneth Kaunda International Airport",
 		],
 		cta: "Discuss Freight",
-		icon: "🚢",
+		icon: "container",
 		image: {
 			src: "/images/crated-consignment.webp",
 			alt: "A consignment loaded inside a shipping container, braced behind a plywood bulkhead and secured with tensioned strapping.",
@@ -155,7 +157,7 @@ export const SERVICES: Service[] = [
 			"Available standalone or as part of a move",
 		],
 		cta: "Book Packing",
-		icon: "📦",
+		icon: "box",
 	},
 	{
 		slug: "general-supplies",
@@ -174,7 +176,7 @@ export const SERVICES: Service[] = [
 			"No minimum commitment",
 		],
 		cta: "Request a Job",
-		icon: "🚚",
+		icon: "truck",
 	},
 ];
 

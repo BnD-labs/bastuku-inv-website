@@ -2,7 +2,7 @@ import Link from "next/link";
 import { SERVICES } from "@/content/services";
 import { Hero } from "@/components/sections/Hero";
 import { CtaCards } from "@/components/sections/CtaCards";
-import { ServicePicker } from "@/components/sections/ServicePicker";
+import { ServiceGrid } from "@/components/sections/ServiceGrid";
 import { CoverageTiers } from "@/components/sections/CoverageTiers";
 import { Timeline } from "@/components/sections/Timeline";
 import { TrustStrip } from "@/components/sections/TrustStrip";
@@ -20,14 +20,15 @@ export default function Home() {
 			<CtaCards />
 			<TrustStrip />
 
-			<Section tone="ink">
-				<div className="mx-auto mb-12 max-w-2xl text-center">
+			{/* reveal={false}: the grid cascades its own cards. */}
+			<Section tone="ink" reveal={false}>
+				<div className="mb-10 max-w-2xl">
 					<p className="font-mono text-xs uppercase tracking-widest text-lime">What we do</p>
 					<h2 className="mt-3 font-display text-[clamp(30px,4vw,46px)] font-black uppercase leading-none">
 						{SERVICES.length} ways we move things
 					</h2>
 				</div>
-				<ServicePicker />
+				<ServiceGrid tone="ink" headingLevel="h3" />
 			</Section>
 
 			<Section>

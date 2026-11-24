@@ -116,6 +116,15 @@ export function MoveScoper() {
 				</fieldset>
 			</div>
 
+			<Button className="mt-6 w-full" onClick={goToQuote}>
+				Get my firm quote
+			</Button>
+			<p className="mt-2 text-center font-body text-xs text-paper/55">
+				No obligation. We confirm the price with you before anything moves.
+			</p>
+
+			{/* After the button, not before it: on a laptop the list pushed the
+			    button below the fold. It still updates as the service changes. */}
 			<div className="mt-6 border-t border-paper/15 pt-5">
 				<p className="font-mono text-xs uppercase tracking-wider text-paper/60">
 					What this job includes
@@ -131,13 +140,6 @@ export function MoveScoper() {
 					))}
 				</ul>
 			</div>
-
-			<Button className="mt-5 w-full" onClick={goToQuote}>
-				Get my firm quote
-			</Button>
-			<p className="mt-2 text-center font-body text-xs text-paper/55">
-				No obligation. We confirm the price with you before anything moves.
-			</p>
 		</div>
 	);
 }
