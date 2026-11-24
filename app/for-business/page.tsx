@@ -55,15 +55,15 @@ export default function ForBusinessPage() {
 				</div>
 			</Section>
 
-			{/* Contact-led, not estimate-led: business jobs are scoped in a
-			    conversation, and the estimate tool is built for household moves. */}
+			{/* Contact-led rather than form-led: business jobs have too many variables
+			    for the quote form's fields, so they start with a conversation. */}
 			<Section tone="ink">
 				<div className="mx-auto max-w-2xl text-center">
 					<h2 className="font-display text-[clamp(28px,3.5vw,40px)] font-black uppercase leading-none">
 						Let&apos;s scope it properly
 					</h2>
 					<p className="mt-4 font-body text-lg text-paper/70">
-						Business jobs get a conversation, not a calculator. Tell us what you run and
+						Business jobs get a conversation, not a form. Tell us what you run and
 						we&apos;ll put together terms that fit.
 					</p>
 					<div className="mt-8 flex flex-wrap justify-center gap-4">

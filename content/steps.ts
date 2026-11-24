@@ -7,8 +7,8 @@ export const STEPS: Step[] = [
 	{
 		title: "Request",
 		paragraphs: [
-			"Tell us what you're moving and where — house, office, or cross-border — and get an indicative estimate right on the site, no waiting required.",
-			"Once you're happy with the range, confirm your date and we lock in your slot.",
+			"Tell us what you're moving and where — house, office, or cross-border — through the quote form or on WhatsApp.",
+			"We come back with a firm quote. Once you're happy with it, confirm your date and we lock in your slot.",
 		],
 	},
 	{

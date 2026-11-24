@@ -16,7 +16,7 @@ const VALUES: { title: string; body: string }[] = [
 	},
 	{
 		title: "Say the real number",
-		body: "An indicative range up front and a firm quote once we understand the job. No figure that quietly grows on moving day.",
+		body: "A firm quote once we understand the job, agreed before anything moves. No figure that quietly grows on moving day.",
 	},
 	{
 		title: "Finish properly",

@@ -62,7 +62,7 @@ export default function Home() {
 						Ready to move?
 					</h2>
 					<p className="mt-4 font-body text-lg text-ink-soft">
-						Get an indicative price in under a minute, then we&apos;ll confirm the details.
+						Tell us what you&apos;re moving and we&apos;ll come back with a firm price.
 					</p>
 					<ButtonLink href="/quote" className="mt-8">
 						Get My Quote →

@@ -9,7 +9,7 @@ import { FAQS } from "@/content/faqs";
 export const metadata = pageMetadata({
 	title: "How It Works",
 	description:
-		"Three steps: request an estimate, we pack and move, then we unpack and confirm with you before we leave.",
+		"Three steps: request a quote, we pack and move, then we unpack and confirm with you before we leave.",
 	path: "/how-it-works",
 });
 
