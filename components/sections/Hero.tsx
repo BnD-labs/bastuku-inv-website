@@ -32,7 +32,8 @@ export function Hero() {
 						<source media="(min-width: 640px)" srcSet={heroLandscape} />
 						{/* getImageProps already produced the optimised srcSet; next/image
 						    cannot render a <picture>. */}
-						{/* eslint-disable-next-line @next/next/no-img-element, jsx-a11y/alt-text */}
+						{/* alt="" comes through the spread, which the rule cannot see. */}
+						{/* eslint-disable-next-line jsx-a11y/alt-text */}
 						<img
 							{...heroImg}
 							srcSet={heroPortrait}
