@@ -24,7 +24,7 @@ Lead-generation site for Bastuku Investments Limited, Lusaka movers and freight.
 - **Renaming a service slug:** update `SERVICE_SLUGS`, `SERVICES`, and the `rates.ts` key, add the old slug to `LEGACY_SLUGS`, and add a permanent redirect in `next.config.ts`.
 - **Page metadata goes through `pageMetadata()`** (`lib/metadata.ts`). Next merges metadata shallowly, so a bare `openGraph` drops the shared image.
 - **Service split:** Cross-Border Moves = households and personal effects. Clearing, Forwarding & Freight = commercial cargo.
-- **Contact:** `info@bastuku-inv.com`. `+260 976 831 400` is primary and the only WhatsApp number; `+260 967 022 254` is calls only.
+- **Contact:** `info@bastuku-inv.com`. `+260 976 831 400` is primary and the only WhatsApp number; `+260 977 778 844` is calls only (it replaced `+260 967 022 254` in November 2026).
 - **Colour:** lime `#AEE522` on dark backgrounds only; `text-lime-deep` on light. Navy is `#072248`.
 - **Voice:** short, plain sentences; an uppercase heading over a lower-case line.
 - **Code style:** tabs, double quotes, semicolons, comments that explain why.
