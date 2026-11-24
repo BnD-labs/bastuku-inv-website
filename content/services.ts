@@ -3,7 +3,7 @@ import type { SERVICE_SLUGS } from "@/lib/validation";
 export type ServiceSlug = (typeof SERVICE_SLUGS)[number];
 
 /** Keys into the line-icon set in components/ui/ServiceIcon.tsx. */
-export type ServiceIconName = "house" | "office" | "border" | "globe" | "container" | "box" | "truck";
+export type ServiceIconName = "house" | "office" | "border" | "globe" | "container" | "box" | "warehouse" | "truck";
 
 export interface Service {
 	slug: ServiceSlug;
@@ -190,29 +190,59 @@ export const SERVICES: Service[] = [
 			height: 1020,
 		},
 	},
+	// Added November 2026 from the company profile, at the client's request
+	// (CLAIMS #23). Holding between packing and dispatch, not long-term storage:
+	// the profile offers short-term only, so the copy says no more than that.
 	{
-		slug: "general-supplies",
-		name: "General Supplies",
-		heading: "Sourced, collected, delivered",
+		slug: "warehousing",
+		name: "Warehousing",
+		heading: "Somewhere to hold it in between",
 		summary:
-			"One-off jobs and ongoing supply — no long-term commitment required.",
+			"Short-term holding, staging, and consolidation between packing and dispatch, so cargo moves on your schedule.",
 		body: [
-			"Sometimes the job is not a move. Something needs sourcing, collecting, or delivering, and it needs to happen this week.",
-			"We take one-off jobs as readily as recurring supply contracts, with no minimum and no long-term commitment.",
+			"Not every consignment can leave the day it is packed. A delivery date slips, the container is not ready, or several smaller lots need to travel as one.",
+			"We hold your goods short-term between packing and dispatch, consolidate smaller lots into a single shipment, and stage them for loading, so the truck goes when you are ready.",
 		],
 		includes: [
-			"Sourcing goods and materials",
-			"Collection and delivery",
-			"One-off or recurring schedules",
-			"No minimum commitment",
+			"Short-term holding between packing and dispatch",
+			"Consolidation of smaller lots into one shipment",
+			"Staging and loading for dispatch",
+			"Available standalone or alongside packing and freight",
 		],
-		cta: "Request a Job",
-		icon: "truck",
+		cta: "Ask About Storage",
+		icon: "warehouse",
 		image: {
 			src: "/images/palletised-goods.webp",
 			alt: "Taped cartons stacked on a wooden pallet inside a warehouse, ready to go out.",
 			width: 960,
 			height: 1280,
+		},
+	},
+	{
+		slug: "general-supplies",
+		name: "General Supplies",
+		heading: "Sourced, collected, delivered",
+		summary:
+			"Food, industrial, and agribusiness supplies, sourced and delivered. One-off or recurring, no minimum.",
+		body: [
+			"Sometimes the job is not a move. Something needs sourcing, collecting, or delivering, and it needs to happen this week.",
+			"We supply three kinds of goods: fresh and dry food in volume; industrial supplies such as safety wear, cleaning materials, and office consumables; and livestock for farms, including pigs and chickens.",
+			"We take one-off jobs as readily as recurring supply contracts, with no minimum and no long-term commitment.",
+		],
+		includes: [
+			"Food supplies, fresh and dry",
+			"Safety wear, cleaning materials, and office consumables",
+			"Livestock for farms, including pigs and chickens",
+			"Collection and delivery",
+			"One-off or recurring, with no minimum commitment",
+		],
+		cta: "Request a Job",
+		icon: "truck",
+		image: {
+			src: "/images/collection-truck.webp",
+			alt: "Two men beside a flatbed truck loaded with boxed goods, ready to set off from a depot.",
+			width: 765,
+			height: 1020,
 		},
 	},
 ];
