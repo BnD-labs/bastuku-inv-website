@@ -22,6 +22,7 @@ export const RATES: RateConfig = {
 		"international-moves": 12000,
 		"clearing-forwarding-freight": 5000,
 		packaging: 800,
+		warehousing: 1000,
 		"general-supplies": 500,
 	},
 	perKm: 25,

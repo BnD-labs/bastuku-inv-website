@@ -32,10 +32,10 @@ const OUT_DIR = path.join("public", "images");
  *   - Founder.png  — excluded from the build at the client's request
  *   - hero-bg.png  — depicts Bastuku-branded premises that do not exist; using
  *     it would assert a facility the business may not have. See CLAIMS.md.
- *   - Gemini_Generated_Image_*.png — the old hero. AI-generated, with another
- *     firm's livery and a watermark that had to be cropped out, and only 1920px
- *     wide after the crop, so it blurred on phones (CLAIMS #16). Retired for
- *     owned photography in November 2026.
+ *   - Gemini_Generated_Image_*.png — the old hero: the client's own photo,
+ *     upscaled with an AI tool (it also carries another firm's livery and the
+ *     tool's watermark, which had to be cropped out). Only 1920px wide after the
+ *     crop, so it blurred on phones (CLAIMS #16). Replaced in November 2026.
  * They stay in `images/` as sources; they simply never reach `public/`.
  *
  * The phone photos from November 2026 are not committed (8-10 MB each, and the
@@ -80,6 +80,7 @@ const MANIFEST = [
 	{ src: "WhatsApp Image 2026-11-17 at 09.39.32 (1).jpeg", name: "airport-export-check", width: 960, formats: ["webp"] },
 	{ src: "IMG-20260823-WA0025.jpg", name: "machinery-crating", width: 960, formats: ["webp"] },
 	{ src: "WhatsApp Image 2026-11-17 at 09.39.33.jpeg", name: "palletised-goods", width: 960, formats: ["webp"] },
+	{ src: "IMG-20260823-WA0032.jpg", name: "collection-truck", width: 960, formats: ["webp"] },
 	// Poster for public/videos/house-packing.mp4: its first frame, saved by the
 	// ffmpeg command in DEVELOPING.md.
 	{ src: "house-packing-poster.png", name: "house-packing-poster", width: 720, formats: ["webp"] },

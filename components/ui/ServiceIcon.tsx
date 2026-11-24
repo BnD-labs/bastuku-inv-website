@@ -47,6 +47,14 @@ const PATHS: Record<ServiceIconName, React.ReactNode> = {
 			<path d="m3 7.5 9 4.5 9-4.5M12 12v9" />
 		</>
 	),
+	// A pitched-roof shed with pallets stacked inside.
+	warehouse: (
+		<>
+			<path d="M2.5 9 12 4l9.5 5v11.5h-19Z" />
+			<path d="M6.5 20.5v-8h11v8" />
+			<path d="M9 16.5h6M9 18.5h6" />
+		</>
+	),
 	truck: (
 		<>
 			<path d="M2.5 5.5h11v10.5h-11Z" />

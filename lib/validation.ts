@@ -7,6 +7,7 @@ export const SERVICE_SLUGS = [
 	"international-moves",
 	"clearing-forwarding-freight",
 	"packaging",
+	"warehousing",
 	"general-supplies",
 ] as const;
 
