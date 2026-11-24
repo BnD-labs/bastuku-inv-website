@@ -16,7 +16,7 @@ The site is **live on its real domain**: https://bastuku-inv.com
 - **D1 `bastuku-leads` is migrated locally and remotely** (`leads`, 14 columns).
   The remote table was created on 2026-08-15; it had not actually been applied
   despite an earlier note claiming otherwise.
-- **Tests:** 42 unit (Vitest) + 46 e2e (Playwright), all passing.
+- **Tests:** 42 unit (Vitest) + 52 e2e (Playwright), all passing.
 
 ## Setup on a fresh machine
 
@@ -67,7 +67,7 @@ npm run deploy
 | **Resend not configured** | client | No API key yet, so `RESEND_API_KEY` / `LEAD_NOTIFY_EMAIL` are unset. Leads still save to D1, but nobody is emailed when one arrives. Domain verification for `bastuku-inv.com` is the slow part — start it first. |
 | **`CLAIMS.md`: unresolved rows** | client | The launch gate. The site is live with these outstanding, so treat it as a soft launch. Highest priority: the invented rate card (#10), the `info@bastuku.com` vs `bastuku-inv.com` email conflict (#6), and the coverage cities nobody has confirmed (#4, #5). |
 | **Pricing model, not just prices** | client | The calculator prices every service as `(base + km × rate) × volume`, which does not fit packaging, general supplies, or container-based freight. Ask how each service is actually priced before rewiring it. |
-| **Owned photography** | client | The hero is a third-party frame, cropped to remove another firm's livery and a generator watermark (claim #16). Real photography retires that compromise. |
+| **Photo originals and consent** | client | The hero and service photos are now BASTUKU's own (November 2026). The service photos are WhatsApp copies (765-960px); the phone originals would be sharper. Everyone pictured needs to be happy to appear (claim #20). |
 
 ## Notable design decisions
 
