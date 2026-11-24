@@ -21,10 +21,11 @@ in this file ships to production until the **Status** column reads
 | 13 | FAQ: damage handling process | faqs | drafted | ❌ UNVERIFIED — what is the real policy/insurance position? |
 | 14 | Coverage: Chipata, Solwezi, Olympia | coverage | drafted | ❌ UNVERIFIED |
 | 15 | International Moves service — sea/air freight, export crating, destination agents | `/services/international-moves`, services hub, quote form | client request, 2026-08-15 | ❌ UNVERIFIED — client asked for the service to be listed, but the capability detail is drafted. Confirm which of sea freight, air freight, and destination-agent coordination are genuinely offered |
-| 16 | Hero photograph shows a Bastuku job | home hero | `images/Gemini_Generated_Image_*.png` | ⚠️ CROPPED — the source frame carries another firm's livery (`kwexports.co.za`) and a generator watermark; both are cropped out and the image is duotoned. Confirm this depicts genuine Bastuku work, or replace with owned photography |
+| 16 | ~~Hero photograph shows a Bastuku job~~ | home hero | ~~`images/Gemini_Generated_Image_*.png`~~ | ~~RETIRED~~ 2026-11-24 — the AI-generated frame (another firm's livery cropped out, generator watermark) no longer ships. The hero is now `images/20260624_092641.jpg`, a residential pack-out photographed by the client; see #20 |
 | 17 | Secondary call line `+260 967 022 254` (calls only; WhatsApp stays on #7) | footer, contact, JSON-LD | BASTUKU contact rule, Oct 2026 | ⚠️ CONFIRM — Brandon to confirm at review |
 | 18 | Air cargo export from Kenneth Kaunda International Airport | `/services/clearing-forwarding-freight` (body and includes), for-business offer card | Phase 0 brief, 2026-11-22 | ⚠️ CONFIRM — supplied by Brandon in the brief; confirm it is a service BASTUKU arranges today, not a planned one |
 | 19 | A firm quote, agreed before anything moves or is booked | homepage CTA card ("get a firm price"), facts row ("Firm quote before anything moves") and closer, How it works step 1, pricing FAQ, About values; already in the hero scoper since 2026-08 ("We confirm the price with you before anything moves") | replaces the retired price-tool copy, 2026-11-23 | ⚠️ CONFIRM — the scoper already promised it; Brandon to confirm every job gets a fixed quote before booking, with no on-the-day re-pricing |
+| 20 | Photographs and video show genuine BASTUKU jobs, and the people in them agree to appear | home hero (`20260624_092641.jpg`, a pack-out at a private home; faces visible); service pages: house-removals video (`20260624_110930.mp4`), office-relocation, international-moves, clearing-forwarding-freight (airport cargo terminal), packaging, general-supplies | client, November 2026; captions for the airport, crate and pack-out photos match the 2026 company profile | ⚠️ CONFIRM — Brandon to confirm each is BASTUKU's own job, that the homeowner and everyone identifiable in the hero are happy to be on the site, and that the office-relocation photo is from an office move |
 
 ## Missing assets — client action
 
@@ -34,11 +35,10 @@ in this file ships to production until the **Status** column reads
       does not fit services that are not distance-driven (packaging, general
       supplies) or that price by container/consignment (exports, international).
       Ask the client how each service is actually priced before rewiring it.
-- [ ] Professional photography — the current hero is a cropped third-party-livery
-      frame (see claim #16). Owned photography would retire that compromise.
+- [x] Owned photography — supplied November 2026 (claim #20). Phone originals of
+      the WhatsApp service photos would still be sharper.
 - [ ] Testimonials — currently zero anywhere on the site
 - [ ] Client logos, if any are permitted for use
-- [ ] Professional photography (existing images are 8 MB phone exports)
 - [ ] Physical address for `LocalBusiness` schema — "Lusaka, Zambia" is too vague to rank
 - [ ] Business registration number, if it should appear in the footer
 - [ ] Real social media profile URLs (current footer links are dead `#` anchors)

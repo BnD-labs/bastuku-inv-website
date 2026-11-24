@@ -10,6 +10,7 @@ import { SITE } from "@/content/site";
 import { pageMetadata } from "@/lib/metadata";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
 import { ServiceIcon } from "@/components/ui/ServiceIcon";
+import { LoopingVideo } from "@/components/ui/LoopingVideo";
 
 export function generateStaticParams() {
 	return SERVICES.map((s) => ({ slug: s.slug }));
@@ -112,7 +113,12 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
 							</ul>
 						</div>
 
-						{service.image && (
+						{service.video ? (
+							<LoopingVideo
+								{...service.video}
+								className="aspect-[4/5] w-full rounded-2xl bg-ink"
+							/>
+						) : service.image && (
 							<Image
 								src={service.image.src}
 								alt={service.image.alt}

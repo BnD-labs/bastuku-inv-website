@@ -26,6 +26,12 @@ export interface Service {
 	 * Sources live in `images/`; run `npm run images` to emit optimised copies.
 	 */
 	image?: { src: string; alt: string; width: number; height: number };
+	/**
+	 * Optional muted loop, shown in place of `image`. Encoded by hand to 4:5 and
+	 * under 1.5 MB (DEVELOPING.md); `poster` is what shows before it plays, and
+	 * all the time for anyone who prefers reduced motion.
+	 */
+	video?: { src: string; poster: string; alt: string; width: number; height: number };
 }
 
 export const SERVICES: Service[] = [
@@ -47,6 +53,13 @@ export const SERVICES: Service[] = [
 		],
 		cta: "Book This Move",
 		icon: "house",
+		video: {
+			src: "/videos/house-packing.mp4",
+			poster: "/images/house-packing-poster.webp",
+			alt: "Taped, labelled cartons on a bedroom floor during a house pack-out, one marked for books and stationery, beside a roll of bubble wrap.",
+			width: 720,
+			height: 900,
+		},
 	},
 	{
 		slug: "office-relocation",
@@ -66,6 +79,12 @@ export const SERVICES: Service[] = [
 		],
 		cta: "Plan My Relocation",
 		icon: "office",
+		image: {
+			src: "/images/office-equipment-loading.webp",
+			alt: "A crew member in a high-visibility vest lifting a black equipment case into the back of a box truck outside an office building.",
+			width: 960,
+			height: 1280,
+		},
 	},
 	{
 		slug: "cross-border-moves",
@@ -110,6 +129,12 @@ export const SERVICES: Service[] = [
 		],
 		cta: "Plan My International Move",
 		icon: "globe",
+		image: {
+			src: "/images/crate-forklift.webp",
+			alt: "A forklift at dusk loading a large plywood crate onto the bed of a truck.",
+			width: 765,
+			height: 1020,
+		},
 	},
 	{
 		slug: "clearing-forwarding-freight",
@@ -134,10 +159,10 @@ export const SERVICES: Service[] = [
 		cta: "Discuss Freight",
 		icon: "container",
 		image: {
-			src: "/images/crated-consignment.webp",
-			alt: "A consignment loaded inside a shipping container, braced behind a plywood bulkhead and secured with tensioned strapping.",
-			width: 810,
-			height: 1080,
+			src: "/images/airport-export-check.webp",
+			alt: "A handler in a high-visibility vest checking boxed export cargo on a pallet at an airport cargo terminal.",
+			width: 960,
+			height: 1280,
 		},
 	},
 	{
@@ -158,6 +183,12 @@ export const SERVICES: Service[] = [
 		],
 		cta: "Book Packing",
 		icon: "box",
+		image: {
+			src: "/images/machinery-crating.webp",
+			alt: "Two workers in hard hats fitting a plywood crate around a piece of industrial machinery.",
+			width: 765,
+			height: 1020,
+		},
 	},
 	{
 		slug: "general-supplies",
@@ -177,6 +208,12 @@ export const SERVICES: Service[] = [
 		],
 		cta: "Request a Job",
 		icon: "truck",
+		image: {
+			src: "/images/palletised-goods.webp",
+			alt: "Taped cartons stacked on a wooden pallet inside a warehouse, ready to go out.",
+			width: 960,
+			height: 1280,
+		},
 	},
 ];
 
