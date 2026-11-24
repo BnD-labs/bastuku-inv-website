@@ -49,7 +49,11 @@ export function Footer() {
 					<h2 className="font-mono text-xs uppercase tracking-wider text-lime">Contact</h2>
 					<ul className="mt-4 flex flex-col gap-2 font-body text-sm text-paper/65">
 						<li>
-							{SITE.city}, {SITE.country}
+							<address className="not-italic leading-relaxed">
+								{SITE.building}, {SITE.unit}
+								<br />
+								{SITE.street}, {SITE.city}
+							</address>
 						</li>
 						<li>
 							<a href={`tel:${SITE.phoneE164}`} className="hover:text-paper">

@@ -31,8 +31,10 @@ const localBusiness = {
 	email: SITE.email,
 	address: {
 		"@type": "PostalAddress",
-		// streetAddress omitted deliberately: "Lusaka, Zambia" is too vague to
-		// rank locally, and inventing one would be worse. See CLAIMS.md.
+		// A street address is what local search ranks on; "Lusaka, Zambia"
+		// alone was too vague (CLAIMS #25).
+		streetAddress: `${SITE.unit}, ${SITE.building}, ${SITE.plot}, ${SITE.street}`,
+		postOfficeBoxNumber: `P.O. Box ${SITE.poBox}`,
 		addressLocality: SITE.city,
 		addressCountry: "ZM",
 	},

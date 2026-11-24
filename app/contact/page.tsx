@@ -62,12 +62,20 @@ export default function ContactPage() {
 							</li>
 							<li>
 								<span className="block font-mono text-xs uppercase tracking-wider text-ink-soft/70">
-									Based in
+									Office
 								</span>
-								<span className="text-base font-bold text-ink">
+								{/* No map embed or directions link: nobody has checked that a
+								    map service puts the pin on the right building. */}
+								<address className="text-base font-bold not-italic leading-relaxed text-ink">
+									{SITE.building}, {SITE.unit}
+									<br />
+									{SITE.plot}, {SITE.street}
+									<br />
 									{SITE.city}, {SITE.country}
+								</address>
+								<span className="mt-1 block text-sm text-ink-soft">
+									Post: P.O. Box {SITE.poBox}, {SITE.city}
 								</span>
-								{/* No map embed until a street address exists — see CLAIMS.md. */}
 							</li>
 						</ul>
 					</div>
