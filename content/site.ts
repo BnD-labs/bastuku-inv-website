@@ -10,6 +10,14 @@ export const SITE = {
 	phone2Display: "+260 977 778 844",
 	phone2E164: "+260977778844",
 	email: "info@bastuku-inv.com",
+	// Office address, as printed three times in the 2026 company profile
+	// (CLAIMS #25). The plot number is for the schema and the contact page;
+	// the footer uses the short form people actually navigate by.
+	building: "CHAZ Complex",
+	street: "Mission Drive",
+	plot: "Plot No. 2882/B/510",
+	unit: "Office Unit F3-1",
+	poBox: "34511",
 	city: "Lusaka",
 	country: "Zambia",
 	url: "https://bastuku-inv.com",

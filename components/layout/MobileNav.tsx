@@ -10,8 +10,13 @@ export function MobileNav() {
 	const [open, setOpen] = useState(false);
 	const pathname = usePathname();
 
-	// Close on navigation.
-	useEffect(() => setOpen(false), [pathname]);
+	// Close on navigation. Adjusted during render rather than in an effect, so
+	// the open panel never paints for a frame on the new page.
+	const [lastPath, setLastPath] = useState(pathname);
+	if (pathname !== lastPath) {
+		setLastPath(pathname);
+		setOpen(false);
+	}
 
 	// Close on Escape.
 	useEffect(() => {

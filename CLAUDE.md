@@ -7,7 +7,7 @@ Lead-generation site for Bastuku Investments Limited, Lusaka movers and freight.
 - Work on **`rebuild/nextjs-workers`**: the live Next.js app, deployed to Cloudflare Workers through OpenNext. `main` is the old April 2026 static site. Do not touch it.
 - Branch from `rebuild/nextjs-workers` and open the PR back into it.
 - **Never deploy.** Brandon (BASTUKU Operations Director) reviews, merges, and runs `npm run deploy`.
-- Checks: `npx tsc --noEmit`, `npm test`, `npm run build`, `npm run test:e2e`, `npm run preview` (the Worker build; check redirects here). `npm run lint` is broken; see `DEVELOPING.md`.
+- Checks: `npx tsc --noEmit`, `npm run lint`, `npm test`, `npm run build`, `npm run test:e2e`, `npm run preview` (the Worker build; check redirects here).
 
 ## Read first
 

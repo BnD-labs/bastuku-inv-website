@@ -16,7 +16,7 @@ The site is **live on its real domain**: https://bastuku-inv.com
 - **D1 `bastuku-leads` is migrated locally and remotely** (`leads`, 14 columns).
   The remote table was created on 2026-08-15; it had not actually been applied
   despite an earlier note claiming otherwise.
-- **Tests:** 45 unit (Vitest) + 53 e2e (Playwright), all passing.
+- **Tests:** 45 unit (Vitest) + 55 e2e (Playwright), all passing.
 
 ## Setup on a fresh machine
 

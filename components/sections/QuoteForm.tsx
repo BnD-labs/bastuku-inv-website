@@ -226,7 +226,9 @@ function QuoteFormFields({ prefill, placeholder = false }: { prefill: Prefill; p
 						value={values.phone}
 						onChange={set("phone")}
 						autoComplete="tel"
-						placeholder="0962 936172"
+						// A format hint, not a number: this used to be BASTUKU's retired
+						// line, which read like a number to call.
+						placeholder="09X XXX XXXX"
 						aria-invalid={!!errors.phone}
 						aria-describedby={errors.phone ? "q-phone-error" : undefined}
 						className={inputClass}
